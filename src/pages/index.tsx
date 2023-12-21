@@ -1,5 +1,5 @@
-import { UserButton } from "@clerk/nextjs";
-import Head from "next/head";
+import { UserButton } from "@clerk/nextjs"
+import Head from "next/head"
 
 // import { api } from "~/utils/api";
 
@@ -17,12 +17,9 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-          <h1>Detta är main sidan...</h1>
-          <UserButton afterSignOutUrl='/' />
+        <h1>Detta är main sidan...</h1>
+        <UserButton afterSignOutUrl='/' />
       </main>
     </>
   )
 }
-   
-
-
