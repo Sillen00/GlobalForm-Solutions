@@ -8,7 +8,7 @@
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "db:seed": "node --loader ts-node/esm prisma/seed.ts",
-    "dev": "next dev",
+    "dev": "prisma db push && next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start"
