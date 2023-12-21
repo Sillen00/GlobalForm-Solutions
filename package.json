@@ -11,7 +11,8 @@
     "dev": "prisma db push && next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "prettier": "prettier --write ."
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
