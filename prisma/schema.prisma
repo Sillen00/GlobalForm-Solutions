@@ -10,6 +10,13 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model TestModel {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    name      String
+
+    @@index([name])
+}
+
 model Post {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
