@@ -26,7 +26,7 @@ export default async function Home() {
           <div className='arrow-btn'>&gt;</div>
         </div>
 
-        <section className='min-h-screen'>sd</section>
+        
       </div>
     </main>
   )
