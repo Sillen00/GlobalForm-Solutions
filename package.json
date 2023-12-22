@@ -1,5 +1,5 @@
 {
-  "name": "global-form-solutions",
+  "name": "GlobalForm-Solutions",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -18,7 +18,7 @@
     "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.28.1",
+    "@clerk/nextjs": "^4.29.0",
     "@prisma/client": "^5.6.0",
     "@t3-oss/env-nextjs": "^0.7.1",
     "@tanstack/react-query": "^4.36.1",
@@ -29,6 +29,7 @@
     "next": "^14.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "server-only": "^0.0.1",
     "superjson": "^2.2.1",
     "zod": "^3.22.4"
   },
