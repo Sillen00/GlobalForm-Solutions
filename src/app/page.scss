@@ -1,0 +1,51 @@
+.main-page-wrapper {
+    max-width: 1980px;
+    
+    .hero {
+        background-color: var(--background-color);
+        position: relative;
+        min-height: 100vh;
+        h1 {
+            position: absolute;
+            top: 36.5%;
+            left: 5.5rem;
+            z-index: 20;
+            font-size: clamp(#{var(--subhead)}, 5vw, #{var(--heading)});
+            font-weight: 800;
+            color: var(--text-color);
+            span {
+                color: var(--primary-color);
+                border: 4px solid var(--primary-color);
+                cursor: pointer;
+                background-color: var(--text-color);
+                border-radius: 20px;
+                padding: 0.2em 3em 0.2em 0.2em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 57%;
+                    left: 67%;
+                    width: 3px;
+                    height: clamp(38px, 5.5vw, 60px);
+                    background-color: black;
+                    animation: blinkAnimation 1.2s infinite;
+                }
+            }
+            // @keyframes blinkAnimation {
+            //     0% {
+            //       opacity: 0;
+            //     }
+            //     55% {
+            //       opacity: 0;
+            //     }
+            //     100% {
+            //       opacity: 1;
+            //     }
+            // }
+            
+            
+        }
+    }
+}
+
+
