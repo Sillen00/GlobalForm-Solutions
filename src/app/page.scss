@@ -72,6 +72,30 @@
             align-items: center;
         }
     }
+    section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        gap: 30px;
+        p {
+            max-width: 300px;
+        }
+        
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        
+            div:nth-child(3) {
+                grid-row: 2;
+                grid-column: 2;
+            }
+            
+            div:nth-child(4) {
+                grid-row: 2;
+                grid-column: 1;
+            }
+        }
+    }
 }
 
 

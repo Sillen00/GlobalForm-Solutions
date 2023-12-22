@@ -29,49 +29,43 @@ export default async function Home() {
 
         <section>
           <div>
-            <div>
-              <Image
-                src='/image1-landingpage.jpg'
-                alt='Girl creating a form on the computer'
-                width={500}
-                height={500}
-              />
-            </div>
-            <p>
-              Empower your ideas and streamline your data collection process
-              with our intuitive online form creator.
-            </p>
+            <Image
+              src='/image1-landingpage.jpg'
+              alt='Girl creating a form on the computer'
+              width={767}
+              height={767}
+            />
           </div>
+          <p>
+            Empower your ideas and streamline your data collection process with
+            our intuitive online form creator.
+          </p>
           <div>
-            <div>
-              <Image
-                src='/image2-landingpage.jpg'
-                alt='Guy writing a his idea on a paper on what to have on his custom form'
-                width={500}
-                height={500}
-              />
-            </div>
-            <p>
-              Whether you're designing a survey, registration form, or feedback
-              questionnaire, our platform allows you to effortlessly craft
-              custom forms tailored to your needs.
-            </p>
+            <Image
+              src='/image2-landingpage.jpg'
+              alt='Guy writing a his idea on a paper on what to have on his custom form'
+              width={767}
+              height={767}
+            />
           </div>
+          <p>
+            Whether you're designing a survey, registration form, or feedback
+            questionnaire, our platform allows you to effortlessly craft custom
+            forms tailored to your needs.
+          </p>
           <div>
-            <div>
-              <Image
-                src='/image3-landingpage.jpg'
-                alt='Some wooden cirkles triangles and rectangels standing on eachother to illustrate building and creating your own form.'
-                width={500}
-                height={500}
-              />
-            </div>
-            <p>
-              Unleash the power of your imagination with our platform designed
-              to inspire creativity. Your creations, your way because innovation
-              knows no bounds.
-            </p>
+            <Image
+              src='/image3-landingpage.jpg'
+              alt='Some wooden cirkles triangles and rectangels standing on eachother to illustrate building and creating your own form.'
+              width={767}
+              height={767}
+            />
           </div>
+          <p>
+            Unleash the power of your imagination with our platform designed to
+            inspire creativity. Your creations, your way because innovation
+            knows no bounds.
+          </p>
         </section>
       </div>
     </main>
