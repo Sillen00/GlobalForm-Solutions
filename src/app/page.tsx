@@ -17,11 +17,16 @@ export default async function Home() {
           </h1>
           <div className='fake-input'></div>
 
-          <div className='hero-bottom'>
-            <p>description.</p>
-            <div>icon pil</div>
-          </div>
+          <p>
+            Create your own customized form today and share it with friends or
+            use the form as a invitation for a event or other. Create your own
+            customized form today and share it with friends or use the form as a
+            invitation for a event or other happenings!
+          </p>
+          <div className='arrow-btn'>&gt;</div>
         </div>
+
+        <section className='min-h-screen'>sd</section>
       </div>
     </main>
   )
