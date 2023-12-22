@@ -1,10 +1,10 @@
 import "~/styles/globals.css"
-import { Inter } from "next/font/google"
+import { Jura } from 'next/font/google';
 import { cookies } from "next/headers"
 import { ClerkProvider } from "@clerk/nextjs"
 import { TRPCReactProvider } from "~/trpc/react"
 
-const inter = Inter({
+const inter = Jura({
   subsets: ["latin"],
   variable: "--font-sans",
 })
