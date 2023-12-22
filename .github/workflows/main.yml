@@ -54,5 +54,7 @@ jobs:
 
       - name: Run linting
         run: npm run lint
+        env: #this is an environment variable
+          DATABASE_URL: ${{ secrets.DATABASE_URL }} #this is a secret that we have stored in GitHub
       - name: Run prettier
         run: npm run prettier
