@@ -1,7 +1,7 @@
-import "~/styles/globals.css"
+import { ClerkProvider } from "@clerk/nextjs"
 import { Jura } from "next/font/google"
 import { cookies } from "next/headers"
-import { ClerkProvider } from "@clerk/nextjs"
+import "~/styles/globals.css"
 import { TRPCReactProvider } from "~/trpc/react"
 
 const inter = Jura({
@@ -25,9 +25,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body className={`font-sans ${inter.variable}`}>
-          <TRPCReactProvider cookies={cookies().toString()}>
-            {children}
-          </TRPCReactProvider>
+          <div className='body-container'>
+            <TRPCReactProvider cookies={cookies().toString()}>
+              {children}
+            </TRPCReactProvider>
+          </div>
         </body>
       </html>
     </ClerkProvider>
