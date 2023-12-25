@@ -12,8 +12,8 @@
 }
 
 body {
-    padding: 0 5rem;
-    background-color: var(--background-color);
+  padding: 0 5rem;
+  background-color: var(--background-color);
 }
 @media (max-width: 768px) {
   body {
