@@ -1,4 +1,5 @@
 // import Link from "next/link"
+import { IoIosArrowDroprightCircle } from "react-icons/io"
 
 // import { CreatePost } from "~/app/_components/create-post"
 // import { api } from "~/trpc/server"
@@ -24,7 +25,7 @@ export default async function Home() {
             customized form today and share it with friends or use the form as a
             invitation for a event or other happenings!
           </p>
-          <div className='arrow-btn'>&gt;</div>
+          <IoIosArrowDroprightCircle className='arrow-btn' />
         </div>
 
         <section>
