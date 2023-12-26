@@ -1,11 +1,17 @@
 nav {
-    background-color: #333333;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     ul {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 20;
+        background-color: var(--secondary-color);
     
         a {
             padding: 14px 16px;
@@ -25,3 +31,6 @@ nav {
     }
 }
 
+.display-block {
+    display: block;
+}
