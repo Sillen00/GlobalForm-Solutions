@@ -23,14 +23,14 @@ function Header() {
           height={50}
         />
         <ul className={isMenuOpen ? "display-block" : ""}>
-          <Link href='/'>Home</Link>
-          <Link href='/login'>Login</Link>
-          <Link href='/'>Create Account</Link>
+          <Link onClick={toggleMenu} href='/'>Home</Link>
+          <Link onClick={toggleMenu} href='/login'>Login</Link>
+          <Link onClick={toggleMenu} href='/'>Create Account</Link>
 
           {true === true && (
             <>
-              <Link href='/'></Link>
-              <Link href='/'></Link>
+              <Link onClick={toggleMenu} href='/'></Link>
+              <Link onClick={toggleMenu} href='/'></Link>
             </>
           )}
         </ul>
