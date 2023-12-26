@@ -14,11 +14,14 @@
 }
 
 body {
-  padding: 0 5rem;
   background-color: var(--background-color);
 }
+
+.body-padding {
+  padding: 0 5rem;
+}
 @media (max-width: 768px) {
-  body {
+  .body-padding {
     padding: 0 1rem;
   }
 }

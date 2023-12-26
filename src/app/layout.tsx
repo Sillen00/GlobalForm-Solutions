@@ -26,12 +26,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body className={`font-sans ${inter.variable}`}>
-          <div className='body-container'>
-            <TRPCReactProvider cookies={cookies().toString()}>
+          <TRPCReactProvider cookies={cookies().toString()}>
+            <div className='body-container'>
               <Header />
-              {children}
-            </TRPCReactProvider>
-          </div>
+              <div className='body-padding'>{children}</div>
+            </div>
+          </TRPCReactProvider>
         </body>
       </html>
     </ClerkProvider>

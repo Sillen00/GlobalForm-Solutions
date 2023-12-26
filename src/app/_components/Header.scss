@@ -4,29 +4,48 @@ nav {
     align-items: center;
     position: relative;
 
+    img {
+        margin-left: 1rem;
+    }
+    @media (min-width: 768px) {
+        img {
+            margin-left: 5rem;
+        }
+    }
+
     ul {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        z-index: 20;
+        z-index: 1000;
         background-color: var(--secondary-color);
     
         a {
-            padding: 14px 16px;
+            padding: 14px 1rem;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 20px;
             display: block;
+        }
+        @media (min-width: 768px) {
+            a {
+                padding: 14px 5rem;
+            }
         }
     }
 
     .hamburger {
         cursor: pointer;
-        padding: 14px 16px;
+        padding: 5px 1rem 5px 0;
 
         svg {
             font-size: 60px;
+        }
+    }
+    @media (min-width: 768px) {
+        .hamburger {
+            padding: 5px 5rem 5px 0;
         }
     }
 }
