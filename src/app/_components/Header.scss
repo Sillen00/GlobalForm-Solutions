@@ -21,16 +21,28 @@ nav {
         width: 100%;
         z-index: 1000;
         background-color: var(--secondary-color);
-    
+
         a {
-            padding: 14px 1rem;
             text-decoration: none;
             font-size: 20px;
-            display: block;
+
+            li {
+                padding: 10px 1rem 10px 1rem;
+            }
         }
         @media (min-width: 768px) {
+            margin-right: 5rem;
+            display: flex;
+            justify-content: flex-end;
+            text-align: right;
+            position: static;
+            background-color: transparent;
+
             a {
-                padding: 14px 5rem;
+
+                li {
+                    padding: 0 0 0 20px;
+                }
             }
         }
     }
@@ -42,14 +54,19 @@ nav {
         svg {
             font-size: 60px;
         }
-    }
-    @media (min-width: 768px) {
-        .hamburger {
+        @media (min-width: 768px) {
+            display: none;
             padding: 5px 5rem 5px 0;
         }
     }
+
+
 }
 
 .display-block {
     display: block;
+}
+
+.display-flex {
+    display: flex;
 }
