@@ -1,0 +1,27 @@
+nav {
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+        display: none;
+    
+        a {
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            display: block;
+        }
+    }
+
+    .hamburger {
+        cursor: pointer;
+        padding: 14px 16px;
+
+        svg {
+            font-size: 60px;
+        }
+    }
+}
+
