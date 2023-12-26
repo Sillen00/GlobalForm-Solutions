@@ -21,6 +21,11 @@ body {
   }
 }
 
+.body-container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 :root {
   /* COLORS-------------------------------------------------- */
   --primary-color: #4159b9;
