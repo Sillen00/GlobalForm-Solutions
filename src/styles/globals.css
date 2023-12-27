@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+body {
+  padding: 0 5rem;
+  background-color: var(--background-color);
+}
+@media (max-width: 768px) {
+  body {
+    padding: 0 1rem;
+  }
+}
+
+.body-container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+:root {
+  /* COLORS-------------------------------------------------- */
+  --primary-color: #4159b9;
+  --secondary-color: #382465;
+  --accent-color: #593088;
+  --text-color: #ffffff;
+  --background-color: #222633;
+
+  /* FONT SIZES---------------------------------------------- */
+  --bodytext: 20px;
+  --subhead: 32px;
+  --heading: 52px;
+
+  /* FONT FAMILIES------------------------------------------- */
+  --font-lora: "Lora", serif;
+}
