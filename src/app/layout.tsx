@@ -3,6 +3,7 @@ import { Jura } from "next/font/google"
 import { cookies } from "next/headers"
 import "~/styles/globals.css"
 import { TRPCReactProvider } from "~/trpc/react"
+import Footer from "./_components/Footer"
 import Header from "./_components/Header"
 
 const inter = Jura({
@@ -30,6 +31,7 @@ export default function RootLayout({
             <div className='body-container'>
               <Header />
               <div className='body-padding'>{children}</div>
+              <Footer />
             </div>
           </TRPCReactProvider>
         </body>
