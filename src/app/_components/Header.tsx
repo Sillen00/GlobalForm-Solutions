@@ -22,7 +22,7 @@ function Header() {
           width={50}
           height={50}
         />
-        <ul className={isMenuOpen ? "display-block" : ""}>
+        <ul className={isMenuOpen ? "display-flex" : ""}>
           <Link onClick={toggleMenu} href='/'>
             <li>Home</li>
           </Link>
