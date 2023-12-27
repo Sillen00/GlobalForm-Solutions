@@ -3,6 +3,7 @@ import { Jura } from "next/font/google"
 import { cookies } from "next/headers"
 import "~/styles/globals.css"
 import { TRPCReactProvider } from "~/trpc/react"
+import Header from "./_components/Header"
 
 const inter = Jura({
   subsets: ["latin"],
@@ -25,11 +26,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body className={`font-sans ${inter.variable}`}>
-          <div className='body-container'>
-            <TRPCReactProvider cookies={cookies().toString()}>
-              {children}
-            </TRPCReactProvider>
-          </div>
+          <TRPCReactProvider cookies={cookies().toString()}>
+            <div className='body-container'>
+              <Header />
+              <div className='body-padding'>{children}</div>
+            </div>
+          </TRPCReactProvider>
         </body>
       </html>
     </ClerkProvider>
