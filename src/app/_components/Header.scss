@@ -4,11 +4,11 @@ nav {
     align-items: center;
     position: relative;
 
-    img {
+    .logo {
         margin-left: 1rem;
     }
     @media (min-width: 768px) {
-        img {
+        .logo {
             margin-left: 5rem;
         }
     }
@@ -27,11 +27,12 @@ nav {
         a {
             text-decoration: none;
             font-size: 20px;
-
-            li {
-                padding: 10px 1rem 10px 1rem;
-            }
         }
+
+        li {
+            padding: 10px 1rem 10px 1rem;
+        }
+
         @media (min-width: 768px) {
             margin-right: 5rem;
             display: flex;
@@ -43,9 +44,9 @@ nav {
 
             a {
 
-                li {
-                    padding: 0 0 0 20px;
-                }
+            }
+            li {
+                padding: 0 0 0 20px;
             }
         }
     }
