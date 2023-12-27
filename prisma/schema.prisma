@@ -15,6 +15,7 @@ model Form {
   title       String
   description String?
   blocks      Block[]
+  responses   Response[]
   createdBy   String // connect to user model
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -29,4 +30,12 @@ model Block {
   order                Int
   formId               String   @db.ObjectId
   form                 Form     @relation(fields: [formId], references: [id])
+}
+
+model Response {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  formId    String   @db.ObjectId
+  form      Form     @relation(fields: [formId], references: [id])
+  answers   Json
+  createdAt DateTime @default(now())
 }
