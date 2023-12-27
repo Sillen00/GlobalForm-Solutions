@@ -21,7 +21,6 @@ nav {
         width: 100%;
         z-index: 1000;
         background-color: var(--secondary-color);
-
         flex-direction: column;
 
         a {
@@ -42,12 +41,13 @@ nav {
             position: static;
             background-color: transparent;
 
-            a {
-
-            }
             li {
                 padding: 0 0 0 20px;
             }
+        }
+
+        .signout-btn-li {
+            font-size: 20px;
         }
     }
 

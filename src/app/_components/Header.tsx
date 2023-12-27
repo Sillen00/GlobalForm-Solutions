@@ -1,5 +1,5 @@
 "use client"
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
+import { SignOutButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -17,13 +17,15 @@ function Header() {
   return (
     <header>
       <nav>
-        <Image
-          className='logo'
-          src='/favicon.png'
-          alt='Global Form Solutions logo'
-          width={50}
-          height={50}
-        />
+        <Link href='/'>
+          <Image
+            className='logo'
+            src='/favicon.png'
+            alt='Global Form Solutions logo'
+            width={50}
+            height={50}
+          />
+        </Link>
         <ul className={isMenuOpen ? "display-flex" : ""}>
           <Link onClick={toggleMenu} href='/'>
             <li>Home</li>
@@ -44,6 +46,10 @@ function Header() {
             <Link onClick={toggleMenu} href='/login/dashboard'>
               <li>Dashboard</li>
             </Link>
+
+            <li className='signout-btn-li'>
+              <SignOutButton />
+            </li>
 
             {/* Account handler */}
             <li>
