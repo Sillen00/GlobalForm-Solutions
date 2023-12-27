@@ -2,34 +2,41 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "mongodb"
-    url      = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model Form {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   title       String
-  description String?
+  startDate   DateTime
+  endDate     DateTime
+  startTime   String
+  endTime     String
+  location    String
+  description String
   blocks      Block[]
   responses   Response[]
-  createdBy   String // connect to user model
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdBy   String? // connect to user model when user auth is implemented
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 }
 
 model Block {
-  id                   String   @id @default(auto()) @map("_id") @db.ObjectId
-  title                String
-  type                 String
-  content              String
-  additionalProperties Json?
-  order                Int
-  formId               String   @db.ObjectId
-  form                 Form     @relation(fields: [formId], references: [id])
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  type            String
+  content         String?
+  placeholdertext String?
+  required        Boolean
+  options         String[]
+  order           Int
+  formId          String   @db.ObjectId
+  form            Form     @relation(fields: [formId], references: [id])
 }
 
 model Response {
