@@ -9,6 +9,6 @@ function signUpPage() {
   );
 }
 
-// apply styles to the page
+// Back to "/" arrow??
 
 export default signUpPage;

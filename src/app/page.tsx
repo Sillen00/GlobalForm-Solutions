@@ -12,6 +12,10 @@ export default async function Home() {
 
   return (
     <main>
+        <UserButton afterSignOutUrl='/' />
+        <Link href='/login'>
+          <p className='text-2xl font-bold cursor-pointer text-black'>Login</p>
+        </Link>
       <div className='hero'>
         <h1>
           GlobalForm <br />
@@ -30,10 +34,6 @@ export default async function Home() {
 
       <section>
         <div>
-        <UserButton afterSignOutUrl='/' />
-        <Link href='/login'>
-          <p className='text-2xl font-bold cursor-pointer text-black'>Login</p>
-        </Link>
           <Image
             src='/image1-landingpage.jpg'
             alt='Girl creating a form on the computer'

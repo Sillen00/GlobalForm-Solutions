@@ -44,9 +44,16 @@ body {
 }
 
 /* CLERK------------------------------------------- */
+.cl-socialButtonsBlockButtonText {
+  color: black;
+}
+
+.cl-logoBox {
+  display: flex;
+  justify-content: center;
+}
+
 .cl-formButtonPrimary {
-  font-size: var(--bodytext);
-  text-transform: none;
   background-color: var(--primary-color);
 }
 
