@@ -1,10 +1,10 @@
 import { SignIn } from "@clerk/nextjs";
 import React from "react";
+import styles from './page.module.scss';
 
 function  LoginPage() {
   return (
-    <div>
-      <h1>Login</h1>
+    <div className={styles.signInContainer}>
       <SignIn />
     </div>
   );

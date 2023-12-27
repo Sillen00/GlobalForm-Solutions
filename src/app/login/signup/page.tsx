@@ -3,8 +3,7 @@ import styles from '../signup/page.module.scss';
 
 function signUpPage() {
   return (
-    <div className={styles.signupContainer}>
-      <h1>Sign Up Page</h1>
+    <div className={styles.signUpContainer}>
       <SignUp />
     </div>
   );

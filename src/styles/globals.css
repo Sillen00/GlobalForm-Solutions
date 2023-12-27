@@ -42,3 +42,18 @@ body {
   /* FONT FAMILIES------------------------------------------- */
   --font-lora: "Lora", serif;
 }
+
+/* CLERK------------------------------------------- */
+.cl-formButtonPrimary {
+  font-size: var(--bodytext);
+  text-transform: none;
+  background-color: var(--primary-color);
+}
+
+.cl-formButtonPrimary:hover,
+.cl-formButtonPrimary:focus,
+.cl-formButtonPrimary:active {
+  background-color: var(--secondary-color);
+}
+
+

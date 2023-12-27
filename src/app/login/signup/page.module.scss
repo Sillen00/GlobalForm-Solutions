@@ -1,17 +1,8 @@
 
-.signup-container {
+.signUpContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    background-color: #b90b0b;
-
-    h1 {
-        font-size: 2.5rem;
-        font-weight: 500;
-        margin-bottom: 1rem;
-        color: blue;
-    }
-}
+    align-items: center;
+    height: 100vh;
+  }
