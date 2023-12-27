@@ -13,12 +13,6 @@ export default async function Home() {
   return (
     <main>
       <div className='hero'>
-      <div className='container flex flex-col items-center justify-center gap-12 px-4 py-16 '>
-        <UserButton afterSignOutUrl='/' />
-        <Link href='/login'>
-          <p className='text-2xl font-bold cursor-pointer'>Login</p>
-        </Link>
-        </div>
         <h1>
           GlobalForm <br />
           <span>Solutions</span>
@@ -36,6 +30,10 @@ export default async function Home() {
 
       <section>
         <div>
+        <UserButton afterSignOutUrl='/' />
+        <Link href='/login'>
+          <p className='text-2xl font-bold cursor-pointer text-black'>Login</p>
+        </Link>
           <Image
             src='/image1-landingpage.jpg'
             alt='Girl creating a form on the computer'
