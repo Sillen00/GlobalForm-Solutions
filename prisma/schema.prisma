@@ -21,20 +21,20 @@ model Form {
   description String
   blocks      Block[]
   responses   Response[]
-  createdBy   String? // connect to user model when user auth is implemented
+  // createdBy   User
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 }
 
 model Block {
   id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  title           String
-  type            String
-  content         String?
-  placeholdertext String?
-  required        Boolean
-  options         String[]
   order           Int
+  title           String
+  description     String?
+  type            String // text, textarea, radio, checkbox, dropdown, date, number, email, tel, url
+  required        Boolean
+  placeholderText String?
+  options         String[]
   formId          String   @db.ObjectId
   form            Form     @relation(fields: [formId], references: [id])
 }
