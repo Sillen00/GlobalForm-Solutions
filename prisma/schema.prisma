@@ -26,6 +26,7 @@ model Block {
   type                 String
   content              String
   additionalProperties Json?
+  order                Int
   formId               String   @db.ObjectId
   form                 Form     @relation(fields: [formId], references: [id])
 }
