@@ -12,7 +12,8 @@
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start",
-    "prettier": "prettier --write ."
+    "format": "prettier --write \"**/*.{ts,tsx}\" && npx prisma format",
+    "format:check": "prettier --check \"**/*.{ts,tsx}\""
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
