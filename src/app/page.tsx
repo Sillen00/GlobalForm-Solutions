@@ -1,5 +1,5 @@
-// import { UserButton } from "@clerk/nextjs"
-// import Link from "next/link"
+import { UserButton } from "@clerk/nextjs"
+import Link from "next/link"
 import { IoIosArrowDroprightCircle } from "react-icons/io"
 
 // import { CreatePost } from "~/app/_components/create-post"
@@ -12,6 +12,10 @@ export default async function Home() {
 
   return (
     <main>
+      <UserButton afterSignOutUrl='/' />
+      <Link href='/login'>
+        <p className='text-2xl font-bold cursor-pointer text-black'>Login</p>
+      </Link>
       <div className='hero'>
         <h1>
           GlobalForm <br />
