@@ -12,22 +12,42 @@ function Footer() {
         <Link href='#'>
           <p>Terms & Conditions</p>
         </Link>
-        <p>Customer Service</p>
-        <p>Privacy Policy</p>
-        <p>Cookie Settings</p>
+        <Link href='#'>
+          <p>Customer Service</p>
+        </Link>
+        <Link href='#'>
+          <p>Privacy Policy</p>
+        </Link>
+        <Link href='#'>
+          <p>Cookie Settings</p>
+        </Link>
       </AccordionSection>
       <AccordionSection title='About Us'>
-        <p>Press</p>
-        <p>News</p>
-        <p>Career</p>
+        <Link href='#'>
+          <p>Press</p>
+        </Link>
+        <Link href='#'>
+          <p>News</p>
+        </Link>
+        <Link href='#'>
+          <p>Career</p>
+        </Link>
       </AccordionSection>
       <AccordionSection title='Contact'>
-        <p>+46 073 369 69 69</p>
-        <p>gfs@globalformsolutions.se</p>
+        <Link href='tel:+46 073 369 69 69'>
+          <p>+46 073 369 69 69</p>
+        </Link>
+        <Link href='mailto:gfs@globalformsolutions.se'>
+          <p>gfs@globalformsolutions.se</p>
+        </Link>
       </AccordionSection>
       <AccordionSection title='Support'>
-        <p>FAQ</p>
-        <p>Regulations</p>
+        <Link href='#'>
+          <p>FAQ</p>
+        </Link>
+        <Link href='#'>
+          <p>Regulations</p>
+        </Link>
       </AccordionSection>
 
       <div className='socials'>
