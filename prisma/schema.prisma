@@ -10,8 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  clerkUserId String @unique
+  forms       Form[]
+}
+
 model Form {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String     @db.ObjectId
+  createdBy   User       @relation(fields: [userId], references: [id])
   title       String
   startDate   DateTime
   endDate     DateTime
@@ -21,7 +29,6 @@ model Form {
   description String
   blocks      Block[]
   responses   Response[]
-  // createdBy   User
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 }
