@@ -43,19 +43,6 @@ body {
   --font-lora: "Lora", serif;
 }
 
-/* CLERK------------------------------------------- */
-/* .cl-socialButtonsBlockButtonText {
-  color: black;
-}
-
-.cl-logoBox {
-  display: flex;
-  justify-content: center;
-}
-
-.cl-formButtonPrimary {
-  background-color: var(--primary-color);
-}
 
 .cl-formButtonPrimary:hover,
 .cl-formButtonPrimary:focus,
