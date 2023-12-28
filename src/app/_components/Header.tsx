@@ -36,14 +36,14 @@ function Header() {
             <Link onClick={toggleMenu} href='/login'>
               <li>Login</li>
             </Link>
-            <Link onClick={toggleMenu} href='/login/signup'>
+            <Link onClick={toggleMenu} href='/signup'>
               <li>Create Account</li>
             </Link>
           </SignedOut>
 
           {/* Only shows when you are logged in. */}
           <SignedIn>
-            <Link onClick={toggleMenu} href='/login/dashboard'>
+            <Link onClick={toggleMenu} href='/dashboard'>
               <li>Dashboard</li>
             </Link>
 

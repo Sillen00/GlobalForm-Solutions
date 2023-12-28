@@ -1,5 +1,3 @@
-// import { UserButton } from "@clerk/nextjs"
-// import Link from "next/link"
 import { IoIosArrowDroprightCircle } from "react-icons/io"
 
 // import { CreatePost } from "~/app/_components/create-post"

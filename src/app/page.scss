@@ -2,6 +2,7 @@
   background-color: var(--background-color);
   position: relative;
   min-height: 100vh;
+
   h1 {
     position: absolute;
     top: 36.5%;
@@ -29,17 +30,18 @@
         animation: blinkAnimation 1.2s infinite;
       }
     }
-    // @keyframes blinkAnimation {
-    //     0% {
-    //       opacity: 0;
-    //     }
-    //     55% {
-    //       opacity: 0;
-    //     }
-    //     100% {
-    //       opacity: 1;
-    //     }
-    // }
+
+    @keyframes blinkAnimation {
+      0% {
+        opacity: 0;
+      }
+      55% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
 
   p {
@@ -61,6 +63,7 @@
     min-height: 70px;
   }
 }
+
 section {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

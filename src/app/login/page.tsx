@@ -1,13 +1,13 @@
-import { SignIn } from "@clerk/nextjs";
-import React from "react";
+import { SignIn } from "@clerk/nextjs"
+import React from "react"
+import styles from "./page.module.scss"
 
-function  LoginPage() {
+function LoginPage() {
   return (
-    <div>
-      <h1>Login</h1>
+    <div className={styles.signInContainer}>
       <SignIn />
     </div>
-  );
+  )
 }
 
-export default LoginPage;
+export default LoginPage
