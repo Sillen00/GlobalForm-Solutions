@@ -10,10 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum BlockType {
+  text
+  textarea
+  radio
+  checkbox
+  dropdown
+  date
+  number
+  email
+  tel
+  url
+}
+
 model User {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  clerkUserId String @unique
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  clerkUserId String   @unique
   forms       Form[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Form {
@@ -34,16 +49,16 @@ model Form {
 }
 
 model Block {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
   order           Int
   title           String
   description     String?
-  type            String // text, textarea, radio, checkbox, dropdown, date, number, email, tel, url
+  type            BlockType
   required        Boolean
   placeholderText String?
   options         String[]
-  formId          String   @db.ObjectId
-  form            Form     @relation(fields: [formId], references: [id])
+  formId          String    @db.ObjectId
+  form            Form      @relation(fields: [formId], references: [id])
 }
 
 model Response {
@@ -52,4 +67,5 @@ model Response {
   form      Form     @relation(fields: [formId], references: [id])
   answers   Json
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
