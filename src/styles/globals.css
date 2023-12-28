@@ -44,10 +44,4 @@ body {
 }
 
 
-.cl-formButtonPrimary:hover,
-.cl-formButtonPrimary:focus,
-.cl-formButtonPrimary:active {
-  background-color: var(--secondary-color);
-} */
-
 
