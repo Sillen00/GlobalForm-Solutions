@@ -44,7 +44,7 @@ body {
 }
 
 /* CLERK------------------------------------------- */
-.cl-socialButtonsBlockButtonText {
+/* .cl-socialButtonsBlockButtonText {
   color: black;
 }
 
@@ -61,6 +61,6 @@ body {
 .cl-formButtonPrimary:focus,
 .cl-formButtonPrimary:active {
   background-color: var(--secondary-color);
-}
+} */
 
 
