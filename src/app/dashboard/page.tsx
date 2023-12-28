@@ -1,11 +1,13 @@
-import { UserButton } from "@clerk/nextjs"
+import { SignedIn, UserButton } from "@clerk/nextjs"
 
 function DashboardPage() {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <UserButton />
-    </div>
+    <SignedIn>
+      <div>
+        <h1>Dashboard</h1>
+        <UserButton />
+      </div>
+    </SignedIn>
   )
 }
 
