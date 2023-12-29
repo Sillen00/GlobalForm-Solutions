@@ -1,5 +1,12 @@
-const SimpleLayout = ({ children }: { children: React.ReactNode }) => {
-  return <div>Layout</div>
+export const metadata = {
+  title: "GlobalForm Solutions",
+  description:
+    "Create forms and surveys with ease. Customise your forms to suit your needs.",
+  icons: [{ rel: "icon", url: "/favicon.png" }],
 }
 
-export default SimpleLayout
+const CreateFormLayout = ({ children }: { children: React.ReactNode }) => {
+  return <>{children}</>
+}
+
+export default CreateFormLayout
