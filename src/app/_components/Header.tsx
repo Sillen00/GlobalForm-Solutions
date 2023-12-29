@@ -7,7 +7,6 @@ import { IoClose, IoMenu } from "react-icons/io5"
 import "./Header.scss"
 
 function Header() {
-  //   const [isLoggedin, setIsLoggedin] = useState(false) //Används inte än så länge... Förberädde för login länkarna.
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = () => {
