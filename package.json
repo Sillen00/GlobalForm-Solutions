@@ -1,18 +1,19 @@
 {
-  "name": "GlobalForm-Solutions",
+  "name": "globalform-solutions",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "next build",
-    "db:push": "prisma db push",
+    "db:update": "prisma db push && prisma generate",
     "db:studio": "prisma studio",
     "db:seed": "node --loader ts-node/esm prisma/seed.ts",
     "dev": "prisma db push && next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start",
-    "prettier": "prettier --write ."
+    "format": "prettier --write \"**/*.{ts,tsx}\" && npx prisma format",
+    "format:check": "prettier --check \"**/*.{ts,tsx}\""
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
