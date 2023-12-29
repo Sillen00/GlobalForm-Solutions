@@ -4,7 +4,6 @@ const prisma = new PrismaClient()
 
 async function main() {
   // const testData = [{ name: "Test Name 1" }, { name: "Test Name 2" }]
-
   // for (const data of testData) {
   //   const testModel = await prisma.testModel.create({
   //     data,
