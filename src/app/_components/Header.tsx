@@ -46,11 +46,7 @@ function Header() {
             <Link onClick={toggleMenu} href='/dashboard'>
               <li>Dashboard</li>
             </Link>
-
-            <li className='signout-btn-li'>
-              <SignOutButton />
-            </li>
-
+        
             {/* Account handler */}
             <li>
               <UserButton />
