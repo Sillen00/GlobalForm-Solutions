@@ -1,0 +1,42 @@
+.accordion-section {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    cursor: pointer;
+    border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: var(--subhead);
+
+    @media (min-width: 768px) {
+      border: none;
+      padding: 0 0 0 0;
+    }
+  }
+
+  .content {
+    display: none;
+    padding: 1rem 1rem 1rem 1rem;
+
+    p {
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--text-color);
+      }
+    }
+
+    @media (min-width: 768px) {
+      display: block;
+      padding: 0 0 0 0;
+    }
+  }
+
+  &.active {
+    .content {
+      display: block;
+    }
+  }
+}
