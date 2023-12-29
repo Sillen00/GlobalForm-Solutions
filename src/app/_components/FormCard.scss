@@ -1,37 +1,37 @@
 .form-card {
-    min-width: 200px;
-    min-height: 150px;
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    padding: 10px;
-    position: relative;
+  min-width: 200px;
+  min-height: 150px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
 
-    &:hover {
-        cursor: pointer;
-        box-shadow: 0 5px 10px 0 rgba(160, 160, 160, 0.2);
-        transform: translateY(-5px);
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 10px 0 rgba(160, 160, 160, 0.2);
+    transform: translateY(-5px);
+  }
+
+  .top-card-text {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-size: 0.8rem;
+      font-weight: bold;
     }
+  }
 
-    .top-card-text {
-        display: flex;
-        justify-content: space-between;
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 
-        span {
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-    }
-
-    h3 {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-
-    p {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        font-size: 0.8rem;
-        font-weight: bold;
-    }
+  p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
 }
