@@ -1,8 +1,11 @@
 import { ClerkProvider } from "@clerk/nextjs"
+import { dark } from "@clerk/themes"
 import { Jura } from "next/font/google"
 import { cookies } from "next/headers"
 import "~/styles/globals.css"
 import { TRPCReactProvider } from "~/trpc/react"
+import "../styles/clerk.scss"
+import Header from "./_components/Header"
 
 const inter = Jura({
   subsets: ["latin"],
@@ -22,14 +25,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        baseTheme: dark,
+        variables: {
+          colorPrimary: "#4159b9",
+        },
+        elements: { logoBox: "logo-placement" },
+      }}
+    >
       <html lang='en'>
         <body className={`font-sans ${inter.variable}`}>
-          <div className='body-container'>
-            <TRPCReactProvider cookies={cookies().toString()}>
-              {children}
-            </TRPCReactProvider>
-          </div>
+          <TRPCReactProvider cookies={cookies().toString()}>
+            <div className='body-container'>
+              <Header />
+              <div className='body-padding'>{children}</div>
+            </div>
+          </TRPCReactProvider>
         </body>
       </html>
     </ClerkProvider>
