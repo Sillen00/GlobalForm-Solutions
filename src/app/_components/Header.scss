@@ -9,6 +9,7 @@ nav {
     width: 35px;
     padding: 1rem 0;
   }
+
   @media (min-width: 768px) {
     .logo {
       margin-left: 5rem;
@@ -31,7 +32,36 @@ nav {
     }
 
     li {
-      padding: 10px 1rem 10px 1rem;
+      margin: 10px 1rem 10px 1rem;
+      position: relative;
+
+      &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--text-color); 
+      transition: width 0.3s;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+    }
+    @media (max-width: 767px) {
+      li {
+        margin: 10px 1rem 10px 1rem;
+        &:after {
+          content: none; // Remove the underline
+        }
+    
+        &:hover:after {
+          width: 0; // Keep the width at 0 even on hover
+        }
+        // Add the styles you want to apply when the viewport width is less than 768px
+      }
     }
 
     @media (min-width: 768px) {
@@ -43,9 +73,6 @@ nav {
       position: static;
       background-color: transparent;
 
-      li {
-        padding: 0 0 0 20px;
-      }
     }
 
     .signout-btn-li {
@@ -63,6 +90,7 @@ nav {
     @media (min-width: 768px) {
       display: none;
       padding: 5px 5rem 5px 0;
+
     }
   }
 }
