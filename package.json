@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "db:push": "prisma db push",
+    "db:update": "prisma db push && prisma generate",
     "db:studio": "prisma studio",
     "db:seed": "node --loader ts-node/esm prisma/seed.ts",
     "dev": "prisma db push && next dev",
