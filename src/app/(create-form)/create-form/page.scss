@@ -1,0 +1,39 @@
+// CREATE FORM PAGE SCSS
+
+.create-form-wrapper {
+
+    border-top: 2px solid var(--primary-color);
+    display: flex;
+       
+    .side-menu-wrapper {
+        max-width: 300px;
+        background-color: var(--background-color);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        .side-menu-header {
+
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+
+    .form-preview {
+        background-color: white;
+        width: 100%;
+    }
+
+}
