@@ -32,35 +32,32 @@ nav {
     }
 
     li {
-      margin: 10px 1rem 10px 1rem;
       position: relative;
 
       &:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--text-color); 
-      transition: width 0.3s;
-    }
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--text-color);
+        transition: width 0.3s;
+      }
 
-    &:hover:after {
-      width: 100%;
-    }
+      &:hover:after {
+        width: 100%;
+      }
     }
     @media (max-width: 767px) {
       li {
-        margin: 10px 1rem 10px 1rem;
+        padding: 10px 1rem 10px 1rem;
         &:after {
-          content: none; // Remove the underline
+          content: none; 
         }
-    
         &:hover:after {
-          width: 0; // Keep the width at 0 even on hover
+          width: 0; 
         }
-        // Add the styles you want to apply when the viewport width is less than 768px
       }
     }
 
@@ -72,11 +69,6 @@ nav {
       text-align: right;
       position: static;
       background-color: transparent;
-
-    }
-
-    .signout-btn-li {
-      font-size: 20px;
     }
   }
 
@@ -90,7 +82,6 @@ nav {
     @media (min-width: 768px) {
       display: none;
       padding: 5px 5rem 5px 0;
-
     }
   }
 }
