@@ -27,32 +27,40 @@ function Header() {
           />
         </Link>
         <ul className={isMenuOpen ? "display-flex" : ""}>
-          <Link onClick={toggleMenu} href='/'>
-            <li>Home</li>
-          </Link>
+  <li>
+    <Link onClick={toggleMenu} href='/'>
+      Home
+    </Link>
+  </li>
 
-          {/* Only shows when you are logged out. */}
-          <SignedOut>
-            <Link onClick={toggleMenu} href='/login'>
-              <li>Login</li>
-            </Link>
-            <Link onClick={toggleMenu} href='/signup'>
-              <li>Create Account</li>
-            </Link>
-          </SignedOut>
+  {/* Only shows when you are logged out. */}
+  <SignedOut>
+    <li>
+      <Link onClick={toggleMenu} href='/login'>
+        Login
+      </Link>
+    </li>
+    <li>
+      <Link onClick={toggleMenu} href='/signup'>
+        Create Account
+      </Link>
+    </li>
+  </SignedOut>
 
-          {/* Only shows when you are logged in. */}
-          <SignedIn>
-            <Link onClick={toggleMenu} href='/dashboard'>
-              <li>Dashboard</li>
-            </Link>
-        
-            {/* Account handler */}
-            <li>
-              <UserButton />
-            </li>
-          </SignedIn>
-        </ul>
+  {/* Only shows when you are logged in. */}
+  <SignedIn>
+    <li>
+      <Link onClick={toggleMenu} href='/dashboard'>
+        Dashboard
+      </Link>
+    </li>
+
+    {/* Account handler */}
+    <li>
+      <UserButton />
+    </li>
+  </SignedIn>
+</ul>
 
         <div className='hamburger' onClick={toggleMenu}>
           {isMenuOpen ? <IoClose /> : <IoMenu />}
