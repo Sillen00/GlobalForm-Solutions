@@ -1,6 +1,5 @@
 import { IoIosArrowDroprightCircle } from "react-icons/io"
 
-// import { CreatePost } from "~/app/_components/create-post"
 // import { api } from "~/trpc/server"
 import Image from "next/image"
 import "./page.scss"

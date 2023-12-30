@@ -38,6 +38,7 @@ body {
   --accent-color: #593088;
   --text-color: #ffffff;
   --background-color: #222633;
+  --background-color-footer: rgb(28, 30, 32);
 
   /* FONT SIZES---------------------------------------------- */
   --bodytext: 20px;
