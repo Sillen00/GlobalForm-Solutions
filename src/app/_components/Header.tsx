@@ -1,5 +1,5 @@
 "use client"
-import { SignOutButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
