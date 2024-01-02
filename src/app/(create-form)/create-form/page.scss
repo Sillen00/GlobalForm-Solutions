@@ -4,12 +4,15 @@
 
     border-top: 2px solid var(--primary-color);
     display: flex;
+    height: 100%;
+    overflow-y: hidden;
        
     .side-menu-wrapper {
+
         max-width: 300px;
         background-color: var(--background-color);
-        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        overflow-y: scroll;
 
         .side-menu-header {
 
@@ -30,10 +33,10 @@
         }
     }
 
-
     .form-preview {
         background-color: white;
         width: 100%;
+        overflow-y: scroll;
     }
 
 }

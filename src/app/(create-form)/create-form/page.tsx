@@ -2,12 +2,17 @@ import { FaPlus } from "react-icons/fa6"
 import "./page.scss"
 
 function CreateFormPage() {
+
+  const toggleFormMenu = () => {
+    console.log('toggleFormMenu')
+  }
+
   return (
     <div className='create-form-wrapper'>
       <div className='side-menu-wrapper'>
         <div className='side-menu-header'>
           <h3>Create Form</h3>
-          <p>
+          <p onClick={() => toggleFormMenu}>
             <FaPlus />
           </p>
         </div>
