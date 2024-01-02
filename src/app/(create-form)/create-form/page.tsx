@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import FormPreview from "~/app/_components/FormPreview"
+import SideMenuFormObjects from "~/app/_components/SideMenuFormObjects"
 import "./page.scss"
 
 function CreateFormPage() {
@@ -22,12 +23,8 @@ function CreateFormPage() {
           </p>
         </div>
 
-        {!isSideMenuNewObjectsOpen && (
-          <div className='side-menu-objects'>
-            <h2>CreateFormPage</h2>
-            <p>Här ska man se nuvarande valda object / inputs.</p>
-          </div>
-        )}
+        {!isSideMenuNewObjectsOpen && <SideMenuFormObjects />}
+
         {isSideMenuNewObjectsOpen && (
           <div className='side-menu-new-objects'>
             <h2>CreateFormPage add objects</h2>
