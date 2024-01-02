@@ -1,4 +1,4 @@
-import "FormSideMenuObjects.scss"
+import "./SideMenuFormObjects.scss"
 
 function SideMenuFormObjects() {
   return (

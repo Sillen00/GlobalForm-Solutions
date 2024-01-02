@@ -3,6 +3,7 @@ import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import FormPreview from "~/app/_components/FormPreview"
 import SideMenuFormObjects from "~/app/_components/SideMenuFormObjects"
+import SideMenuNewFormObjects from "~/app/_components/SideMenuNewFormObjects"
 import "./page.scss"
 
 function CreateFormPage() {
@@ -25,12 +26,7 @@ function CreateFormPage() {
 
         {!isSideMenuNewObjectsOpen && <SideMenuFormObjects />}
 
-        {isSideMenuNewObjectsOpen && (
-          <div className='side-menu-new-objects'>
-            <h2>CreateFormPage add objects</h2>
-            <p>Här ska man kunna lägga till nya objekt / inputs.</p>
-          </div>
-        )}
+        {isSideMenuNewObjectsOpen && <SideMenuNewFormObjects />}
       </div>
 
       <FormPreview />
