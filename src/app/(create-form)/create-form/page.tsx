@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
+import FormPreview from "~/app/_components/FormPreview"
 import "./page.scss"
 
 function CreateFormPage() {
@@ -35,7 +36,7 @@ function CreateFormPage() {
         )}
       </div>
 
-      <section className='form-preview'></section>
+      <FormPreview />
     </div>
   )
 }
