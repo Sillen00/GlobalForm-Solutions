@@ -1,6 +1,8 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Setup
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,18 +12,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum BlockType {
-  text
-  textarea
-  radio
-  checkbox
-  dropdown
-  date
-  number
-  email
-  tel
-  url
-}
+// Models
 
 model User {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
@@ -68,4 +59,19 @@ model Response {
   answers   Json
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// Enums
+
+enum BlockType {
+  text
+  textarea
+  radio
+  checkbox
+  dropdown
+  date
+  number
+  email
+  tel
+  url
 }
