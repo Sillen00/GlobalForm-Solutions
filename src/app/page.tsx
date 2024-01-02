@@ -29,7 +29,7 @@ export default async function Home() {
             <IoIosArrowDroprightCircle className='arrow-btn' />
           </div>
 
-          <section>
+          <section className='landingPageSection'>
             <div>
               <Image
                 src='/image1-landingpage.jpg'
