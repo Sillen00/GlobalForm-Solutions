@@ -28,7 +28,6 @@ export default function RootLayout({
   return (
     <ClerkProvider
       appearance={{
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         baseTheme: dark,
         variables: {
           colorPrimary: "#4159b9",
