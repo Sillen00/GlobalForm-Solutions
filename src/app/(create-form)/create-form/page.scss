@@ -1,37 +1,34 @@
 // CREATE FORM PAGE SCSS
 
 .create-form-wrapper {
+  border-top: 2px solid var(--primary-color);
+  display: flex;
+  height: 100%;
+  overflow-y: hidden;
+  height: 100%;
 
-    border-top: 2px solid var(--primary-color);
-    display: flex;
-    height: 100%;
-    overflow-y: hidden;
-    height: 100%;
-       
-    .side-menu-wrapper {
+  .side-menu-wrapper {
+    max-width: 300px;
+    background-color: var(--background-color);
+    -webkit-overflow-scrolling: touch;
+    height: calc(100vh - 72px);
+    overflow-y: scroll;
 
-        max-width: 300px;
-        background-color: var(--background-color);
-        -webkit-overflow-scrolling: touch;
-        height: calc(100vh - 72px);
-        overflow-y: scroll;
+    .side-menu-header {
+      border-bottom: 2px solid var(--primary-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
 
-        .side-menu-header {
+      h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
 
-            border-bottom: 2px solid var(--primary-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1rem;
-
-            h3 {
-                font-size: 1.5rem;
-                font-weight: bold;
-            }
-
-            p {
-                font-size: 1.2rem;
-            }
-        }
+      p {
+        font-size: 1.2rem;
+      }
     }
+  }
 }
