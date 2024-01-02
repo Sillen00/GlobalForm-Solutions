@@ -6,6 +6,7 @@
     display: flex;
     height: 100%;
     overflow-y: hidden;
+    height: 100%;
        
     .side-menu-wrapper {
 
@@ -36,6 +37,7 @@
     .form-preview {
         background-color: white;
         width: 100%;
+        height: calc(100vh - 72px);
         overflow-y: scroll;
     }
 

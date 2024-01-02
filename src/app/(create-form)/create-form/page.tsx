@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import "./page.scss"
@@ -7,16 +8,15 @@ function CreateFormPage() {
     useState(false)
 
   const toggleFormMenu = () => {
-    // Open / close side menu
-    setIsSideMenuNewObjectsOpen(!isSideMenuNewObjectsOpen)
+    setIsSideMenuNewObjectsOpen(prevState => !prevState)
   }
 
   return (
     <div className='create-form-wrapper'>
       <div className='side-menu-wrapper'>
-        <div className='side-menu-header'>
+        <div onClick={() => toggleFormMenu()} className='side-menu-header'>
           <h3>Create Form</h3>
-          <p onClick={() => toggleFormMenu}>
+          <p>
             <FaPlus />
           </p>
         </div>
@@ -29,6 +29,7 @@ function CreateFormPage() {
         )}
         {isSideMenuNewObjectsOpen && (
           <div className='side-menu-new-objects'>
+            <h2>CreateFormPage add objects</h2>
             <p>Här ska man kunna lägga till nya objekt / inputs.</p>
           </div>
         )}
