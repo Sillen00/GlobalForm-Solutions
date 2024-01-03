@@ -2,12 +2,6 @@ import type { WebhookEvent } from "@clerk/nextjs/server"
 import { headers } from "next/headers"
 import { Webhook } from "svix"
 
-interface WebhookPayload<T> {
-  data: T
-  object: string
-  type: string
-}
-
 export async function verifyWebhook(
   req: Request,
   WEBHOOK_SECRET: string
@@ -24,10 +18,8 @@ export async function verifyWebhook(
   }
 
   // Get the body
-  const payload = (await req.json()) as WebhookPayload<unknown>
-  console.log("payload: ", payload)
+  const payload = (await req.json()) as WebhookEvent
   const body = JSON.stringify(payload)
-  console.log("body: ", body)
 
   try {
     // Create a new Svix instance with our secret.
