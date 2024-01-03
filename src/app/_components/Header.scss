@@ -11,6 +11,7 @@ nav {
     width: 35px;
     padding: 1rem 0;
   }
+
   @media (min-width: 768px) {
     .logo {
       margin-left: 5rem;
@@ -19,6 +20,7 @@ nav {
 
   ul {
     display: none;
+    gap: 1rem;
     position: absolute;
     top: 100%;
     left: 0;
@@ -33,7 +35,33 @@ nav {
     }
 
     li {
-      padding: 10px 1rem 10px 1rem;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--text-color);
+        transition: width 0.3s;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+    }
+    @media (max-width: 767px) {
+      li {
+        padding: 10px 1rem 10px 1rem;
+        &:after {
+          content: none; 
+        }
+        &:hover:after {
+          width: 0; 
+        }
+      }
     }
 
     @media (min-width: 768px) {
@@ -44,14 +72,6 @@ nav {
       text-align: right;
       position: static;
       background-color: transparent;
-
-      li {
-        padding: 0 0 0 20px;
-      }
-    }
-
-    .signout-btn-li {
-      font-size: 20px;
     }
   }
 

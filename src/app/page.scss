@@ -3,11 +3,11 @@
 .hero {
   background-color: var(--background-color);
   position: relative;
-  min-height: 100vh;
+  min-height: 60vh;
 
   h1 {
     position: absolute;
-    top: 36.5%;
+    top: 16.5%;
     left: 0;
     z-index: 20;
     font-size: clamp(#{var(--subhead)}, 5vw, #{var(--heading)});
@@ -48,7 +48,7 @@
 
   p {
     position: absolute;
-    bottom: 22%;
+    bottom: clamp(10%, 40%, 26%);
     left: 0;
     font-size: var(--bodytext);
     max-width: 740px;
@@ -59,7 +59,7 @@
 
   .arrow-btn {
     position: absolute;
-    bottom: 22%;
+    bottom: clamp(10%, 40%, 26%);
     right: 0;
     min-width: 70px;
     min-height: 70px;
@@ -78,6 +78,8 @@
 
   img {
     aspect-ratio: 16/10;
+    border-radius: 5px;
+    box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.35);
   }
 
   @media (min-width: 768px) {
