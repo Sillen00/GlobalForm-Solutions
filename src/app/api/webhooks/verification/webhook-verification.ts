@@ -1,6 +1,12 @@
-import { WebhookEvent } from "@clerk/nextjs/server"
+import type { WebhookEvent } from "@clerk/nextjs/server"
 import { headers } from "next/headers"
 import { Webhook } from "svix"
+
+interface WebhookPayload<T> {
+  data: T
+  object: string
+  type: string
+}
 
 export async function verifyWebhook(
   req: Request,
@@ -18,16 +24,17 @@ export async function verifyWebhook(
   }
 
   // Get the body
-  const payload = await req.json()
+  const payload = (await req.json()) as WebhookPayload<unknown>
+  console.log("payload: ", payload)
   const body = JSON.stringify(payload)
+  console.log("body: ", body)
 
   try {
     // Create a new Svix instance with our secret.
     const wh = new Webhook(WEBHOOK_SECRET)
 
     // Verify the payload with the headers
-    let evt: WebhookEvent
-    evt = wh.verify(body, {
+    const evt = wh.verify(body, {
       "svix-id": svix_id,
       "svix-timestamp": svix_timestamp,
       "svix-signature": svix_signature,
