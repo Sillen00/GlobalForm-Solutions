@@ -1,7 +1,7 @@
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
-import FormCard from "../_components/FormCard"
+import FormCard from "../../_components/FormCard"
 import "./page.scss"
 
 function DashboardPage() {
