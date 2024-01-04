@@ -32,7 +32,7 @@ function pressPage() {
       </div>
       <div className='section'>
         <div>
-          <h2>HACKING - A THING OF THE PAST</h2>
+          <h2>SECURITY INFO</h2>
           <span><i>2023-02-01</i></span>
         </div>
         <span>
