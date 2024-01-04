@@ -26,7 +26,7 @@ function Footer() {
         <Link href='/about/press'>
           <p>Press</p>
         </Link>
-        <Link href='#'>
+        <Link href='/about/news'>
           <p>News</p>
         </Link>
         <Link href='/about/career'>
