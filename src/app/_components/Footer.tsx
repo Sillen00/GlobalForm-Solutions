@@ -29,7 +29,7 @@ function Footer() {
         <Link href='#'>
           <p>News</p>
         </Link>
-        <Link href='#'>
+        <Link href='/about/career'>
           <p>Career</p>
         </Link>
       </AccordionSection>
