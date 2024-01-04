@@ -6,14 +6,15 @@ function pressPage() {
       <h1>Press</h1>
       <div className='section'>
         <div>
-          <h2>NEW FEATURES </h2>
+          <h2>NEW CEO</h2>
           <span><i>2023-10-25</i></span>
         </div>
         <span>
-          The next generation of our form builder is here! We've added many new
-          features including file uploads, password fields and more. We've also
-          improved the performance of our form builder to make it faster and
-          easier to use.
+          After a rocky start to the year, we are pleased to announce that we
+          have replaced the former CEO Simon Bengtsson with a new CEO, Thomas Ingvarsson.
+          Thomas has a long history of leading companies through difficult times
+          and we are confident that he will be able to lead us through this
+          comming months with ease.
 
         </span>
       </div>
@@ -23,11 +24,10 @@ function pressPage() {
           <span><i>2023-07-13</i></span>
         </div>
         <span>
-          As the leading platform for creating custom forms, we are proud to
-          announce that we have been awarded the People's Choice Award for
-          Favorite Form Builder. We are honored to be recognized by our
-          customers for our commitment to providing the best form building
-          experience possible.
+          The people have spoken and we have listened. We are proud to announce that
+          the stockholders have voted to replace the current CEO Simon Bengtsson. The main reason 
+          for this was the lack of attendence at the annual meeting. He decided that he want to have
+          a vacation instead of attending the meeting. We are now looking for a new CEO.
         </span>
       </div>
       <div className='section'>
@@ -50,26 +50,23 @@ function pressPage() {
       </div>
       <div className='section'>
         <div>
-          <h2>NEW FORM UI</h2>
+          <h2>WALLSTREET STOCKEXCHANGE</h2>
           <span><i>2023-01-29</i></span>
         </div>
         <span>
-          We have been working hard to improve the user experience of our form
-          since the launch to make it easier for you to create and manage your
-          forms. We have also added some new features that will help you to
-          create more complex forms. We have also added some new features that
-          will give you more flexibility in the way you create your forms.
+          We are proud to announce that we are now listed on the Wallstreet
+          Stockexchange. We are looking forward to a bright future with our new
+          investors. 
         </span>
       </div>
       <div className='section'>
         <div>
-          <h2>DATABASE IMPROVEMENTS</h2>
+          <h2>NEW BOARD MEMEBERS</h2>
           <span><i>2023-07-13</i></span>
         </div>
         <span>
-          We updated our database to improve the performance of our form builder.
-          We also added some new features to make it easier for you to create
-          forms.
+          The board has decided to replace the current board members with new
+          members. The new board members are: - Marcus Rosin Lindeberg - Thomas Ingvarsson - Arnold Schwarzenegger
         </span>
       </div>
     </div>
