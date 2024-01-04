@@ -1,6 +1,5 @@
-
-
-.buttonStyle {
+// This hack is to increase the specifity to overide other styles
+.buttonStyle.buttonStyle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,10 +10,21 @@
     width: 100px;
     gap: 10px;
 
-    span {
+    & span {
         font-weight: 800;
     }
 
+    .arrow-btn {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: var(--secondary-color);
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.35);
+        .arrow-btn {
+            transform: translateX(5px);
+        }
+    }
 }
-
-

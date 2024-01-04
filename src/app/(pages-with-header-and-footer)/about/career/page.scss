@@ -1,28 +1,27 @@
 $primary-color: #4159b9;
 
-.pressContainer {
+
+.careerContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
 
     h1 {
         font-size: 2.5rem;
         font-weight: 700;
         line-height: 1.2;
-        padding-top: 2;
+        padding-top: 2rem;
         margin: 0 0 1rem 0;
     }
 }
-
 .section {
     padding: 2rem;
     width: 60%;
     height: 100%;
-    background-color: darken($primary-color, 15%);
-    border-radius: 6px;
-    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.35);
+    // background-color: darken($primary-color, 15%);
+    // border-radius: 6px;
+    // box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.35);
 
     div {
         display: flex;
@@ -47,5 +46,21 @@ $primary-color: #4159b9;
             font-size: 12px;
         }
     }
+    
 }
 
+.buttonContainer.buttonContainer {
+    display: flex;
+    padding-top: 1rem;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+
+    @media (max-width: 768px) {
+        span {
+            font-size: 16px;
+        }
+    }
+}
