@@ -32,9 +32,8 @@ function careerPage() {
         </div>
         <span>
           You love to create beautiful and functional designs. You will be
-            working with a team of developers and designers. We are looking for
-            you who eat, sleep and breathe design. Show us that you are the
-            one!
+          working with a team of developers and designers. We are looking for
+          you who eat, sleep and breathe design. Show us that you are the one!
         </span>
         <div className={styles.buttonContainer}>
           <FakeButton label='Apply' />
@@ -49,19 +48,16 @@ function careerPage() {
         </div>
         <span>
           We're working agile with scrum and we're looking for someone who can
-            take the role as product owner. Your main task are to make sure that
-            the team is working towards the right goal and that the team is
-            working as efficient as possible.
-            We are prefiring someone with experience from working with agile
-            teams.
+          take the role as product owner. Your main task are to make sure that
+          the team is working towards the right goal and that the team is
+          working as efficient as possible. We are prefiring someone with
+          experience from working with agile teams.
         </span>
         <div className={styles.buttonContainer}>
           <FakeButton label='Apply' />
         </div>
       </div>
     </div>
-    
-    
   )
 }
 export default careerPage
