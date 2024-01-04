@@ -1,12 +1,12 @@
 import FakeButton from "../../../_components/Button"
-import "./page.scss"
+import styles from "./page.module.scss"
 
 function careerPage() {
   return (
-    <div className='careerContainer'>
+    <div className={styles.careerContainer}>
       <h1>CAREER</h1>
 
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>Php developer</h2>
           <span>
@@ -19,11 +19,11 @@ function careerPage() {
           with a team of developers and designers. We are looking for someone
           who is passionate about programming.
         </span>
-        <div className="buttonContainer">
+        <div className={styles.buttonContainer}>
           <FakeButton label='Apply' />
         </div>
       </div>
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>UX Designer</h2>
           <span>
@@ -36,11 +36,11 @@ function careerPage() {
             you who eat, sleep and breathe design. Show us that you are the
             one!
         </span>
-        <div className="buttonContainer">
+        <div className={styles.buttonContainer}>
           <FakeButton label='Apply' />
         </div>
       </div>
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>Product owner</h2>
           <span>
@@ -55,7 +55,7 @@ function careerPage() {
             We are prefiring someone with experience from working with agile
             teams.
         </span>
-        <div className="buttonContainer">
+        <div className={styles.buttonContainer}>
           <FakeButton label='Apply' />
         </div>
       </div>

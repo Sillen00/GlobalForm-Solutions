@@ -1,10 +1,10 @@
-import "./page.scss"
+import styles from "./page.module.scss"
 
 function pressPage() {
   return (
-    <div className='pressContainer'>
+    <div className={styles.pressContainer}>
       <h1>Press</h1>
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>NEW CEO</h2>
           <span><i>2023-10-25</i></span>
@@ -18,7 +18,7 @@ function pressPage() {
 
         </span>
       </div>
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>PEOPLES CHOICE</h2>
           <span><i>2023-07-13</i></span>
@@ -30,7 +30,7 @@ function pressPage() {
           a vacation instead of attending the meeting. We are now looking for a new CEO.
         </span>
       </div>
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>SECURITY INFO</h2>
           <span><i>2023-02-01</i></span>
@@ -48,7 +48,7 @@ function pressPage() {
           should use a strong password and use a good antivirus software.
         </span>
       </div>
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>WALLSTREET STOCKEXCHANGE</h2>
           <span><i>2023-01-29</i></span>
@@ -59,7 +59,7 @@ function pressPage() {
           investors. 
         </span>
       </div>
-      <div className='section'>
+      <div className={styles.section}>
         <div>
           <h2>NEW BOARD MEMEBERS</h2>
           <span><i>2023-07-13</i></span>
