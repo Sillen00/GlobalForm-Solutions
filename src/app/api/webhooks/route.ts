@@ -14,7 +14,6 @@ export async function POST(req: Request) {
   try {
     const { type, data } = await verifyWebhook(req, WEBHOOK_SECRET)
 
-    // User handling
     switch (type) {
       case "user.created":
         // Verify that the webhook data contains a valid user ID
@@ -41,14 +40,31 @@ export async function POST(req: Request) {
         console.log("User was successfully created in the database: ", newUser)
         break
       case "user.deleted":
+        // Delete all associated data before deleting the user
+        const userForms = await db.form.findMany({
+          where: { createdBy: { clerkUserId: data.id } },
+        })
+        for (const form of userForms) {
+          // Delete all blocks and responses associated with affected forms
+          await db.block.deleteMany({
+            where: { formId: form.id },
+          })
+          await db.response.deleteMany({
+            where: { formId: form.id },
+          })
+        }
+        await db.form.deleteMany({
+          where: { createdBy: { clerkUserId: data.id } },
+        })
+
+        // Delete user from database
         const deletedUser = await db.user.delete({
           where: {
             clerkUserId: data.id,
           },
         })
-        // TODO: Also delete all associated forms and those forms associated blocks
         console.log(
-          "User was successfully created in the database: ",
+          "User and all associated data deleted successfully: ",
           deletedUser
         )
         break
