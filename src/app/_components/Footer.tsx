@@ -42,11 +42,8 @@ function Footer() {
         </Link>
       </AccordionSection>
       <AccordionSection title='Support'>
-        <Link href='#'>
+        <Link href='/support/faq'>
           <p>FAQ</p>
-        </Link>
-        <Link href='#'>
-          <p>Regulations</p>
         </Link>
       </AccordionSection>
 
