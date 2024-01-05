@@ -1,3 +1,4 @@
+import { db } from "~/server/db"
 import { verifyWebhook } from "./verification/webhook-verification"
 
 // The secret can be found in Clerk Dashboard -> Webhooks -> choose the webhook
@@ -15,8 +16,12 @@ export async function POST(req: Request) {
 
     switch (type) {
       case "user.created":
-        console.log(`Webhook with an ID of ${data.id} and type of ${type}`)
-        // TODO: Create the user in database
+        const newUser = await db.user.create({
+          data: {
+            clerkUserId: data.id,
+          },
+        })
+        console.log("User was successfully created in the database: ", newUser)
         break
       case "user.deleted":
         // TODO: Delete the user from database
