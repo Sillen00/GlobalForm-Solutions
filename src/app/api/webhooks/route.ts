@@ -24,7 +24,12 @@ export async function POST(req: Request) {
         console.log("User was successfully created in the database: ", newUser)
         break
       case "user.deleted":
-        // TODO: Delete the user from database
+        const deletedUser = await db.user.delete({
+          where: {
+            clerkUserId: data.id,
+          },
+        })
+        console.log("User was successfully created in the database: ", deletedUser)
         // TODO: Also delete all associated forms and those forms associated blocks
         break
       default:
