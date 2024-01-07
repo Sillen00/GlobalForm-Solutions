@@ -9,6 +9,7 @@
 
   .side-menu-wrapper {
     max-width: 300px;
+    min-width: 300px;
     background-color: var(--background-color);
     -webkit-overflow-scrolling: touch;
     height: calc(100vh - 72px);

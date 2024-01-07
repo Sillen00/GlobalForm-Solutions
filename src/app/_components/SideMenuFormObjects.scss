@@ -1,7 +1,37 @@
-.form-object {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+.side-menu-form-objects {
     
+    .form-object {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // max-width: 300px;
+
+        .trashcan-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: green !important;
+        }
+        
+        .input-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0 0.5rem;
+            
+            label {
+                font-weight: bold;
+            }
+            
+            input {
+                width: 100%;
+                height: 2rem;
+                border: 1px solid var(--primary-color);
+                border-radius: 5px;
+                padding: 0 0.5rem;
+                font-size: 1.2rem;
+            }
+        }
+    }
 }
