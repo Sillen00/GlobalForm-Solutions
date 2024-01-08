@@ -13,6 +13,7 @@ export async function POST(req: Request) {
 
   try {
     const { type, data } = await verifyWebhook(req, WEBHOOK_SECRET)
+    let responseMessage = "Webhook processed"
 
     switch (type) {
       case "user.created":
@@ -28,6 +29,7 @@ export async function POST(req: Request) {
 
         if (existingUser) {
           console.log(`User with ID ${data.id} already exists.`)
+          responseMessage = `User with ID ${data.id} already exists.`
           break
         }
 
@@ -38,6 +40,7 @@ export async function POST(req: Request) {
           },
         })
         console.log("User was successfully created in the database: ", newUser)
+        responseMessage = `User with ID ${data.id} was successfully created.`
         break
       case "user.deleted":
         await db.$transaction(async db => {
@@ -48,6 +51,7 @@ export async function POST(req: Request) {
 
           if (!user) {
             console.log(`User with ID ${data.id} does not exist.`)
+            responseMessage = `User with ID ${data.id} does not exist.`
             return
           }
 
@@ -78,13 +82,15 @@ export async function POST(req: Request) {
             "User and all associated data deleted successfully: ",
             deletedUser
           )
+          responseMessage = `User with ID ${data.id} was successfully deleted.`
         })
         break
       default:
         console.log("Unhandled webhook event:", type)
+        responseMessage = `Unhandled webhook event: ${type}. Consider adding a handler for this event or unsubscibing from it in Clerk Dashboard.`
         break
     }
-    return new Response("Webhook processed", { status: 200 })
+    return new Response(responseMessage, { status: 200 })
   } catch (err) {
     if (err instanceof Error && err.message) {
       console.error("Error in processing webhook:", err.message)
