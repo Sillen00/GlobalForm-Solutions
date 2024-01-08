@@ -19,6 +19,12 @@
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "next lint"
+    ]
+  },
   "dependencies": {
     "@clerk/nextjs": "^4.29.0",
     "@clerk/themes": "^1.7.9",
