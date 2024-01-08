@@ -62,27 +62,26 @@ export async function POST(req: Request) {
           // Delete all associated data before deleting the user
           const userForms = await db.form.findMany({
             where: { createdBy: { clerkUserId: data.id } },
+            select: { id: true },
           })
-          for (const form of userForms) {
-            // Delete all blocks and responses associated with affected forms
-            await db.formBlock.deleteMany({
-              where: { formId: form.id },
-            })
-            await db.response.deleteMany({
-              where: { formId: form.id },
-            })
-          }
+          const formIds = userForms.map(form => form.id)
+          await db.formBlock.deleteMany({
+            where: { formId: { in: formIds } },
+          })
+          await db.response.deleteMany({
+            where: { formId: { in: formIds } },
+          })
           await db.form.deleteMany({
-            where: { createdBy: { clerkUserId: data.id } },
+            where: { id: { in: formIds } },
           })
 
-          // Delete user from database
+          // Finally, delete the user
           await db.user.delete({
-            where: {
-              clerkUserId: data.id,
-            },
+            where: { clerkUserId: data.id },
           })
-          console.log(`User with ID ${data.id} and all associated data deleted successfully.`)
+          console.log(
+            `User with ID ${data.id} and all associated data deleted successfully.`
+          )
           responseMessage = `User with ID ${data.id} was successfully deleted.`
           responseStatus = 204
         })
