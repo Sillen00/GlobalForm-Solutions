@@ -29,7 +29,7 @@ export async function POST(req: Request) {
         })
 
         if (existingUser) {
-          console.log(`User with ID ${data.id} already exists.`)
+          console.log(`User with Clerk ID ${data.id} already exists.`)
           responseMessage = `User with ID ${data.id} already exists.`
           responseStatus = 409
           break
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
             clerkUserId: data.id,
           },
         })
-        console.log("User was successfully created in the database.")
+        console.log(`User with Clerk ID ${data.id} was successfully created.`)
         responseMessage = `User with ID ${data.id} was successfully created.`
         responseStatus = 201
         break
@@ -82,10 +82,10 @@ export async function POST(req: Request) {
               clerkUserId: data.id,
             },
           })
+          console.log(`User with ID ${data.id} and all associated data deleted successfully.`)
+          responseMessage = `User with ID ${data.id} was successfully deleted.`
+          responseStatus = 204
         })
-        console.log("User and all associated data deleted successfully.")
-        responseMessage = `User with ID ${data.id} was successfully deleted.`
-        responseStatus = 204
         break
       default:
         console.log("Unhandled webhook event:", type)
