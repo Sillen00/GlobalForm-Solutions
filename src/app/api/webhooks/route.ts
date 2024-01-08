@@ -41,6 +41,16 @@ export async function POST(req: Request) {
         break
       case "user.deleted":
         await db.$transaction(async db => {
+          // Check if the user exists in the database
+          const user = await db.user.findUnique({
+            where: { clerkUserId: data.id },
+          })
+
+          if (!user) {
+            console.log(`User with ID ${data.id} does not exist.`)
+            return
+          }
+
           // Delete all associated data before deleting the user
           const userForms = await db.form.findMany({
             where: { createdBy: { clerkUserId: data.id } },
