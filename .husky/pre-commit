@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Load environment variables and run scripts
+npx dotenv -e .env -- npm run lint && npm run format:check && npx prisma format

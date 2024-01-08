@@ -9,11 +9,12 @@
     "db:studio": "prisma studio",
     "db:seed": "node --loader ts-node/esm prisma/seed.ts",
     "dev": "prisma db push && next dev",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate && husky install",
     "lint": "next lint",
     "start": "next start",
     "format": "prettier --write \"**/*.{ts,tsx}\" && npx prisma format",
-    "format:check": "prettier --check \"**/*.{ts,tsx}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "prepare": "husky install"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -49,7 +50,9 @@
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "autoprefixer": "^10.4.14",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8.54.0",
+    "husky": "^8.0.0",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
