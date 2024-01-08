@@ -9,6 +9,7 @@
 
   .side-menu-wrapper {
     max-width: 300px;
+    min-width: 300px;
     background-color: var(--background-color);
     -webkit-overflow-scrolling: touch;
     height: calc(100vh - 72px);
@@ -19,10 +20,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 1rem;
+      padding: 0 0.5rem;
 
       h3 {
-        font-size: 1.5rem;
+        font-size: var(--bodytext);
         font-weight: bold;
       }
 

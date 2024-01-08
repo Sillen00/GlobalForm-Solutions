@@ -10,11 +10,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: var(--text-color);
 }
 
 body {
   background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .body-padding {
@@ -42,6 +42,7 @@ body {
   --background-color-footer: rgb(28, 30, 32);
 
   /* FONT SIZES---------------------------------------------- */
+  --smalltext: 12px;
   --bodytext: 20px;
   --subhead: 32px;
   --heading: 52px;
