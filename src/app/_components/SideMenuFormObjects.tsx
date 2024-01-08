@@ -3,13 +3,24 @@ import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 import styles from "./SideMenuFormObjects.module.scss"
 
 function SideMenuFormObjects() {
+  const removeFormObject = () => {
+    // Function to remove the form object from the form
+    console.log("removeFormObject")
+  }
+
+  const moveObject = () => {
+    // Function to move the form object in the form
+    // Jag tänkder att vi kan börja med att bara ha funktionaliteten för att flytta ner ett form objekt.
+    console.log("moveObject")
+  }
+
   return (
     <div className={styles.sideMenuFormObjects}>
       <div className={styles.formObject}>
-        <FaTrashCan />
+        <FaTrashCan onClick={removeFormObject()} />
         <label id='form-title'>Form Title</label>
         <input id='form-title' type='text' />
-        <FaGripLines />
+        <FaGripLines onClick={moveObject()} />
       </div>
     </div>
   )
