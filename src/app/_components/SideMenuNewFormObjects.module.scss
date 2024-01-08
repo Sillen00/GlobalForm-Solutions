@@ -17,20 +17,38 @@
             font-size: 1.2rem;
         }
     }
+    
+    h4 {
+        font-size: var(--smalltext);
+        font-weight: bold;
+        margin: 1rem 0.5rem 0 0.5rem;
+    }
 
     .blockTypeContainer {
-        margin: 1rem 0.5rem 0 0.5rem;
-
-        > p {
-            font-size: var(--smalltext);
-            font-weight: bold;
-        }
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin: 0 0.5rem;
         
         div {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background-color: black;
+            padding: 0.5rem 0;
+
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            p {
+                font-size: var(--smalltext);
+                font-weight: bold;
+                text-align: center;
+                margin: 0.2rem 0 0 0;
+            }
         }
     }
 }

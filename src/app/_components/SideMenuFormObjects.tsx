@@ -17,22 +17,22 @@ function SideMenuFormObjects() {
   return (
     <div className={styles.sideMenuFormObjects}>
       <div className={styles.formObject}>
-        <FaTrashCan onClick={removeFormObject()} />
+        <FaTrashCan onClick={removeFormObject} />
         <label id='form-title'>Form Title</label>
         <input id='form-title' type='text' />
-        <FaGripLines onClick={moveObject()} />
+        <FaGripLines onClick={moveObject} />
       </div>
       <div className={styles.formObject}>
-        <FaTrashCan onClick={removeFormObject()} />
+        <FaTrashCan onClick={removeFormObject} />
         <label id='form-date'>Form Date</label>
         <input id='form-date' type='text' />
-        <FaGripLines onClick={moveObject()} />
+        <FaGripLines onClick={moveObject} />
       </div>
       <div className={styles.formObject}>
-        <FaTrashCan onClick={removeFormObject()} />
+        <FaTrashCan onClick={removeFormObject} />
         <label id='form-description'>Form Description</label>
         <input id='form-description' type='text' />
-        <FaGripLines onClick={moveObject()} />
+        <FaGripLines onClick={moveObject} />
       </div>
     </div>
   )
