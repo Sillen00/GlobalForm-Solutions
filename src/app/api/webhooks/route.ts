@@ -14,6 +14,7 @@ export async function POST(req: Request) {
   try {
     const { type, data } = await verifyWebhook(req, WEBHOOK_SECRET)
     let responseMessage = "Webhook processed"
+    let responseStatus = 200
 
     switch (type) {
       case "user.created":
@@ -30,17 +31,19 @@ export async function POST(req: Request) {
         if (existingUser) {
           console.log(`User with ID ${data.id} already exists.`)
           responseMessage = `User with ID ${data.id} already exists.`
+          responseStatus = 409
           break
         }
 
         // Create user in database
-        const newUser = await db.user.create({
+        await db.user.create({
           data: {
             clerkUserId: data.id,
           },
         })
-        console.log("User was successfully created in the database: ", newUser)
+        console.log("User was successfully created in the database.")
         responseMessage = `User with ID ${data.id} was successfully created.`
+        responseStatus = 201
         break
       case "user.deleted":
         await db.$transaction(async db => {
@@ -52,6 +55,7 @@ export async function POST(req: Request) {
           if (!user) {
             console.log(`User with ID ${data.id} does not exist.`)
             responseMessage = `User with ID ${data.id} does not exist.`
+            responseStatus = 404
             return
           }
 
@@ -73,24 +77,23 @@ export async function POST(req: Request) {
           })
 
           // Delete user from database
-          const deletedUser = await db.user.delete({
+          await db.user.delete({
             where: {
               clerkUserId: data.id,
             },
           })
-          console.log(
-            "User and all associated data deleted successfully: ",
-            deletedUser
-          )
-          responseMessage = `User with ID ${data.id} was successfully deleted.`
         })
+        console.log("User and all associated data deleted successfully.")
+        responseMessage = `User with ID ${data.id} was successfully deleted.`
+        responseStatus = 204
         break
       default:
         console.log("Unhandled webhook event:", type)
-        responseMessage = `Unhandled webhook event: ${type}. Consider adding a handler for this event or unsubscibing from it in Clerk Dashboard.`
+        responseMessage = `Unhandled webhook event: ${type}. Consider adding a handler for this event or unsubscribing from it in Clerk Dashboard.`
+        responseStatus = 501
         break
     }
-    return new Response(responseMessage, { status: 200 })
+    return new Response(responseMessage, { status: responseStatus })
   } catch (err) {
     if (err instanceof Error && err.message) {
       console.error("Error in processing webhook:", err.message)
