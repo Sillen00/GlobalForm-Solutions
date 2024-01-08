@@ -1,0 +1,38 @@
+// FOOTER ACCORDION SCSS
+
+.accordionSection {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    h2 {
+      cursor: pointer;
+      border-bottom: 1px solid var(--primary-color);
+      padding: 1rem 1rem 0.5rem 0rem;
+      font-size: calc(var(--bodytext) + 5px);
+      font-weight: 700;
+  
+    //   @media (min-width: 768px) {
+    //     // font-size: var(--bodytext);
+    //     padding: 0 0 0 0;
+    //   }
+    }
+  
+    .content {
+      display: none;
+      padding: 1rem 1rem 1rem 1rem;
+  
+  
+      @media (min-width: 768px) {
+        padding: 0 0 0 0;
+      }
+    }
+  
+    &.active {
+      .content {
+        display: block;
+      }
+    }
+  }
+  
