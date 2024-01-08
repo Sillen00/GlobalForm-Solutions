@@ -65,7 +65,7 @@ export async function POST(req: Request) {
           })
           for (const form of userForms) {
             // Delete all blocks and responses associated with affected forms
-            await db.block.deleteMany({
+            await db.formBlock.deleteMany({
               where: { formId: form.id },
             })
             await db.response.deleteMany({
