@@ -5,12 +5,6 @@ import styles from "./page.module.scss"
 function faqPage() {
   return (
     <>
-      {/* This struggles alot with the scss
-      created a module file to this but seems like the local accordian.sccs
-      is overriding accordian .content display: block that should be none */}
-
-      {/* Set module on both accordian sccs file and faqAccordian file, still 
-      overridden by component scss....why?? */}
       <div className={styles.faqContainer}>
         <h1>FAQ</h1>
         <div className={styles.accordionContainer}>
@@ -37,14 +31,15 @@ function faqPage() {
             <p>Yes, it´s 200 forms per account.</p>
           </Accordion>
           <Accordion title='Can I edit incoming answers from customers?'>
-            <p>No, due to security reasons thats not allowed. But It´s in the pipeline as a feature in the future. Realese TBA.</p>
+            <p>
+              No, due to security reasons thats not allowed. But It´s in the
+              pipeline as a feature in the future. Realese TBA.
+            </p>
           </Accordion>
           <Accordion title='How much does this service cost?'>
             <p>IT`S FREE!!` </p>
           </Accordion>
         </div>
-      </div>
-
       <div style={{ paddingTop: "6rem" }}>
         <h3>
           If you havent found your answer, please feel free to contact us at{" "}
@@ -54,6 +49,7 @@ function faqPage() {
             </i>{" "}
           </b>{" "}
         </h3>
+      </div>
       </div>
     </>
   )

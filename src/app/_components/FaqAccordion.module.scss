@@ -1,10 +1,12 @@
-// FOOTER ACCORDION SCSS
+// FAQ ACCORDION SCSS
 
 .accordionSection {
     @media (min-width: 768px) {
       display: flex;
       flex-direction: column;
     }
+
+    max-width: 795px;
   
     h2 {
       cursor: pointer;
@@ -13,10 +15,6 @@
       font-size: calc(var(--bodytext) + 5px);
       font-weight: 700;
   
-    //   @media (min-width: 768px) {
-    //     // font-size: var(--bodytext);
-    //     padding: 0 0 0 0;
-    //   }
     }
   
     .content {
