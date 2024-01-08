@@ -19,27 +19,33 @@ function faqPage() {
               Yes, you can. We recomend that you only use a personal debit card.
             </p>
           </Accordion>
-          <Accordion title='Är jorden platt?'>
+          <Accordion title='I´ve created a form and want to change it, how do I do that?'>
             <p>
-              Klart den är, annars hade du inte kunnat se en byggnad flera
-              kilometer bort.
+              Unfortonly you can´t change a form once it´s created. You can
+              however create a new one and delete the old one. But rember that
+              the old link will be invalid if you delete the old form.
             </p>
           </Accordion>
-          <Accordion title='Hur långt bromsar man på 30m?'>
-            <p>4504 sek tar det.</p>
+          <Accordion title='I´ve forgot my password, how can I retrieve it?'>
+            <p>
+              On the login page, there is an option "forgot password" click
+              there and follow the instructions and a new password will be
+              generated
+            </p>
           </Accordion>
-          <Accordion title='Hur långt är ett snöre?'>
-            <p>Långt som fan!!</p>
+          <Accordion title='Is there a maxium number of forms I can create?'>
+            <p>Yes, it´s 200 forms per account.</p>
           </Accordion>
-          <Accordion title='Varför kan man inte äta luft?'>
-            <p>Det kan man, gapa större bara!!</p>
+          <Accordion title='Can I edit incoming answers from customers?'>
+            <p>No, due to security reasons thats not allowed. But It´s in the pipeline as a feature in the future. Realese TBA.</p>
           </Accordion>
-          <Accordion title='Är fem myror fler än 4 elefanter?'>
-            <p>Ja det är det.</p>
+          <Accordion title='How much does this service cost?'>
+            <p>IT`S FREE!!` </p>
           </Accordion>
         </div>
       </div>
-      <div>
+
+      <div style={{ paddingTop: "6rem" }}>
         <h3>
           If you havent found your answer, please feel free to contact us at{" "}
           <b>
