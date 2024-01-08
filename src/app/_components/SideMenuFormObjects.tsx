@@ -1,16 +1,14 @@
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 
-import "./SideMenuFormObjects.scss"
+import styles from "./SideMenuFormObjects.module.scss"
 
 function SideMenuFormObjects() {
   return (
-    <div className='side-menu-form-objects'>
-      <div className='form-object'>
-        <FaTrashCan className='trashcan-icon' />
-        <div className='input-box'>
-          <label id='form-title'>Form Title</label>
-          <input id='form-title' type='text' />
-        </div>
+    <div className={styles.sideMenuFormObjects}>
+      <div className={styles.formObject}>
+        <FaTrashCan />
+        <label id='form-title'>Form Title</label>
+        <input id='form-title' type='text' />
         <FaGripLines />
       </div>
     </div>
