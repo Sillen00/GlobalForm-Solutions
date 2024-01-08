@@ -33,18 +33,18 @@ model Form {
   endTime     String
   location    String
   description String
-  blocks      Block[]
+  blocks      FormBlock[]
   responses   Response[]
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 }
 
-model Block {
+model FormBlock {
   id              String    @id @default(auto()) @map("_id") @db.ObjectId
   order           Int
   title           String
   description     String?
-  type            BlockType
+  type            FormBlockType
   required        Boolean
   placeholderText String?
   options         String[]
@@ -63,7 +63,7 @@ model Response {
 
 // Enums
 
-enum BlockType {
+enum FormBlockType {
   text
   textarea
   radio
