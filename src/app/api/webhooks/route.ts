@@ -15,7 +15,6 @@ export async function POST(req: Request) {
     const { type, data } = await verifyWebhook(req, WEBHOOK_SECRET)
     let responseMessage = "Webhook processed"
     let responseStatus = 200
-    let test;
 
     switch (type) {
       case "user.created":
