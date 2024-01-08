@@ -71,7 +71,6 @@ export async function POST(req: Request) {
         })
         break
       default:
-        // TODO: Look up other useful cases in Clerk docs
         console.log("Unhandled webhook event:", type)
         break
     }
