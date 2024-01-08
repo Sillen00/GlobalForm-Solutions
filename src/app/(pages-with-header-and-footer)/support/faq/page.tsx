@@ -40,16 +40,16 @@ function faqPage() {
             <p>IT`S FREE!!` </p>
           </Accordion>
         </div>
-      <div style={{ paddingTop: "6rem" }}>
-        <h3>
-          If you havent found your answer, please feel free to contact us at{" "}
-          <b>
-            <i>
-              <a href='mailto:help@gfs.com'>help@gfs.com</a>
-            </i>{" "}
-          </b>{" "}
-        </h3>
-      </div>
+        <div style={{ paddingTop: "6rem" }}>
+          <h3>
+            If you havent found your answer, please feel free to contact us at{" "}
+            <b>
+              <i>
+                <a href='mailto:help@gfs.com'>help@gfs.com</a>
+              </i>{" "}
+            </b>{" "}
+          </h3>
+        </div>
       </div>
     </>
   )
