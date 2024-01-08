@@ -3,20 +3,14 @@ import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient()
 
 async function main() {
-  // const testData = [{ name: "Test Name 1" }, { name: "Test Name 2" }]
-  // for (const data of testData) {
-  //   const testModel = await prisma.testModel.create({
-  //     data,
-  //   })
-  //   console.log(`Created test model with id: ${testModel.id}`)
-  // }
+  // TODO: write seed for adding forms and users to the database
 }
 
 main()
-  .catch(e => {
-    console.error(e)
+  .catch(err => {
+    console.error(err)
     process.exit(1)
   })
-  .finally(async () => {
-    await prisma.$disconnect()
+  .finally(() => {
+    void prisma.$disconnect()
   })
