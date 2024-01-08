@@ -6,11 +6,15 @@ import { MdEmail } from "react-icons/md"
 import { RxDropdownMenu } from "react-icons/rx"
 import { TbLetterT, TbNumbers, TbSquareLetterT } from "react-icons/tb"
 import { TiInputChecked } from "react-icons/ti"
-import styles from "./SideMenuNewFormObjects.module.scss"
+import styles from "./SideMenuNewFormBlocks.module.scss"
 
-function SideMenuNewFormObjects() {
+function SideMenuNewFormBlocks() {
+  const addFormBlock = () => {
+    console.log("add form block")
+  }
+
   return (
-    <div className={styles.sideMenuNewObjects}>
+    <div className={styles.sideMenuNewBlocks}>
       <div className={styles.inputBox}>
         <label id='object-title'>Object title (required)</label>
         <input id='object-title' type='text' name='object-title' required />
@@ -18,47 +22,47 @@ function SideMenuNewFormObjects() {
 
       <h4>Object types:</h4>
       <div className={styles.blockTypeContainer}>
-        <div>
+        <div onClick={addFormBlock}>
           <TbLetterT />
           <p>Text</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <TbSquareLetterT />
           <p>Text Area</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <LuFormInput />
           <p>Text input</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <TbNumbers />
           <p>Number input</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <FaPhoneAlt />
           <p>Phone input</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <MdEmail />
           <p>Email input</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <IoCalendarNumberSharp />
           <p>Date input</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <CiLink />
           <p>Url input</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <RxDropdownMenu />
           <p>Dropdown input</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <FaRegDotCircle />
           <p>Radio Button</p>
         </div>
-        <div>
+        <div onClick={addFormBlock}>
           <TiInputChecked />
           <p>Checkbox</p>
         </div>
@@ -67,4 +71,4 @@ function SideMenuNewFormObjects() {
   )
 }
 
-export default SideMenuNewFormObjects
+export default SideMenuNewFormBlocks
