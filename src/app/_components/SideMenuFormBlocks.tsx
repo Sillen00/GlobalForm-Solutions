@@ -4,12 +4,12 @@ import styles from "./SideMenuFormBlocks.module.scss"
 
 function SideMenuFormBlocks() {
   const removeFormBlock = () => {
-    // Function to remove the form object from the form
+    // Function to remove the form block from the form
     console.log("removeFormBlock")
   }
 
   const moveBlock = () => {
-    // Function to move the form object in the form
+    // Function to move the form block in the form
     // Jag tänkder att vi kan börja med att bara ha funktionaliteten för att flytta ner ett form objekt.
     console.log("moveBlock")
   }

@@ -7,11 +7,10 @@ import SideMenuNewFormBlocks from "~/app/_components/SideMenuNewFormBlocks"
 import "./page.scss"
 
 function CreateFormPage() {
-  const [isSideMenuNewBlocksOpen, setIsSideMenuNewObjectsOpen] =
-    useState(false)
+  const [isSideMenuNewBlocksOpen, setIsSideMenuNewBlocksOpen] = useState(false)
 
   const toggleFormMenu = () => {
-    setIsSideMenuNewObjectsOpen(prevState => !prevState)
+    setIsSideMenuNewBlocksOpen(prevState => !prevState)
   }
 
   return (
@@ -19,7 +18,7 @@ function CreateFormPage() {
       <div className='side-menu-wrapper'>
         <div onClick={() => toggleFormMenu()} className='side-menu-header'>
           {isSideMenuNewBlocksOpen ? (
-            <h3>Add new object</h3>
+            <h3>Add new block</h3>
           ) : (
             <h3>Create Form</h3>
           )}

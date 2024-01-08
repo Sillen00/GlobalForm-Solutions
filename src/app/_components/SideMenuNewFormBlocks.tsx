@@ -16,11 +16,11 @@ function SideMenuNewFormBlocks() {
   return (
     <div className={styles.sideMenuNewBlocks}>
       <div className={styles.inputBox}>
-        <label id='object-title'>Object title (required)</label>
-        <input id='object-title' type='text' name='object-title' required />
+        <label id='block-title'>Block title (required)</label>
+        <input id='block-title' type='text' name='block-title' required />
       </div>
 
-      <h4>Object types:</h4>
+      <h4>Block types:</h4>
       <div className={styles.blockTypeContainer}>
         <div onClick={addFormBlock}>
           <TbLetterT />
