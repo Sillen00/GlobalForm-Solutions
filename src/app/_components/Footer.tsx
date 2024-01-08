@@ -1,6 +1,6 @@
 import { FaInstagram, FaLinkedin } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
-import AccordionSection from "./AccordionSection"
+import AccordionSection from "./FooterAccordion"
 
 import Link from "next/link"
 import "./Footer.scss"
@@ -42,11 +42,8 @@ function Footer() {
         </Link>
       </AccordionSection>
       <AccordionSection title='Support'>
-        <Link href='#'>
+        <Link href='/support/faq'>
           <p>FAQ</p>
-        </Link>
-        <Link href='#'>
-          <p>Regulations</p>
         </Link>
       </AccordionSection>
 
