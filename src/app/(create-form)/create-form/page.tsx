@@ -18,10 +18,13 @@ function CreateFormPage() {
     <div className='create-form-wrapper'>
       <div className='side-menu-wrapper'>
         <div onClick={() => toggleFormMenu()} className='side-menu-header'>
-          <h3>Create Form</h3>
-          <p>
-            <FaPlus />
-          </p>
+          {isSideMenuNewObjectsOpen ? (
+            <h3>Add new object</h3>
+          ) : (
+            <h3>Create Form</h3>
+          )}
+
+          <FaPlus className={isSideMenuNewObjectsOpen ? "plusAnimation" : ""} />
         </div>
 
         {!isSideMenuNewObjectsOpen && <SideMenuFormObjects />}

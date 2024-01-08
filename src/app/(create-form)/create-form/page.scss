@@ -26,8 +26,13 @@
         font-weight: bold;
       }
 
-      p {
+      svg {
         font-size: 1.2rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .plusAnimation {
+        transform: rotate(45deg);
       }
     }
   }
