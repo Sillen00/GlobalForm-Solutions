@@ -1,6 +1,8 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Setup
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,18 +12,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum BlockType {
-  text
-  textarea
-  radio
-  checkbox
-  dropdown
-  date
-  number
-  email
-  tel
-  url
-}
+// Models
 
 model User {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
@@ -32,9 +23,9 @@ model User {
 }
 
 model Form {
-  id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  userId      String     @db.ObjectId
-  createdBy   User       @relation(fields: [userId], references: [id])
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String      @db.ObjectId
+  createdBy   User        @relation(fields: [userId], references: [id])
   title       String
   startDate   DateTime
   endDate     DateTime
@@ -42,23 +33,23 @@ model Form {
   endTime     String
   location    String
   description String
-  blocks      Block[]
+  blocks      FormBlock[]
   responses   Response[]
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 }
 
-model Block {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+model FormBlock {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
   order           Int
   title           String
   description     String?
-  type            BlockType
+  type            FormBlockType
   required        Boolean
   placeholderText String?
   options         String[]
-  formId          String    @db.ObjectId
-  form            Form      @relation(fields: [formId], references: [id])
+  formId          String        @db.ObjectId
+  form            Form          @relation(fields: [formId], references: [id])
 }
 
 model Response {
@@ -68,4 +59,19 @@ model Response {
   answers   Json
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// Enums
+
+enum FormBlockType {
+  text
+  textarea
+  radio
+  checkbox
+  dropdown
+  date
+  number
+  email
+  tel
+  url
 }
