@@ -41,6 +41,7 @@ body {
   --background-color-footer: rgb(28, 30, 32);
 
   /* FONT SIZES---------------------------------------------- */
+  --smalltext: 12px;
   --bodytext: 20px;
   --subhead: 32px;
   --heading: 52px;
