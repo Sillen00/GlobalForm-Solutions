@@ -40,33 +40,35 @@ export async function POST(req: Request) {
         console.log("User was successfully created in the database: ", newUser)
         break
       case "user.deleted":
-        // Delete all associated data before deleting the user
-        const userForms = await db.form.findMany({
-          where: { createdBy: { clerkUserId: data.id } },
-        })
-        for (const form of userForms) {
-          // Delete all blocks and responses associated with affected forms
-          await db.block.deleteMany({
-            where: { formId: form.id },
+        await db.$transaction(async db => {
+          // Delete all associated data before deleting the user
+          const userForms = await db.form.findMany({
+            where: { createdBy: { clerkUserId: data.id } },
           })
-          await db.response.deleteMany({
-            where: { formId: form.id },
+          for (const form of userForms) {
+            // Delete all blocks and responses associated with affected forms
+            await db.block.deleteMany({
+              where: { formId: form.id },
+            })
+            await db.response.deleteMany({
+              where: { formId: form.id },
+            })
+          }
+          await db.form.deleteMany({
+            where: { createdBy: { clerkUserId: data.id } },
           })
-        }
-        await db.form.deleteMany({
-          where: { createdBy: { clerkUserId: data.id } },
-        })
 
-        // Delete user from database
-        const deletedUser = await db.user.delete({
-          where: {
-            clerkUserId: data.id,
-          },
+          // Delete user from database
+          const deletedUser = await db.user.delete({
+            where: {
+              clerkUserId: data.id,
+            },
+          })
+          console.log(
+            "User and all associated data deleted successfully: ",
+            deletedUser
+          )
         })
-        console.log(
-          "User and all associated data deleted successfully: ",
-          deletedUser
-        )
         break
       default:
         // TODO: Look up other useful cases in Clerk docs
