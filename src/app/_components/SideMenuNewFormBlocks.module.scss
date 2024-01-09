@@ -1,4 +1,6 @@
 .sideMenuNewBlocks {
+    position: relative;
+    padding-bottom: 4.5rem;
     
     .inputBox {
         margin: 1rem 0.5rem 0 0.5rem;
@@ -60,7 +62,12 @@
         cursor: pointer;
         bottom: 1rem;
         left: 50%;
-        transform: translateX(-50%);        
+        transform: translateX(-50%);
+        
+        &:hover {
+            box-shadow: 0 5px 10px 0 rgba(160, 160, 160, 0.2);
+            bottom: 1.1rem;
+        }
     }
 
 }
