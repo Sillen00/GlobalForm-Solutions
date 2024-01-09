@@ -51,4 +51,16 @@
             }
         }
     }
+
+    button {
+        position: absolute;
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+        cursor: pointer;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);        
+    }
+
 }

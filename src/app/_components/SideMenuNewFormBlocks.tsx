@@ -67,6 +67,8 @@ function SideMenuNewFormBlocks() {
           <p>Checkbox</p>
         </div>
       </div>
+
+      <button>Add block</button>
     </div>
   )
 }
