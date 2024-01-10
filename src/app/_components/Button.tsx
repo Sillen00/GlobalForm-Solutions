@@ -23,22 +23,28 @@ interface ButtonProps {
   className?: string
 }
 
-
 const iconMap = {
   [IconType.None]: null,
-  [IconType.Right]: IoIosArrowDroprightCircle as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
-  [IconType.Left]: IoIosArrowDropleft as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
-  [IconType.Up]: IoIosArrowDropup as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
-  [IconType.Down]: IoIosArrowDropdown as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
-
+  [IconType.Right]: IoIosArrowDroprightCircle as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
+  [IconType.Left]: IoIosArrowDropleft as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
+  [IconType.Up]: IoIosArrowDropup as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
+  [IconType.Down]: IoIosArrowDropdown as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
 }
 
-function Button({ label, icon, className  }: ButtonProps): JSX.Element {
+function Button({ label, icon, className }: ButtonProps): JSX.Element {
   const Icon = iconMap[icon]
   return (
     <button className={`buttonStyle ${className}`}>
       <span>{label}</span>
-      {Icon && <Icon className={`arrow-btn ${className}`} />} 
+      {Icon && <Icon className={`arrow-btn ${className}`} />}
     </button>
   )
 }

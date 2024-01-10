@@ -17,9 +17,11 @@ function TextInput() {
           //   onChange={e => setBlockTitle(e.target.value)}
         />
       </div>
-      <Button label="Click" icon={IconType.Down} className={styles.iconStyle}>
-        </Button>
-     
+      <Button
+        label='Click'
+        icon={IconType.Down}
+        className={styles.iconStyle}
+      ></Button>
     </div>
   )
 }
