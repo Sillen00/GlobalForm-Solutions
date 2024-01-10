@@ -34,6 +34,15 @@ function DashboardPage() {
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
+          {/* {forms.map((form) => (
+            <FormCard
+              key={form.id}
+              date={form.startDate}
+              time={form.startTime}
+              title={form.title}
+              place={form.location}
+            />
+          ))} */}
         </div>
       </div>
     </SignedIn>
