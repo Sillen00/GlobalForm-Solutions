@@ -8,6 +8,8 @@ import { RxDropdownMenu } from "react-icons/rx"
 import { TbLetterT, TbNumbers, TbSquareLetterT } from "react-icons/tb"
 import { TiInputChecked } from "react-icons/ti"
 import styles from "./SideMenuNewFormBlocks.module.scss"
+import TextInput from "./_form-blocks/TextInput"
+import Text from "./_form-blocks/text"
 
 function SideMenuNewFormBlocks() {
   const [selectedBlock, setSelectedBlock] = useState<string | null>(null)
@@ -19,66 +21,59 @@ function SideMenuNewFormBlocks() {
 
   return (
     <div className={styles.sideMenuNewBlocks}>
-      {/* <div className={styles.inputBox}>
-        <label id='block-title'>Block title (required)</label>
-        <input
-          id='block-title'
-          type='text'
-          name='block-title'
-          required
-          value={blockTitle}
-          onChange={e => setBlockTitle(e.target.value)}
-        />
-      </div> */}
+      {/* If the selectedblock state is empty show all blocks */}
+      {selectedBlock === null && (
+        <div className={styles.blockTypeContainer}>
+          <div onClick={() => handleFormBlockClick("text")}>
+            <TbLetterT />
+            <p>Text</p>
+          </div>
+          <div onClick={() => handleFormBlockClick("textinput")}>
+            <LuFormInput />
+            <p>Text input</p>
+          </div>
+          <div className='text-gray-600'>
+            <TbSquareLetterT />
+            <p>Text Area</p>
+          </div>
+          <div className='text-gray-600'>
+            <TbNumbers />
+            <p>Number input</p>
+          </div>
+          <div className='text-gray-600'>
+            <FaPhoneAlt />
+            <p>Phone input</p>
+          </div>
+          <div className='text-gray-600'>
+            <MdEmail />
+            <p>Email input</p>
+          </div>
+          <div className='text-gray-600'>
+            <IoCalendarNumberSharp />
+            <p>Date input</p>
+          </div>
+          <div className='text-gray-600'>
+            <CiLink />
+            <p>Url input</p>
+          </div>
+          <div className='text-gray-600'>
+            <RxDropdownMenu />
+            <p>Dropdown input</p>
+          </div>
+          <div className='text-gray-600'>
+            <FaRegDotCircle />
+            <p>Radio Button</p>
+          </div>
+          <div className='text-gray-600'>
+            <TiInputChecked />
+            <p>Checkbox</p>
+          </div>
+        </div>
+      )}
 
-      <div className={styles.blockTypeContainer}>
-        <div onClick={() => handleFormBlockClick("text")}>
-          <TbLetterT />
-          <p>Text</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("textinput")}>
-          <LuFormInput />
-          <p>Text input</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("textarea")}>
-          <TbSquareLetterT />
-          <p>Text Area</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("numberinput")}>
-          <TbNumbers />
-          <p>Number input</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("phoneinput")}>
-          <FaPhoneAlt />
-          <p>Phone input</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("emailinput")}>
-          <MdEmail />
-          <p>Email input</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("dateinput")}>
-          <IoCalendarNumberSharp />
-          <p>Date input</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("urlinput")}>
-          <CiLink />
-          <p>Url input</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("dropdowninput")}>
-          <RxDropdownMenu />
-          <p>Dropdown input</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("radiobutton")}>
-          <FaRegDotCircle />
-          <p>Radio Button</p>
-        </div>
-        <div onClick={() => handleFormBlockClick("checkbox")}>
-          <TiInputChecked />
-          <p>Checkbox</p>
-        </div>
-      </div>
+      {selectedBlock === "text" && <Text />}
+      {selectedBlock === "textinput" && <TextInput />}
 
-      {/* <button onClick={addFormBlock}>Add block</button> */}
     </div>
   )
 }
