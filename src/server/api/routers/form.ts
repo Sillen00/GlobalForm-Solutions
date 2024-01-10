@@ -3,11 +3,14 @@ import { z } from "zod"
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
 
 export const formRouter = createTRPCRouter({
-  test: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      }
-    }),
+  getUserForms: publicProcedure.input(z.string()).query(({ ctx, input }) => {
+    return ctx.db.user.findUnique({
+      where: {
+        clerkUserId: input,
+      },
+      select: {
+        forms: true,
+      },
+    })
+  }),
 })
