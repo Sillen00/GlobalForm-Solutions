@@ -1,7 +1,5 @@
 function Text() {
-  return (
-    <div>Text</div>
-  )
+  return <div>Text</div>
 }
 
 export default Text

@@ -73,7 +73,6 @@ function SideMenuNewFormBlocks() {
 
       {selectedBlock === "text" && <Text />}
       {selectedBlock === "textinput" && <TextInput />}
-
     </div>
   )
 }
