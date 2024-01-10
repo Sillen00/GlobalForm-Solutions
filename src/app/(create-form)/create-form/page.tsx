@@ -8,14 +8,24 @@ import "./page.scss"
 
 function CreateFormPage() {
   const [isSideMenuNewBlocksOpen, setIsSideMenuNewBlocksOpen] = useState(false)
+  const [isPreviewActive, setIsPreviewActive] = useState(false)
 
   const toggleFormMenu = () => {
     setIsSideMenuNewBlocksOpen(prevState => !prevState)
   }
 
+  const togglePreview = () => {
+    setIsPreviewActive(prevState => !prevState)
+  }
+
   return (
     <div className='create-form-wrapper'>
-      <div className='side-menu-wrapper'>
+      {/* FORM MENU SECTION -------------------------------------------------------------------------------------------*/}
+      <div
+        className={`side-menu-wrapper ${
+          isPreviewActive ? "activePreview" : ""
+        }`}
+      >
         <div onClick={() => toggleFormMenu()} className='side-menu-header'>
           {isSideMenuNewBlocksOpen ? (
             <h3>Add new block</h3>
@@ -30,12 +40,34 @@ function CreateFormPage() {
 
         {isSideMenuNewBlocksOpen && <SideMenuNewFormBlocks />}
 
+        {/* SIDE MENU TOGGLE PREVIEW BUTTON (ONLY MOBILE) */}
         {!isSideMenuNewBlocksOpen && (
-          <button className='previewBtn'>Preview Form</button>
+          <button
+            className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
+            onClick={() => togglePreview()}
+          >
+            Preview Form
+          </button>
         )}
       </div>
 
-      <FormPreview />
+      {/* FORM PREVIEW SECTION ------------------------------------------------------------------------------------*/}
+      <section
+        className={`form-preview ${isPreviewActive ? "activePreview" : ""}`}
+      >
+        {/* FORM PREVIEW CONTENT */}
+        <FormPreview />
+
+        {/* FORM PREVIEW TOGGLE BUTTON (ONLY MOBILE) */}
+        {!isSideMenuNewBlocksOpen && (
+          <button
+            className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
+            onClick={() => togglePreview()}
+          >
+            Create Form
+          </button>
+        )}
+      </section>
     </div>
   )
 }
