@@ -40,7 +40,12 @@ const iconMap = {
   >,
 }
 
-function Button({ children, icon, className, onClick }: ButtonProps): JSX.Element {
+function Button({
+  children,
+  icon,
+  className,
+  onClick,
+}: ButtonProps): JSX.Element {
   const Icon = iconMap[icon]
   return (
     <button className={`buttonStyle ${className}`} onClick={onClick}>

@@ -1,12 +1,9 @@
 import "./FormPreview.scss"
 
-function FormPreview() {
+function FormPreview({ blockTitle }) {
   return (
     <section className='form-preview'>
-      <p>
-        Här får vi bygga upp lite olika textfält som ska vara required i
-        formuläret.
-      </p>
+      <div>{blockTitle}</div>
     </section>
   )
 }
