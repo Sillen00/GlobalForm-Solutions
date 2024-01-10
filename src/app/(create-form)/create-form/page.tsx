@@ -29,6 +29,10 @@ function CreateFormPage() {
         {!isSideMenuNewBlocksOpen && <SideMenuFormBlocks />}
 
         {isSideMenuNewBlocksOpen && <SideMenuNewFormBlocks />}
+
+        {!isSideMenuNewBlocksOpen && (
+          <button className='previewBtn'>Preview Form</button>
+        )}
       </div>
 
       <FormPreview />
