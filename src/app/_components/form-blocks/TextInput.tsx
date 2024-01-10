@@ -1,3 +1,4 @@
+import Button, { IconType } from "./../Button"
 import styles from "./TextInput.module.scss"
 
 function TextInput() {
@@ -16,7 +17,9 @@ function TextInput() {
           //   onChange={e => setBlockTitle(e.target.value)}
         />
       </div>
-      <button>Add block</button>
+      <Button label="Click" icon={IconType.Down} className={styles.iconStyle}>
+        </Button>
+     
     </div>
   )
 }

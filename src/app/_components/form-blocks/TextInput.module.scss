@@ -20,20 +20,25 @@
         }
     }
 
-    button {
-        position: absolute;
-        background-color: var(--primary-color);
-        border-radius: 5px;
-        padding: 0.5rem 2rem;
-        cursor: pointer;
-        bottom: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
+    // button {
+    //     position: absolute;
+    //     background-color: black;
+    //     border-radius: 5px;
+    //     padding: 0.5rem 2rem;
+    //     cursor: pointer;
+    //     bottom: 1rem;
+    //     left: 50%;
+    //     transform: translateX(-50%);
         
-        &:hover {
-            box-shadow: 0 5px 10px 0 rgba(160, 160, 160, 0.2);
-            bottom: 1.1rem;
-        }
-    }
+    //     &:hover {
+    //         box-shadow: 0 5px 10px 0 rgba(160, 160, 160, 0.2);
+    //         bottom: 1.1rem;
+    //     }
+    // }
 
+}
+
+
+.iconStyle {
+//   font-size: 1rem;
 }
