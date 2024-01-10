@@ -11,23 +11,15 @@ import styles from "./SideMenuNewFormBlocks.module.scss"
 
 function SideMenuNewFormBlocks() {
   const [selectedBlock, setSelectedBlock] = useState<string | null>(null)
-  const [blockTitle, setBlockTitle] = useState<string>("")
 
   const handleFormBlockClick = (formBlock: string) => {
     setSelectedBlock(formBlock)
-  }
-
-  const addFormBlock = () => {
-    console.log("add form block")
     console.log(selectedBlock)
-    console.log(blockTitle)
-    // Function to add the form block to the form
-    // Use the selectedBlock and blockTitle to add the form block to the form
   }
 
   return (
     <div className={styles.sideMenuNewBlocks}>
-      <div className={styles.inputBox}>
+      {/* <div className={styles.inputBox}>
         <label id='block-title'>Block title (required)</label>
         <input
           id='block-title'
@@ -37,9 +29,8 @@ function SideMenuNewFormBlocks() {
           value={blockTitle}
           onChange={e => setBlockTitle(e.target.value)}
         />
-      </div>
+      </div> */}
 
-      <h4>Block types:</h4>
       <div className={styles.blockTypeContainer}>
         <div onClick={() => handleFormBlockClick("text")}>
           <TbLetterT />
@@ -87,7 +78,7 @@ function SideMenuNewFormBlocks() {
         </div>
       </div>
 
-      <button onClick={addFormBlock}>Add block</button>
+      {/* <button onClick={addFormBlock}>Add block</button> */}
     </div>
   )
 }
