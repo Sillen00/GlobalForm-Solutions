@@ -9,11 +9,12 @@
     "db:studio": "prisma studio",
     "db:seed": "node --loader ts-node/esm prisma/seed.ts",
     "dev": "prisma db push && next dev",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate && husky install",
     "lint": "next lint",
     "start": "next start",
     "format": "prettier --write \"**/*.{ts,tsx}\" && npx prisma format",
-    "format:check": "prettier --check \"**/*.{ts,tsx}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "prepare": "husky install"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -28,15 +29,19 @@
     "@trpc/next": "^10.43.6",
     "@trpc/react-query": "^10.43.6",
     "@trpc/server": "^10.43.6",
+    "localtunnel": "^2.0.2",
     "next": "^14.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.12.0",
     "server-only": "^0.0.1",
     "superjson": "^2.2.1",
+    "svix": "^1.15.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@clerk/clerk-sdk-node": "^4.13.4",
+    "@clerk/types": "^3.60.0",
     "@next/eslint-plugin-next": "^14.0.3",
     "@types/eslint": "^8.44.7",
     "@types/node": "^18.19.3",
@@ -45,7 +50,9 @@
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "autoprefixer": "^10.4.14",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8.54.0",
+    "husky": "^8.0.0",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",

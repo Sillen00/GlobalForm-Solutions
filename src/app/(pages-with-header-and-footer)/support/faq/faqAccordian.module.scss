@@ -1,0 +1,48 @@
+// ACCORDION SECTION SCSS
+
+.accordionsection {
+ 
+    display: flex;
+    flex-direction: column;
+  
+
+  h2 {
+    cursor: pointer;
+    border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 2rem;
+
+ 
+  }
+
+  .content {
+
+    // display: none;
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 2rem;
+
+    p {
+    color: aqua !important;
+
+    font-size: 2rem;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--text-color);
+      }
+    }
+
+    
+      display: block;
+      padding: 0 0 0 0;
+    
+  }
+
+  &.active {
+    .content {
+      display: block;
+      
+    }
+  }
+}
