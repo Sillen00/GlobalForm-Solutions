@@ -1,7 +1,17 @@
 import Button, { IconType } from "./../Button"
 import styles from "./TextInput.module.scss"
+import { useState } from "react"
 
 function TextInput() {
+  const [blockTitle, setBlockTitle] = useState<string>("")
+  const textinput = "textinput"
+
+  const handleClick = () => {
+    setBlockTitle(blockTitle)
+    // skicka textinput till DB
+    console.log(blockTitle)
+  }
+
   return (
     <div className={styles.textInputContainer}>
       <div>TextInput</div>
@@ -13,15 +23,19 @@ function TextInput() {
           type='text'
           name='block-title'
           required
-          //   value={blockTitle}
-          //   onChange={e => setBlockTitle(e.target.value)}
+          value={blockTitle}
+          onChange={e => setBlockTitle(e.target.value)}
         />
       </div>
-      <Button
-        label='Click'
-        icon={IconType.Down}
-        className={styles.iconStyle}
-      ></Button>
+      <div>
+        <Button
+          icon={IconType.None}
+          className={styles.iconStyle}
+          onClick={handleClick}
+        >
+          Add block
+        </Button>
+      </div>
     </div>
   )
 }
