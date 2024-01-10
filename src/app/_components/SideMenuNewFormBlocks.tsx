@@ -36,13 +36,13 @@ function SideMenuNewFormBlocks() {
           <TbLetterT />
           <p>Text</p>
         </div>
-        <div onClick={() => handleFormBlockClick("textarea")}>
-          <TbSquareLetterT />
-          <p>Text Area</p>
-        </div>
         <div onClick={() => handleFormBlockClick("textinput")}>
           <LuFormInput />
           <p>Text input</p>
+        </div>
+        <div onClick={() => handleFormBlockClick("textarea")}>
+          <TbSquareLetterT />
+          <p>Text Area</p>
         </div>
         <div onClick={() => handleFormBlockClick("numberinput")}>
           <TbNumbers />
