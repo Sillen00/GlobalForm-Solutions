@@ -2,31 +2,33 @@
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import FormPreview from "~/app/_components/FormPreview"
-import SideMenuFormObjects from "~/app/_components/SideMenuFormObjects"
-import SideMenuNewFormObjects from "~/app/_components/SideMenuNewFormObjects"
+import SideMenuFormBlocks from "~/app/_components/SideMenuFormBlocks"
+import SideMenuNewFormBlocks from "~/app/_components/SideMenuNewFormBlocks"
 import "./page.scss"
 
 function CreateFormPage() {
-  const [isSideMenuNewObjectsOpen, setIsSideMenuNewObjectsOpen] =
-    useState(false)
+  const [isSideMenuNewBlocksOpen, setIsSideMenuNewBlocksOpen] = useState(false)
 
   const toggleFormMenu = () => {
-    setIsSideMenuNewObjectsOpen(prevState => !prevState)
+    setIsSideMenuNewBlocksOpen(prevState => !prevState)
   }
 
   return (
     <div className='create-form-wrapper'>
       <div className='side-menu-wrapper'>
         <div onClick={() => toggleFormMenu()} className='side-menu-header'>
-          <h3>Create Form</h3>
-          <p>
-            <FaPlus />
-          </p>
+          {isSideMenuNewBlocksOpen ? (
+            <h3>Add new block</h3>
+          ) : (
+            <h3>Create Form</h3>
+          )}
+
+          <FaPlus className={isSideMenuNewBlocksOpen ? "plusAnimation" : ""} />
         </div>
 
-        {!isSideMenuNewObjectsOpen && <SideMenuFormObjects />}
+        {!isSideMenuNewBlocksOpen && <SideMenuFormBlocks />}
 
-        {isSideMenuNewObjectsOpen && <SideMenuNewFormObjects />}
+        {isSideMenuNewBlocksOpen && <SideMenuNewFormBlocks />}
       </div>
 
       <FormPreview />

@@ -1,0 +1,38 @@
+.sideMenuNewBlocks {
+    position: relative;
+    margin: 1rem 0 0 0;
+    
+    .blockTypeContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin: 0 0.5rem;
+        
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            border-radius: 5px;
+            padding: 0.5rem 0;
+
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            p {
+                font-size: var(--smalltext);
+                font-weight: bold;
+                text-align: center;
+                margin: 0.2rem 0 0 0;
+            }
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 10px 0 rgba(160, 160, 160, 0.2);
+            }
+        }
+    }
+}
