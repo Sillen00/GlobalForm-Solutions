@@ -18,9 +18,10 @@ export enum IconType {
 }
 
 interface ButtonProps {
-  label: string
+  children: React.ReactNode
   icon: IconType
   className?: string
+  onClick?: () => void | undefined
 }
 
 const iconMap = {
@@ -39,14 +40,14 @@ const iconMap = {
   >,
 }
 
-function Button({ label, icon, className }: ButtonProps): JSX.Element {
+function Button({ children, icon, className, onClick }: ButtonProps): JSX.Element {
   const Icon = iconMap[icon]
   return (
-    <button className={`buttonStyle ${className}`}>
-      <span>{label}</span>
+    <button className={`buttonStyle ${className}`} onClick={onClick}>
+      <span>{children}</span>
       {Icon && <Icon className={`arrow-btn ${className}`} />}
     </button>
   )
 }
 
-export default Button
+export default Button as React.ComponentType<ButtonProps>
