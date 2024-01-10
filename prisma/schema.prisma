@@ -65,6 +65,7 @@ model Response {
 
 enum FormBlockType {
   text
+  textInput
   textarea
   radio
   checkbox
