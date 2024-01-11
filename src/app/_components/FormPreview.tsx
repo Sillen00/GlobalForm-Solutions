@@ -1,9 +1,9 @@
 import "./FormPreview.scss"
 
-function FormPreview({ blockTitle }) {
+function FormPreview() {
   return (
     <section className='form-preview'>
-      <div>{blockTitle}</div>
+      <div>Here is a preview block</div>
     </section>
   )
 }

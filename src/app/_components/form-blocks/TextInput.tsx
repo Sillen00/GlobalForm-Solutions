@@ -2,13 +2,22 @@ import Button, { IconType } from "./../Button"
 import styles from "./TextInput.module.scss"
 import { useState } from "react"
 
+
+// Button skall skapa ett nytt block i preview
+// Button skall skicka block till DB
+// Button skall skicka block till createform
+// block skall ha med id, title, type, order, formid, required
+
+
+
+
 function TextInput() {
   const [blockTitle, setBlockTitle] = useState<string>("")
   const textinput = "textinput"
 
   const handleClick = () => {
     setBlockTitle(blockTitle)
-    // skicka textinput till DB
+    // skicka textinput till context
     console.log(blockTitle)
   }
 
