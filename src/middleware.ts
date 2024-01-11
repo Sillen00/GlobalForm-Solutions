@@ -11,7 +11,7 @@ export default authMiddleware({
     "/about/(.*)",
     "/support/(.*)",
     "/info/(.*)",
-    "/api/webhooks(.*)"
+    "/api/webhooks(.*)",
   ],
 })
 

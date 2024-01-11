@@ -1,17 +1,58 @@
-import { IoIosArrowDroprightCircle } from "react-icons/io"
+import {
+  IoIosArrowDropdown,
+  IoIosArrowDropleft,
+  IoIosArrowDroprightCircle,
+  IoIosArrowDropup,
+} from "react-icons/io"
 import "./Button.scss"
 
-interface FakeButtonProps {
-  label: string
+/**
+ * Enumeration of icon types
+ */
+export enum IconType {
+  None = "None",
+  Right = "RightArrow",
+  Left = "LeftArrow",
+  Up = "UpArrow",
+  Down = "DownArrow",
 }
 
-function FakeButton({ label }: FakeButtonProps): JSX.Element {
+interface ButtonProps {
+  children: React.ReactNode
+  icon: IconType
+  className?: string
+  onClick?: () => void | undefined
+}
+
+const iconMap = {
+  [IconType.None]: null,
+  [IconType.Right]: IoIosArrowDroprightCircle as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
+  [IconType.Left]: IoIosArrowDropleft as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
+  [IconType.Up]: IoIosArrowDropup as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
+  [IconType.Down]: IoIosArrowDropdown as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
+}
+
+function Button({
+  children,
+  icon,
+  className,
+  onClick,
+}: ButtonProps): JSX.Element {
+  const Icon = iconMap[icon]
   return (
-    <button className='buttonStyle'>
-      <span>{label}</span>
-      <IoIosArrowDroprightCircle className='arrow-btn' />
+    <button className={`buttonStyle ${className}`} onClick={onClick}>
+      {children}
+      {Icon && <Icon className={`arrow-btn ${className}`} />}
     </button>
   )
 }
 
-export default FakeButton
+export default Button
