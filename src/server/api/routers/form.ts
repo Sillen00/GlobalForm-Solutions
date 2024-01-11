@@ -76,7 +76,9 @@ export const formRouter = createTRPCRouter({
         endTime: input.endTime,
         location: input.location,
         description: input.description,
-        blocks: input.blocks,
+        blocks: {
+          create: input.blocks,
+        },
       },
     })
     return form
