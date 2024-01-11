@@ -1,4 +1,4 @@
-import Button from "../../../_components/Button"
+import Button, { IconType } from "../../../_components/Button"
 import styles from "./page.module.scss"
 
 function careerPage() {
@@ -20,7 +20,7 @@ function careerPage() {
           who is passionate about programming.
         </span>
         <div className={styles.buttonContainer}>
-          <Button>Apply</Button>
+          <Button icon={IconType.Right}>Apply</Button>
         </div>
       </div>
       <div className={styles.section}>
@@ -36,7 +36,7 @@ function careerPage() {
           you who eat, sleep and breathe design. Show us that you are the one!
         </span>
         <div className={styles.buttonContainer}>
-          <Button>Apply</Button>
+          <Button icon={IconType.Right}>Apply</Button>
         </div>
       </div>
       <div className={styles.section}>
@@ -54,7 +54,7 @@ function careerPage() {
           experience from working with agile teams.
         </span>
         <div className={styles.buttonContainer}>
-          <Button>Apply</Button>
+          <Button icon={IconType.Right}>Apply</Button>
         </div>
       </div>
     </div>
