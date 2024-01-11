@@ -10,7 +10,7 @@ function CreateFormPage() {
   const [isSideMenuNewBlocksOpen, setIsSideMenuNewBlocksOpen] = useState(false)
   const [isPreviewActive, setIsPreviewActive] = useState(false)
 
-  const toggleFormMenu = () => {
+  const toggleSideMenuContent = () => {
     setIsSideMenuNewBlocksOpen(prevState => !prevState)
   }
 
@@ -26,7 +26,7 @@ function CreateFormPage() {
           isPreviewActive ? "activePreview" : ""
         }`}
       >
-        <div onClick={() => toggleFormMenu()} className='side-menu-header'>
+        <div onClick={() => toggleSideMenuContent()} className='side-menu-header'>
           {isSideMenuNewBlocksOpen ? (
             <h3>Add new block</h3>
           ) : (
