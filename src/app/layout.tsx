@@ -25,9 +25,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const { user } = useUser()
-  // console.log("current logged user", user)
-
   return (
     <ClerkProvider
       appearance={{
@@ -41,19 +38,12 @@ export default function RootLayout({
       <html lang='en'>
         <body className={`font-sans ${inter.variable}`}>
           <TRPCReactProvider cookies={cookies().toString()}>
-            {/* {user ? (
             <FormContextProvider>
               <div className='body-container'>
                 <Header />
                 {children}
               </div>
             </FormContextProvider>
-            ) : ( */}
-            <div className='body-container'>
-              <Header />
-              {children}
-            </div>
-            {/* )} */}
           </TRPCReactProvider>
         </body>
       </html>
