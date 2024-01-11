@@ -3,4 +3,9 @@
   width: 100%;
   height: calc(100vh - 72px);
   overflow-y: scroll;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
