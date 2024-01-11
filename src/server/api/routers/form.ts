@@ -7,7 +7,7 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
 const formBlockSchema = z.object({
   order: z.number(),
   title: z.string().optional(),
-  description: z.string().optional(),
+  content: z.string().optional(),
   type: z.enum([
     "text",
     "textInput",
