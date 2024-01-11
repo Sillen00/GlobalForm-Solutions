@@ -14,4 +14,12 @@ export const formRouter = createTRPCRouter({
     })
     return forms
   }),
+  getFormById: publicProcedure.input(z.string()).query(({ ctx, input }) => {
+    const form = ctx.db.form.findUnique({
+      where: {
+        id: input,
+      },
+    })
+    return form
+  }),
 })
