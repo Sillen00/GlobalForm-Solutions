@@ -83,4 +83,12 @@ export const formRouter = createTRPCRouter({
     })
     return form
   }),
+  deleteForm: publicProcedure.input(z.string()).query(({ ctx, input }) => {
+    const form = ctx.db.form.delete({
+      where: {
+        id: input,
+      },
+    })
+    return form
+  }),
 })
