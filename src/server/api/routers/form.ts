@@ -22,4 +22,34 @@ export const formRouter = createTRPCRouter({
     })
     return form
   }),
+  createForm: publicProcedure
+    .input(
+      z.object({
+        userId: z.string(),
+        title: z.string(),
+        startDate: z.string(),
+        endDate: z.string(),
+        startTime: z.string(),
+        endTime: z.string(),
+        location: z.string(),
+        description: z.string(),
+        blocks: z.array(z.string()),
+      })
+    )
+    .query(({ ctx, input }) => {
+      const form = ctx.db.form.create({
+        data: {
+          userId: input.userId,
+          title: input.title,
+          startDate: input.startDate,
+          endDate: input.endDate,
+          startTime: input.startTime,
+          endTime: input.endTime,
+          location: input.location,
+          description: input.description,
+          blocks: input.blocks,
+        },
+      })
+      return form
+    }),
 })
