@@ -7,18 +7,18 @@
   overflow-y: hidden;
   height: 100%;
 
-  .side-menu-wrapper {
+  .side-menu-wrapper.side-menu-wrapper.side-menu-wrapper {
     background-color: var(--background-color);
     -webkit-overflow-scrolling: touch;
     height: calc(100vh - 72px);
     overflow-y: scroll;
-    // hide side menu scroll bar
-    
     width: 100%;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
 
     @media (min-width: 768px) {
       max-width: 300px;
-      display: block !important; // !important is needed to override the display: none; on the .side-menu-wrapper.activePreview on desktop
+      display: block; // !important is needed to override the display: none; on the .side-menu-wrapper.activePreview on desktop
     }
 
     .side-menu-header {
@@ -46,6 +46,8 @@
     .activePreview {
       background-color: orange;
     }
+
+    // hide side menu scroll bar
   }::-webkit-scrollbar {
     display: none;
   }
