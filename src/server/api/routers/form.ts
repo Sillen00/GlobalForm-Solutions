@@ -93,11 +93,22 @@ export const formRouter = createTRPCRouter({
   deleteForm: publicProcedure
     .input(z.string())
     .mutation(async ({ ctx, input }) => {
-      const form = ctx.db.form.delete({
-        where: {
-          id: input,
-        },
+      await ctx.db.$transaction(async db => {
+        // Delete all associated data before deleting the form
+        await db.formBlock.deleteMany({
+          where: { formId: input },
+        })
+        await db.response.deleteMany({
+          where: { formId: input },
+        })
+
+        // Finally, delete the form
+        const form = db.form.delete({
+          where: {
+            id: input,
+          },
+        })
+        return form
       })
-      return form
     }),
 })
