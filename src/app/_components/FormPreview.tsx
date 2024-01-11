@@ -2,9 +2,10 @@ import "./FormPreview.scss"
 
 function FormPreview() {
   return (
-    <section className='form-preview'>
-      <div>Here is a preview block</div>
-    </section>
+    <p>
+      Här får vi bygga upp lite olika textfält som ska vara required i
+      formuläret.
+    </p>
   )
 }
 
