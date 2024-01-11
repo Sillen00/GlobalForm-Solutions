@@ -49,7 +49,7 @@ function Button({
   const Icon = iconMap[icon]
   return (
     <button className={`buttonStyle ${className}`} onClick={onClick}>
-      <span>{children}</span>
+      {children}
       {Icon && <Icon className={`arrow-btn ${className}`} />}
     </button>
   )
