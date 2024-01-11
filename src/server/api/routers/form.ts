@@ -46,49 +46,58 @@ const formSchema = z.object({
 // Router
 
 export const formRouter = createTRPCRouter({
-  getUserForms: publicProcedure.input(z.string()).query(({ ctx, input }) => {
-    const forms = ctx.db.user.findUnique({
-      where: {
-        clerkUserId: input,
-      },
-      select: {
-        forms: true,
-      },
-    })
-    return forms
-  }),
-  getFormById: publicProcedure.input(z.string()).query(({ ctx, input }) => {
-    const form = ctx.db.form.findUnique({
-      where: {
-        id: input,
-      },
-    })
-    return form
-  }),
-  createForm: publicProcedure.input(formSchema).query(({ ctx, input }) => {
-    const form = ctx.db.form.create({
-      data: {
-        userId: input.userId,
-        title: input.title,
-        startDate: input.startDate,
-        endDate: input.endDate,
-        startTime: input.startTime,
-        endTime: input.endTime,
-        location: input.location,
-        description: input.description,
-        blocks: {
-          create: input.blocks,
+  getUserForms: publicProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      const forms = ctx.db.user.findUnique({
+        where: {
+          clerkUserId: input,
         },
-      },
-    })
-    return form
-  }),
-  deleteForm: publicProcedure.input(z.string()).query(({ ctx, input }) => {
-    const form = ctx.db.form.delete({
-      where: {
-        id: input,
-      },
-    })
-    return form
-  }),
+        select: {
+          forms: true,
+        },
+      })
+      return forms
+    }),
+  getFormById: publicProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      const form = ctx.db.form.findUnique({
+        where: {
+          id: input,
+        },
+      })
+      return form
+    }),
+  createForm: publicProcedure
+    .input(formSchema)
+    .mutation(async ({ ctx, input }) => {
+      const form = ctx.db.form.create({
+        data: {
+          userId: input.userId,
+          title: input.title,
+          startDate: input.startDate,
+          endDate: input.endDate,
+          startTime: input.startTime,
+          endTime: input.endTime,
+          location: input.location,
+          description: input.description,
+          blocks: {
+            create: input.blocks,
+          },
+        },
+      })
+      return form
+    }),
+
+  deleteForm: publicProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      const form = ctx.db.form.delete({
+        where: {
+          id: input,
+        },
+      })
+      return form
+    }),
 })
