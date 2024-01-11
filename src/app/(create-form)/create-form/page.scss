@@ -7,14 +7,20 @@
   overflow-y: hidden;
   height: 100%;
 
-  .side-menu-wrapper {
-    max-width: 300px;
-    min-width: 300px;
+  // A more specific class is needed to override the display: none; on the .side-menu-wrapper.activePreview on desktop
+  .side-menu-wrapper.side-menu-wrapper.side-menu-wrapper {
     background-color: var(--background-color);
     -webkit-overflow-scrolling: touch;
     height: calc(100vh - 72px);
     overflow-y: scroll;
-    // display: none;
+    width: 100%;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+
+    @media (min-width: 768px) {
+      max-width: 300px;
+      display: block;
+    }
 
     .side-menu-header {
       border-bottom: 2px solid var(--primary-color);
@@ -37,5 +43,61 @@
         transform: rotate(45deg);
       }
     }
+    
+    .activePreview {
+      background-color: orange;
+    }
+
+    // hide side menu scroll bar
+  }::-webkit-scrollbar {
+    display: none;
+  }
+
+  // Preview button styling on side meny create form and preview page on mobile
+  .previewBtn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    width: 100%;
+    padding: 0.5rem;
+    font-size: var(--bodytext);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 20px 0 rgba(160, 160, 160, 0.2);
+      font-size: calc(var(--bodytext) + 1px);
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  
+  .form-preview {
+    background-color: rgb(203, 203, 203);
+    width: 100%;
+    height: calc(100vh - 72px);
+    overflow-y: scroll;
+    display: none;
+  
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  // Active preview styling when preview button is clicked.
+  .side-menu-wrapper.activePreview {
+    display: none;
+  }
+
+  .form-preview.activePreview {
+    display: block;
   }
 }
