@@ -2,6 +2,30 @@ import { z } from "zod"
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
 
+// Validation scehmas
+const formBlockSchema = z.object({
+  order: z.number(),
+  title: z.string().optional(),
+  description: z.string().optional(),
+  type: z.enum([
+    "text",
+    "textInput",
+    "textarea",
+    "radio",
+    "checkbox",
+    "dropdown",
+    "date",
+    "number",
+    "email",
+    "tel",
+    "url",
+  ]),
+  required: z.boolean().optional(),
+  placeholderText: z.string().optional(),
+  options: z.array(z.string()).optional(),
+})
+
+// Router
 export const formRouter = createTRPCRouter({
   getUserForms: publicProcedure.input(z.string()).query(({ ctx, input }) => {
     const forms = ctx.db.user.findUnique({
