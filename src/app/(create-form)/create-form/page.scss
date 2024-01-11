@@ -7,6 +7,7 @@
   overflow-y: hidden;
   height: 100%;
 
+  // A more specific class is needed to override the display: none; on the .side-menu-wrapper.activePreview on desktop
   .side-menu-wrapper.side-menu-wrapper.side-menu-wrapper {
     background-color: var(--background-color);
     -webkit-overflow-scrolling: touch;
@@ -18,7 +19,7 @@
 
     @media (min-width: 768px) {
       max-width: 300px;
-      display: block; // !important is needed to override the display: none; on the .side-menu-wrapper.activePreview on desktop
+      display: block;
     }
 
     .side-menu-header {
