@@ -26,6 +26,10 @@ const formBlockSchema = z.object({
   options: z.array(z.string()).optional(),
 })
 
+const formResponsesSchema = z.object({
+  answers: z.any(),
+})
+
 const formSchema = z.object({
   userId: z.string(),
   title: z.string(),
@@ -36,6 +40,7 @@ const formSchema = z.object({
   location: z.string(),
   description: z.string(),
   blocks: z.array(formBlockSchema),
+  responses: z.array(formResponsesSchema).optional(),
 })
 
 // Router
