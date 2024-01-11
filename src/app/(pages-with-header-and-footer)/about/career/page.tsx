@@ -10,7 +10,7 @@ function careerPage() {
         <div>
           <h2>Php developer</h2>
           <span>
-            last day to apply: <i>2023-10-25</i>
+            Last day to apply: <i>2023-10-25</i>
           </span>
         </div>
         <span>
@@ -27,7 +27,7 @@ function careerPage() {
         <div>
           <h2>UX Designer</h2>
           <span>
-            last day to apply: <i>2023-10-25</i>
+            Last day to apply: <i>2023-10-25</i>
           </span>
         </div>
         <span>
@@ -43,7 +43,7 @@ function careerPage() {
         <div>
           <h2>Product owner</h2>
           <span>
-            last day to apply: <i>2023-10-25</i>
+            Last day to apply: <i>2023-10-25</i>
           </span>
         </div>
         <span>

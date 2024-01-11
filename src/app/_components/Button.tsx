@@ -55,4 +55,4 @@ function Button({
   )
 }
 
-export default Button as React.ComponentType<ButtonProps>
+export default Button

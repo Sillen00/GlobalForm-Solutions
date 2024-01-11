@@ -9,7 +9,6 @@ import { useState } from "react"
 
 function TextInput() {
   const [blockTitle, setBlockTitle] = useState<string>("")
-  const textinput = "textinput"
 
   const handleClick = () => {
     setBlockTitle(blockTitle)
