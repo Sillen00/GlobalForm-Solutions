@@ -43,7 +43,7 @@ model FormBlock {
   id              String        @id @default(auto()) @map("_id") @db.ObjectId
   order           Int
   title           String?
-  content     String?
+  content         String?
   type            FormBlockType
   required        Boolean       @default(false)
   placeholderText String?
