@@ -35,8 +35,10 @@ function SideMenuFormBlocks() {
         <input id='form-description' type='text' />
         <FaGripLines onClick={moveBlock} />
       </div>
+
+      {/* todo: add rqurierments for button before enabled (zod?) */}
       <div className={styles.iconContainer}>
-        <Button icon={IconType.Save}>Save Form</Button>
+        <Button icon={IconType.Save}>Generate Form</Button>
       </div>
     </div>
   )
