@@ -20,7 +20,7 @@ function DashboardPage() {
     setUniqueId(uuidv4())
   }, [])
 
-  const addFormDataToContextState = () => {
+  const addNewFormDataToContextState = () => {
     const newForm: FormData = {
       id: `${uniqueId}`, // Generate a unique ID for the new form
       userId: `${userId}`, // Replace with the actual user ID
@@ -48,7 +48,7 @@ function DashboardPage() {
         <h2>Dashboard</h2>
         <div className='form-card-container'>
           {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
-          <div onClick={() => addFormDataToContextState()}>
+          <div onClick={() => addNewFormDataToContextState()}>
             {uniqueId && (
               <Link href={`/create-form/${uniqueId}`}>
                 <div className='create-new-card'>

@@ -1,5 +1,6 @@
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 
+import Button, { IconType } from "./Button"
 import styles from "./SideMenuFormBlocks.module.scss"
 
 function SideMenuFormBlocks() {
@@ -33,6 +34,9 @@ function SideMenuFormBlocks() {
         <label id='form-description'>Form Description</label>
         <input id='form-description' type='text' />
         <FaGripLines onClick={moveBlock} />
+      </div>
+      <div className={styles.iconContainer}>
+        <Button icon={IconType.Save}>Save Form</Button>
       </div>
     </div>
   )
