@@ -2,34 +2,75 @@
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import FormPreview from "~/app/_components/FormPreview"
-import SideMenuFormObjects from "~/app/_components/SideMenuFormObjects"
-import SideMenuNewFormObjects from "~/app/_components/SideMenuNewFormObjects"
+import SideMenuFormBlocks from "~/app/_components/SideMenuFormBlocks"
+import SideMenuNewFormBlocks from "~/app/_components/SideMenuNewFormBlocks"
 import "./page.scss"
 
 function CreateFormPage() {
-  const [isSideMenuNewObjectsOpen, setIsSideMenuNewObjectsOpen] =
-    useState(false)
+  const [isSideMenuNewBlocksOpen, setIsSideMenuNewBlocksOpen] = useState(false)
+  const [isPreviewActive, setIsPreviewActive] = useState(false)
 
-  const toggleFormMenu = () => {
-    setIsSideMenuNewObjectsOpen(prevState => !prevState)
+  const toggleSideMenuContent = () => {
+    setIsSideMenuNewBlocksOpen(prevState => !prevState)
+  }
+
+  const togglePreview = () => {
+    setIsPreviewActive(prevState => !prevState)
   }
 
   return (
     <div className='create-form-wrapper'>
-      <div className='side-menu-wrapper'>
-        <div onClick={() => toggleFormMenu()} className='side-menu-header'>
-          <h3>Create Form</h3>
-          <p>
-            <FaPlus />
-          </p>
+      {/* FORM MENU SECTION -------------------------------------------------------------------------------------------*/}
+      <div
+        className={`side-menu-wrapper ${
+          isPreviewActive ? "activePreview" : ""
+        }`}
+      >
+        <div
+          onClick={() => toggleSideMenuContent()}
+          className='side-menu-header'
+        >
+          {isSideMenuNewBlocksOpen ? (
+            <h3>Add new block</h3>
+          ) : (
+            <h3>Create Form</h3>
+          )}
+
+          <FaPlus className={isSideMenuNewBlocksOpen ? "plusAnimation" : ""} />
         </div>
 
-        {!isSideMenuNewObjectsOpen && <SideMenuFormObjects />}
+        {!isSideMenuNewBlocksOpen && <SideMenuFormBlocks />}
 
-        {isSideMenuNewObjectsOpen && <SideMenuNewFormObjects />}
+        {isSideMenuNewBlocksOpen && <SideMenuNewFormBlocks />}
+
+        {/* SIDE MENU TOGGLE PREVIEW BUTTON (ONLY MOBILE) */}
+        {!isSideMenuNewBlocksOpen && (
+          <button
+            className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
+            onClick={() => togglePreview()}
+          >
+            Preview Form
+          </button>
+        )}
       </div>
 
-      <FormPreview />
+      {/* FORM PREVIEW SECTION ------------------------------------------------------------------------------------*/}
+      <section
+        className={`form-preview ${isPreviewActive ? "activePreview" : ""}`}
+      >
+        {/* FORM PREVIEW CONTENT */}
+        <FormPreview />
+
+        {/* FORM PREVIEW TOGGLE BUTTON (ONLY MOBILE) */}
+        {!isSideMenuNewBlocksOpen && (
+          <button
+            className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
+            onClick={() => togglePreview()}
+          >
+            Create Form
+          </button>
+        )}
+      </section>
     </div>
   )
 }

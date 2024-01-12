@@ -1,4 +1,4 @@
-import FakeButton from "../../../_components/Button"
+import Button, { IconType } from "../../../_components/Button"
 import styles from "./page.module.scss"
 
 function careerPage() {
@@ -10,7 +10,7 @@ function careerPage() {
         <div>
           <h2>Php developer</h2>
           <span>
-            last day to apply: <i>2023-10-25</i>
+            Last day to apply: <i>2023-10-25</i>
           </span>
         </div>
         <span>
@@ -20,14 +20,14 @@ function careerPage() {
           who is passionate about programming.
         </span>
         <div className={styles.buttonContainer}>
-          <FakeButton label='Apply' />
+          <Button icon={IconType.Right}>Apply</Button>
         </div>
       </div>
       <div className={styles.section}>
         <div>
           <h2>UX Designer</h2>
           <span>
-            last day to apply: <i>2023-10-25</i>
+            Last day to apply: <i>2023-10-25</i>
           </span>
         </div>
         <span>
@@ -36,14 +36,14 @@ function careerPage() {
           you who eat, sleep and breathe design. Show us that you are the one!
         </span>
         <div className={styles.buttonContainer}>
-          <FakeButton label='Apply' />
+          <Button icon={IconType.Right}>Apply</Button>
         </div>
       </div>
       <div className={styles.section}>
         <div>
           <h2>Product owner</h2>
           <span>
-            last day to apply: <i>2023-10-25</i>
+            Last day to apply: <i>2023-10-25</i>
           </span>
         </div>
         <span>
@@ -54,7 +54,7 @@ function careerPage() {
           experience from working with agile teams.
         </span>
         <div className={styles.buttonContainer}>
-          <FakeButton label='Apply' />
+          <Button icon={IconType.Right}>Apply</Button>
         </div>
       </div>
     </div>

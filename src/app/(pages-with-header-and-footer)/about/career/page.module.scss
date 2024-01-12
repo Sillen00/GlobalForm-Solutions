@@ -42,14 +42,11 @@
   }
 }
 
-.buttonContainer.buttonContainer {
+.buttonContainer {
   display: flex;
   padding-top: 1rem;
   justify-content: flex-end;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  gap: 10px;
 
   @media (max-width: 768px) {
     span {
