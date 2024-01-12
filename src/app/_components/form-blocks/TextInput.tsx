@@ -17,12 +17,11 @@ function TextInput() {
 
     const blockTypeTextInput = "textinput"
 
-    // Ändra setFormDatas block array så att den innehåller ett block med 
+    // Ändra setFormDatas block array så att den innehåller ett block med
     //"blockTitle" samt en string som indikerar att det är av typen "textinput".
 
     // 1. vi skall skapa ett nytt block och sedan lägga till det i formdata
     //2. blocket skall innehålla id, title, type, order, formid, required
-
   }
 
   return (
