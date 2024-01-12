@@ -1,6 +1,7 @@
+import { useState } from "react"
+import { useForm } from "~/app/(contexts)/FormContext"
 import Button, { IconType } from "./../Button"
 import styles from "./TextInput.module.scss"
-import { useState } from "react"
 
 // Button skall skapa ett nytt block i preview
 // Button skall skicka block till DB
@@ -9,11 +10,19 @@ import { useState } from "react"
 
 function TextInput() {
   const [blockTitle, setBlockTitle] = useState<string>("")
+  const { setFormData } = useForm()
 
   const handleClick = () => {
-    setBlockTitle(blockTitle)
-    // skicka textinput till context
     console.log(blockTitle)
+
+    const blockTypeTextInput = "textinput"
+
+    // Ändra setFormDatas block array så att den innehåller ett block med 
+    //"blockTitle" samt en string som indikerar att det är av typen "textinput".
+
+    // 1. vi skall skapa ett nytt block och sedan lägga till det i formdata
+    //2. blocket skall innehålla id, title, type, order, formid, required
+
   }
 
   return (
