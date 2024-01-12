@@ -26,7 +26,8 @@ const formBlockSchema = z.object({
 })
 
 const formResponsesSchema = z.object({
-  answers: z.any(),
+  formId: z.string(),
+  answers: z.object({}).passthrough(),
 })
 
 const formSchema = z.object({
@@ -111,5 +112,16 @@ export const formRouter = createTRPCRouter({
         },
       })
       return responses
+    }),
+  addResponse: publicProcedure
+    .input(formResponsesSchema)
+    .mutation(async ({ ctx, input }) => {
+      const response = ctx.db.response.create({
+        data: {
+          formId: input.formId,
+          answers: input.answers,
+        },
+      })
+      return response
     }),
 })
