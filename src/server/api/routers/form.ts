@@ -3,7 +3,6 @@ import { z } from "zod"
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
 
 // Validation schemas
-
 const formBlockSchema = z.object({
   order: z.number(),
   title: z.string().optional(),
@@ -44,8 +43,8 @@ const formSchema = z.object({
 })
 
 // Router
-
 export const formRouter = createTRPCRouter({
+  // Form procedures
   getFormById: publicProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
@@ -97,5 +96,17 @@ export const formRouter = createTRPCRouter({
         })
         return form
       })
+    }),
+
+  // Form responses procedures
+  getFormResponses: publicProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      const responses = ctx.db.response.findMany({
+        where: {
+          formId: input,
+        },
+      })
+      return responses
     }),
 })
