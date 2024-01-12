@@ -1,10 +1,10 @@
 "use client"
 import { createContext, useContext, useState } from "react"
 
-interface FormData {
+export interface FormData {
   id: string
   userId: string
-  createBy: string
+  createdBy: string
   title: string
   startDate: string
   endDate: string
@@ -42,7 +42,7 @@ interface Response {
 const defaultFormData: FormData = {
   id: "11",
   userId: "22",
-  createBy: "Simon",
+  createdBy: "Simon",
   title: "Title of the formmmm",
   startDate: "1971",
   endDate: "2200",
@@ -63,6 +63,7 @@ export interface ProviderProps {
 interface FormContextValue {
   formData: FormData[]
   setFormData: React.Dispatch<React.SetStateAction<FormData[]>>
+  addForm: (newForm: FormData) => void
 }
 
 // This is the context that will be used to pass the form data and the setFormData
@@ -76,12 +77,13 @@ export const useForm = () => useContext(FormContext)
 export default function FormProvider({ children }: ProviderProps) {
   const [formData, setFormData] = useState<FormData[]>([defaultFormData])
 
-  //   useEffect(() => {
-  //     setFormData(data)
-  //   }, [])
+  // Add a new form to the formData state
+  const addForm = (newForm: FormData) => {
+    setFormData(prevFormData => [...prevFormData, newForm])
+  }
 
   return (
-    <FormContext.Provider value={{ formData, setFormData }}>
+    <FormContext.Provider value={{ formData, setFormData, addForm }}>
       {children}
     </FormContext.Provider>
   )
