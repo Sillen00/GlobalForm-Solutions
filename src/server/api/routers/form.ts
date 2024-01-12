@@ -46,19 +46,6 @@ const formSchema = z.object({
 // Router
 
 export const formRouter = createTRPCRouter({
-  getUserForms: publicProcedure
-    .input(z.string())
-    .query(async ({ ctx, input }) => {
-      const forms = ctx.db.user.findUnique({
-        where: {
-          clerkUserId: input,
-        },
-        select: {
-          forms: true,
-        },
-      })
-      return forms
-    }),
   getFormById: publicProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
