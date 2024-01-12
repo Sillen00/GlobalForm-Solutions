@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
@@ -12,10 +12,7 @@ function DashboardPage() {
   const addFormDataToContextState = (uniqueId: string) => {
     console.log("hakjfhalk")
     console.log(uniqueId)
-    
-
   }
-
 
   return (
     <SignedIn>
@@ -24,7 +21,10 @@ function DashboardPage() {
         <div className='form-card-container'>
           {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
           <Link href={`/create-form/${uniqueId}`}>
-            <div onClick={() => addFormDataToContextState(uniqueId)} className='create-new-card'>
+            <div
+              onClick={() => addFormDataToContextState(uniqueId)}
+              className='create-new-card'
+            >
               <FaPlus />
             </div>
           </Link>
