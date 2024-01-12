@@ -9,8 +9,14 @@ import "./page.scss"
 
 function DashboardPage() {
   const { user } = useUser()
-  const { data, error, isLoading } = api.user.getForms.useQuery(user?.id ?? "")
-  const forms = data?.forms ?? []
+  let forms
+
+  if (!user) {
+    return null
+  } else {
+    const { data, error, isLoading } = api.user.getForms.useQuery(user.id)
+    forms = data?.forms ?? []
+  }
 
   return (
     <SignedIn>
