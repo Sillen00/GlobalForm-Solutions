@@ -99,12 +99,15 @@ export const formRouter = createTRPCRouter({
     }),
 
   // Form responses procedures
-  getFormResponses: publicProcedure
+  getResponses: publicProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
       const responses = ctx.db.response.findMany({
         where: {
           formId: input,
+        },
+        select: {
+          answers: true,
         },
       })
       return responses
