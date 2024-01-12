@@ -124,4 +124,14 @@ export const formRouter = createTRPCRouter({
       })
       return response
     }),
+  deleteResponse: publicProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      const response = ctx.db.response.delete({
+        where: {
+          id: input,
+        },
+      })
+      return response
+    }),
 })
