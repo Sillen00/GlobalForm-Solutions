@@ -2,15 +2,22 @@
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
+import { v4 as uuidv4 } from "uuid"
 import FormCard from "../../_components/FormCard"
 import "./page.scss"
-import { v4 as uuidv4 } from "uuid"
+import { useEffect, useState } from "react"
 
 function DashboardPage() {
-  const uniqueId = uuidv4()
+  const [uniqueId, setUniqueId] = useState<string | null>(null)
 
-  const addFormDataToContextState = (uniqueId: string) => {
-    console.log("hakjfhalk")
+  useEffect(() => {
+    setUniqueId(uuidv4())
+    console.log("useEffekt för unikt id.", uniqueId)
+  }, [])
+
+  const addFormDataToContextState = () => {
+    console.log("SSSSSSSSSSSSS")
+
     console.log(uniqueId)
   }
 
@@ -20,14 +27,15 @@ function DashboardPage() {
         <h2>Dashboard</h2>
         <div className='form-card-container'>
           {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
-          <Link href={`/create-form/${uniqueId}`}>
-            <div
-              onClick={() => addFormDataToContextState(uniqueId)}
-              className='create-new-card'
-            >
-              <FaPlus />
-            </div>
-          </Link>
+          <div onClick={() => addFormDataToContextState()}>
+            {uniqueId && (
+              <Link href={`/create-form/${uniqueId}`}>
+                <div className='create-new-card'>
+                  <FaPlus />
+                </div>
+              </Link>
+            )}
+          </div>
           {/* Form cards: */} {/* Example cards....*/}
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
