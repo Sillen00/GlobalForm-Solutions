@@ -1,27 +1,41 @@
+"use client"
 import { useState } from "react"
 import { useForm } from "~/app/(contexts)/FormContext"
 import Button, { IconType } from "./../Button"
 import styles from "./TextInput.module.scss"
 
 // Button skall skapa ett nytt block i preview
-// Button skall skicka block till DB
 // Button skall skicka block till createform
 // block skall ha med id, title, type, order, formid, required
 
+import { useParams } from "next/navigation"
+
 function TextInput() {
   const [blockTitle, setBlockTitle] = useState<string>("")
-  const { setFormData } = useForm()
+  const { addFormBlock } = useForm()
+  const params = useParams<{ id: string }>()
+
+  const [orderNumber, setOrderNumber] = useState<number>(0)
 
   const handleClick = () => {
-    console.log(blockTitle)
-
     const blockTypeTextInput = "textinput"
 
-    // Ändra setFormDatas block array så att den innehåller ett block med
-    //"blockTitle" samt en string som indikerar att det är av typen "textinput".
+    // Create a state that adds the order number +1 every time a new block is added
+    setOrderNumber(orderNumber + 1)
 
-    // 1. vi skall skapa ett nytt block och sedan lägga till det i formdata
-    //2. blocket skall innehålla id, title, type, order, formid, required
+    const newFormBlock = {
+      id: "1",
+      order: orderNumber,
+      title: blockTitle,
+      description: "", // TODO: Add description to the form
+      type: blockTypeTextInput,
+      required: false, // TODO: Add required to the form
+      placeholderText: "", // TODO: Add placeholderText to the form
+      options: [],
+      formId: params.id,
+    }
+    //Send newFormBlock to formContext and add it to the formBlocks array
+    addFormBlock(newFormBlock)
   }
 
   return (

@@ -16,7 +16,6 @@ function SideMenuNewFormBlocks() {
 
   const handleFormBlockClick = (formBlock: string) => {
     setSelectedBlock(formBlock)
-    console.log(selectedBlock)
   }
 
   return (
