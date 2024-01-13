@@ -32,7 +32,7 @@ function DashboardPage() {
       endTime: "",
       location: "",
       description: "",
-      blocks: [],
+      formBlocks: [],
       responses: [],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
