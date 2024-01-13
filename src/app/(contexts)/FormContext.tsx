@@ -12,13 +12,13 @@ export interface FormData {
   endTime: string
   location: string
   description: string
-  blocks: Block[]
+  formBlocks: FormBlock[]
   responses: Response[]
   createdAt: string
   updatedAt: string
 }
 
-interface Block {
+interface FormBlock {
   id: string
   order: number
   title: string
@@ -50,7 +50,7 @@ const defaultFormData: FormData = {
   endTime: "22:00",
   location: "Moskva",
   description: "",
-  blocks: [],
+  formBlocks: [],
   responses: [],
   createdAt: "",
   updatedAt: "",
@@ -64,6 +64,7 @@ interface FormContextValue {
   formData: FormData[]
   setFormData: React.Dispatch<React.SetStateAction<FormData[]>>
   addForm: (newForm: FormData) => void
+  addFormBlock: (newFormBlock: FormBlock) => void
 }
 
 // This is the context that will be used to pass the form data and the setFormData
@@ -82,8 +83,16 @@ export default function FormProvider({ children }: ProviderProps) {
     setFormData(prevFormData => [...prevFormData, newForm])
   }
 
+  const addFormBlock = (newBlock: FormBlock) => {
+    // Korrekt strukturerat FormBlock / newBlock kommer in här och ska användas
+    // för att uppdatera block arrayen i ett specifikt form med hjälp av formId
+    console.log(newBlock)
+  }
+
   return (
-    <FormContext.Provider value={{ formData, setFormData, addForm }}>
+    <FormContext.Provider
+      value={{ formData, setFormData, addForm, addFormBlock }}
+    >
       {children}
     </FormContext.Provider>
   )
