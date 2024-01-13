@@ -24,7 +24,7 @@ function TextInput() {
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
-      id: "1",
+      id: "1", // LÄGG TILL ETT UNIKT ID SOM PÅ ADD FORM SIDAN SÅ BORDE DET VARA KLART. IAF FÖR EN MVP!--------------------------------------------------------------
       order: orderNumber,
       title: blockTitle,
       description: "", // TODO: Add description to the form
