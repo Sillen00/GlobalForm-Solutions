@@ -136,14 +136,25 @@ export const formRouter = createTRPCRouter({
   getResponses: protectedProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
+      const form = await ctx.db.form.findUnique({
+        where: {
+          id: input,
+          userId: ctx.authenticatedUser.userId,
+        },
+      })
+
+      if (!form) {
+        throw new Error(
+          "Form not found or you do not have permission to delete this form"
+        )
+      }
+
       const responses = await ctx.db.response.findMany({
         where: {
           formId: input,
         },
-        select: {
-          answers: true,
-        },
       })
+
       return responses
     }),
   addResponse: publicProcedure
