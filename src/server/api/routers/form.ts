@@ -50,7 +50,22 @@ const formSchema = z.object({
 // Router
 export const formRouter = createTRPCRouter({
   // Form procedures
-  getFormById: publicProcedure
+  getFormById: protectedProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      const form = await ctx.db.form.findUnique({
+        where: {
+          id: input,
+          userId: ctx.authenticatedUser.userId,
+        },
+      })
+      if (!form) {
+        throw new Error("Form could not be found or you were denied access")
+      }
+
+      return form
+    }),
+  getPublicFormById: publicProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
       const form = ctx.db.form.findUnique({
