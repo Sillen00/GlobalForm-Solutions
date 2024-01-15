@@ -100,6 +100,20 @@ export const formRouter = createTRPCRouter({
     .input(z.string())
     .mutation(async ({ ctx, input }) => {
       await ctx.db.$transaction(async db => {
+        // First, check if the form belongs to the logged-in user
+        const form = await db.form.findUnique({
+          where: {
+            id: input,
+            userId: ctx.authenticatedUser.userId,
+          },
+        })
+
+        if (!form) {
+          throw new Error(
+            "Form not found or you do not have permission to delete this form"
+          )
+        }
+
         // Delete all associated data before deleting the form
         await db.formBlock.deleteMany({
           where: { formId: input },
@@ -109,12 +123,12 @@ export const formRouter = createTRPCRouter({
         })
 
         // Finally, delete the form
-        const form = db.form.delete({
+        const deletedForm = db.form.delete({
           where: {
             id: input,
           },
         })
-        return form
+        return deletedForm
       })
     }),
 
