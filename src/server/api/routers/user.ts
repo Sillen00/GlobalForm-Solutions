@@ -1,9 +1,9 @@
 import { TRPCError } from "@trpc/server"
 import { z } from "zod"
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
+import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc"
 
 export const userRouter = createTRPCRouter({
-  getForms: publicProcedure.input(z.undefined()).query(async ({ ctx }) => {
+  getForms: protectedProcedure.input(z.undefined()).query(async ({ ctx }) => {
     const clerkUserId = ctx.auth.userId
     if (!clerkUserId) {
       throw new TRPCError({

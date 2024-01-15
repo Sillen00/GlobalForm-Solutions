@@ -7,7 +7,7 @@
  * need to use are documented accordingly near the end.
  */
 import { type AuthObject } from "@clerk/nextjs/server"
-import { initTRPC } from "@trpc/server"
+import { initTRPC, TRPCError } from "@trpc/server"
 import superjson from "superjson"
 import { ZodError } from "zod"
 
@@ -79,3 +79,13 @@ export const createTRPCRouter = t.router
  * are logged in.
  */
 export const publicProcedure = t.procedure
+
+export const protectedProcedure = publicProcedure.use(async opts => {
+  if (!opts.ctx.auth.userId) {
+    throw new TRPCError({
+      code: "UNAUTHORIZED",
+      message: "User is not authenticated",
+    })
+  }
+  return opts.next()
+})
