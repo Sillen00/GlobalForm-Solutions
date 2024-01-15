@@ -4,10 +4,10 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import { v4 as uuidv4 } from "uuid"
-import type { FormData } from "../../(contexts)/FormContext"
-import { useForm } from "../../(contexts)/FormContext"
+import { useForm } from "~/app/(contexts)/FormContext"
 import FormCard from "../../_components/FormCard"
 import "./page.scss"
+import { useRouter } from "next/router"
 
 function DashboardPage() {
   const [uniqueId, setUniqueId] = useState<string | null>(null)
@@ -15,14 +15,20 @@ function DashboardPage() {
   const { user } = useUser()
   const userId = user?.id
   const createdBy = user?.fullName
+  const router = useRouter()
 
-  useEffect(() => {
-    setUniqueId(uuidv4())
-  }, [])
+  // useEffect(() => {
+  //   setUniqueId(uuidv4())
+  // }, [])
 
   const addNewFormDataToContextState = () => {
-    const newForm: FormData = {
-      id: `${uniqueId}`, // Generate a unique ID for the new form
+    // setUniqueId(uuidv4())
+    const newUniqueId = uuidv4() // Generate a new unique ID
+    setUniqueId(newUniqueId) // Update the state with the new ID
+    console.log("uniqID IS SET WHEN CLICK: ", uniqueId)
+
+    const newForm = {
+      id: newUniqueId, // Generate a unique ID for the new form
       userId: `${userId}`, // Replace with the actual user ID
       createdBy: `${createdBy}`, // Replace with the actual user name
       title: "",
@@ -41,6 +47,12 @@ function DashboardPage() {
     // Add the new form to the formData state
     addForm(newForm)
   }
+  useEffect(() => {
+    if (uniqueId) {
+      // Navigate to the new page after uniqueId is updated
+      router.push(`/create-form/${uniqueId}`)
+    }
+  }, [uniqueId]) // Effect runs when uniqueId changes
 
   return (
     <SignedIn>
@@ -49,13 +61,11 @@ function DashboardPage() {
         <div className='form-card-container'>
           {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
           <div onClick={() => addNewFormDataToContextState()}>
-            {uniqueId && (
-              <Link href={`/create-form/${uniqueId}`}>
-                <div className='create-new-card'>
-                  <FaPlus />
-                </div>
-              </Link>
-            )}
+            <Link href={`/create-form/${uniqueId}`}>
+              <div className='create-new-card'>
+                <FaPlus />
+              </div>
+            </Link>
           </div>
           {/* Form cards: */} {/* Example cards....*/}
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />

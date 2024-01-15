@@ -76,17 +76,31 @@ export const useForm = () => useContext(FormContext)
 
 // This is the provider that will wrap the components that needs access to the form data
 export default function FormProvider({ children }: ProviderProps) {
-  const [formData, setFormData] = useState<FormData[]>([defaultFormData])
+  const [formData, setFormData] = useState<FormData[]>([])
 
   // Add a new form to the formData state
   const addForm = (newForm: FormData) => {
     setFormData(prevFormData => [...prevFormData, newForm])
+    console.log("added a new form to formdata", formData)
   }
 
   const addFormBlock = (newBlock: FormBlock) => {
-    // Korrekt strukturerat FormBlock / newBlock kommer in här och ska användas
-    // för att uppdatera block arrayen i ett specifikt form med hjälp av formId
-    console.log(newBlock)
+    setFormData(prevFormData => {
+      // Find the form with the given formId
+      const updatedFormData = prevFormData.map(form => {
+        if (form.id === newBlock.formId) {
+          // Update the formBlocks array for the matching form
+          return {
+            ...form,
+            formBlocks: [...form.formBlocks, newBlock],
+          }
+        }
+        return form
+      })
+
+      return updatedFormData
+    })
+    console.log("updated BLOCK formdata", formData)
   }
 
   return (
