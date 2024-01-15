@@ -14,7 +14,7 @@ function DashboardPage() {
   if (!user) {
     return null
   } else {
-    const { data, error, isLoading } = api.user.getForms.useQuery(user.id)
+    const { data, error, isLoading } = api.user.getForms.useQuery(undefined)
     forms = data?.forms ?? []
   }
 
