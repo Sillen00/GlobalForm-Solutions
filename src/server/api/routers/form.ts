@@ -68,7 +68,7 @@ export const formRouter = createTRPCRouter({
   getPublicFormById: publicProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
-      const form = ctx.db.form.findUnique({
+      const form = await ctx.db.form.findUnique({
         where: {
           id: input,
         },
@@ -78,7 +78,7 @@ export const formRouter = createTRPCRouter({
   createForm: protectedProcedure
     .input(formSchema)
     .mutation(async ({ ctx, input }) => {
-      const form = ctx.db.form.create({
+      const form = await ctx.db.form.create({
         data: {
           userId: ctx.authenticatedUser.userId,
           title: input.title,
@@ -122,7 +122,7 @@ export const formRouter = createTRPCRouter({
   getResponses: protectedProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
-      const responses = ctx.db.response.findMany({
+      const responses = await ctx.db.response.findMany({
         where: {
           formId: input,
         },
@@ -135,7 +135,7 @@ export const formRouter = createTRPCRouter({
   addResponse: publicProcedure
     .input(formResponsesSchema)
     .mutation(async ({ ctx, input }) => {
-      const response = ctx.db.response.create({
+      const response = await ctx.db.response.create({
         data: {
           formId: input.formId,
           answers: input.answers,
@@ -146,7 +146,7 @@ export const formRouter = createTRPCRouter({
   deleteResponse: protectedProcedure
     .input(z.string())
     .mutation(async ({ ctx, input }) => {
-      const response = ctx.db.response.delete({
+      const response = await ctx.db.response.delete({
         where: {
           id: input,
         },

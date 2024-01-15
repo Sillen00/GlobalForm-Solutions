@@ -3,7 +3,7 @@ import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc"
 
 export const userRouter = createTRPCRouter({
   getForms: protectedProcedure.input(z.undefined()).query(async ({ ctx }) => {
-    const forms = ctx.db.user.findUnique({
+    const forms = await ctx.db.user.findUnique({
       where: {
         clerkUserId: ctx.authenticatedUser.userId,
       },
