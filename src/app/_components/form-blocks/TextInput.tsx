@@ -1,5 +1,6 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { v4 as uuidv4 } from "uuid"
 import { useForm } from "~/app/(contexts)/FormContext"
 import Button, { IconType } from "./../Button"
 import styles from "./TextInput.module.scss"
@@ -14,8 +15,13 @@ function TextInput() {
   const [blockTitle, setBlockTitle] = useState<string>("")
   const { addFormBlock } = useForm()
   const params = useParams<{ id: string }>()
-
+  const [uniqueId, setUniqueId] = useState<string | null>(null)
   const [orderNumber, setOrderNumber] = useState<number>(0)
+
+  // Create a unique id for each block when new block nr is added
+  useEffect(() => {
+    setUniqueId(uuidv4())
+  }, [orderNumber])
 
   const handleClick = () => {
     const blockTypeTextInput = "textinput"
@@ -24,14 +30,14 @@ function TextInput() {
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
-      id: "1", // LÄGG TILL ETT UNIKT ID SOM PÅ ADD FORM SIDAN SÅ BORDE DET VARA KLART. IAF FÖR EN MVP!--------------------------------------------------------------
+      id: `${uniqueId}`,
       order: orderNumber,
       title: blockTitle,
       description: "", // TODO: Add description to the form
       type: blockTypeTextInput,
       required: false, // TODO: Add required to the form
       placeholderText: "", // TODO: Add placeholderText to the form
-      options: [],
+      options: [], // TODO: Add options to the form
       formId: params.id,
     }
     //Send newFormBlock to formContext and add it to the formBlocks array
