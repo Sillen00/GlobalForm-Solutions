@@ -87,5 +87,9 @@ export const protectedProcedure = publicProcedure.use(async opts => {
       message: "User is not authenticated",
     })
   }
-  return opts.next()
+  return opts.next({
+    ctx: {
+      authenticatedUser: opts.ctx.auth,
+    },
+  })
 })

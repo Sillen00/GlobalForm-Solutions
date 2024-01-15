@@ -1,6 +1,10 @@
 import { z } from "zod"
 
-import { createTRPCRouter, publicProcedure, protectedProcedure } from "~/server/api/trpc"
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc"
 
 // Validation schemas
 const formBlockSchema = z.object({
@@ -61,7 +65,7 @@ export const formRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const form = ctx.db.form.create({
         data: {
-          userId: input.userId,
+          userId: ctx.authenticatedUser.userId,
           title: input.title,
           startDate: input.startDate,
           endDate: input.endDate,
