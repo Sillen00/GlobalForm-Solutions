@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
+import { createTRPCRouter, publicProcedure, protectedProcedure } from "~/server/api/trpc"
 
 // Validation schemas
 const formBlockSchema = z.object({
@@ -56,7 +56,7 @@ export const formRouter = createTRPCRouter({
       })
       return form
     }),
-  createForm: publicProcedure
+  createForm: protectedProcedure
     .input(formSchema)
     .mutation(async ({ ctx, input }) => {
       const form = ctx.db.form.create({
@@ -77,7 +77,7 @@ export const formRouter = createTRPCRouter({
       return form
     }),
 
-  deleteForm: publicProcedure
+  deleteForm: protectedProcedure
     .input(z.string())
     .mutation(async ({ ctx, input }) => {
       await ctx.db.$transaction(async db => {
@@ -100,7 +100,7 @@ export const formRouter = createTRPCRouter({
     }),
 
   // Form responses procedures
-  getResponses: publicProcedure
+  getResponses: protectedProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
       const responses = ctx.db.response.findMany({
@@ -124,7 +124,7 @@ export const formRouter = createTRPCRouter({
       })
       return response
     }),
-  deleteResponse: publicProcedure
+  deleteResponse: protectedProcedure
     .input(z.string())
     .mutation(async ({ ctx, input }) => {
       const response = ctx.db.response.delete({
