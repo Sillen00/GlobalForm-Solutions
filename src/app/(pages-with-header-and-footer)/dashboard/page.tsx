@@ -47,12 +47,12 @@ function DashboardPage() {
     // Add the new form to the formData state
     addForm(newForm)
   }
-  useEffect(() => {
-    if (uniqueId) {
-      // Navigate to the new page after uniqueId is updated
-      router.push(`/create-form/${uniqueId}`)
-    }
-  }, [uniqueId]) // Effect runs when uniqueId changes
+  // useEffect(() => {
+  //   if (uniqueId) {
+  //     // Navigate to the new page after uniqueId is updated
+  //     router.push(`/create-form/${uniqueId}`)
+  //   }
+  // }, [uniqueId]) // Effect runs when uniqueId changes
 
   return (
     <SignedIn>
