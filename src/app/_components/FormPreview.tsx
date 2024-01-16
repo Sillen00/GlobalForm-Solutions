@@ -7,22 +7,35 @@ function FormPreview() {
 
   return (
     <div>
-      {formData.map((form, index) => (
-        <div key={index}>
-          {Object.values(form).map((value, valueIndex) => (
-            <div key={valueIndex}>{value}</div>
-          ))}
+      {formData ? (
+        <div>
+          <h2>{formData.title}</h2>
+          <p>{formData.location}</p>
+          <p>{formData.startDate}</p>
+          <p>{formData.startTime}</p>
+          <p>{formData.description}</p>
+          {/* <p>{formData.endDate}</p> */}
+          {/* <p>{formData.endTime}</p> */}
+          <p>
+            {formData.formBlocks.map(formBlock => {
+              return (
+                <div>
+                  <p>{formBlock.title}</p>
+                  <p>{formBlock.type}</p>
+                  {/* <p>{formBlock.description}</p> */}
+                  {/* <p>{formBlock.required}</p> */}
+                  {/* <p>{formBlock.placeholderText}</p> */}
+                  {/* <p>{formBlock.options}</p> */}
+                </div>
+              )
+            })}
+          </p>
         </div>
-      ))}
-
-      {/* blocks.map */}
-      <div>
-        {/* <h1>blocks.titel</h1> */}
-        {/* {blocks.type === text ?? (
-          <p>blocks.content</p>
-
-        )} */}
-      </div>
+      ) : (
+        <div>
+          <h1>Form Preview</h1>
+        </div>
+      )}
     </div>
   )
 }

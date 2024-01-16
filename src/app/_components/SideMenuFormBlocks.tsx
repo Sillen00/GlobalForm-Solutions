@@ -25,6 +25,12 @@ function SideMenuFormBlocks() {
       </div>
       <div className={styles.formBlock}>
         <FaTrashCan onClick={removeFormBlock} />
+        <label id='form-location'>Form Location</label>
+        <input id='form-location' type='text' />
+        <FaGripLines onClick={moveBlock} />
+      </div>
+      <div className={styles.formBlock}>
+        <FaTrashCan onClick={removeFormBlock} />
         <label id='form-date'>Form Date</label>
         <input id='form-date' type='text' />
         <FaGripLines onClick={moveBlock} />
