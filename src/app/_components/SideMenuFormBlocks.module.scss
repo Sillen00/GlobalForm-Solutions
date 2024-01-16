@@ -34,4 +34,16 @@
             margin: 0 0.5rem;
         }
     }
+    .iconContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem;
+        position: relative;
+
+        svg {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+    }
 }

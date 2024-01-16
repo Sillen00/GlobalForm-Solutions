@@ -3,6 +3,7 @@ import {
   IoIosArrowDropleft,
   IoIosArrowDroprightCircle,
   IoIosArrowDropup,
+  IoIosSave,
 } from "react-icons/io"
 import "./Button.scss"
 
@@ -11,6 +12,7 @@ import "./Button.scss"
  */
 export enum IconType {
   None = "None",
+  Save = "Save",
   Right = "RightArrow",
   Left = "LeftArrow",
   Up = "UpArrow",
@@ -26,6 +28,9 @@ interface ButtonProps {
 
 const iconMap = {
   [IconType.None]: null,
+  [IconType.Save]: IoIosSave as React.ComponentType<
+    React.HTMLAttributes<HTMLElement>
+  >,
   [IconType.Right]: IoIosArrowDroprightCircle as React.ComponentType<
     React.HTMLAttributes<HTMLElement>
   >,

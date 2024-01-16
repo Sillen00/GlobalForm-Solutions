@@ -1,10 +1,10 @@
 "use client"
 import { createContext, useContext, useState } from "react"
 
-interface FormData {
+export interface FormData {
   id: string
   userId: string
-  createBy: string
+  createdBy: string
   title: string
   startDate: string
   endDate: string
@@ -12,13 +12,13 @@ interface FormData {
   endTime: string
   location: string
   description: string
-  blocks: Block[]
+  formBlocks: FormBlock[]
   responses: Response[]
   createdAt: string
   updatedAt: string
 }
 
-interface Block {
+interface FormBlock {
   id: string
   order: number
   title: string
@@ -40,17 +40,17 @@ interface Response {
 }
 
 const defaultFormData: FormData = {
-  id: "11",
-  userId: "22",
-  createBy: "Simon",
-  title: "Title of the formmmm",
-  startDate: "1971",
-  endDate: "2200",
-  startTime: "19:71",
-  endTime: "22:00",
-  location: "Moskva",
+  id: "",
+  userId: "",
+  createdBy: "",
+  title: "",
+  startDate: "",
+  endDate: "",
+  startTime: "",
+  endTime: "",
+  location: "",
   description: "",
-  blocks: [],
+  formBlocks: [],
   responses: [],
   createdAt: "",
   updatedAt: "",
@@ -61,8 +61,10 @@ export interface ProviderProps {
 }
 
 interface FormContextValue {
-  formData: FormData[]
-  setFormData: React.Dispatch<React.SetStateAction<FormData[]>>
+  formData: FormData
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>
+  // addForm: (newForm: FormData) => void
+  addFormBlock: (newFormBlock: FormBlock) => void
 }
 
 // This is the context that will be used to pass the form data and the setFormData
@@ -74,14 +76,20 @@ export const useForm = () => useContext(FormContext)
 
 // This is the provider that will wrap the components that needs access to the form data
 export default function FormProvider({ children }: ProviderProps) {
-  const [formData, setFormData] = useState<FormData[]>([defaultFormData])
+  const [formData, setFormData] = useState<FormData>(defaultFormData)
 
-  //   useEffect(() => {
-  //     setFormData(data)
-  //   }, [])
+  const addFormBlock = (newBlock: FormBlock) => {
+    setFormData(prevFormData => {
+      const newFormBlocks = [...prevFormData.formBlocks, newBlock]
+      const updatedFormData = { ...prevFormData, formBlocks: newFormBlocks }
+      return updatedFormData
+    })
+
+    console.log("updated BLOCK formdata", formData)
+  }
 
   return (
-    <FormContext.Provider value={{ formData, setFormData }}>
+    <FormContext.Provider value={{ formData, setFormData, addFormBlock }}>
       {children}
     </FormContext.Provider>
   )

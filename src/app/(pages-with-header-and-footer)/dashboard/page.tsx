@@ -1,5 +1,4 @@
 "use client"
-
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
@@ -7,23 +6,13 @@ import FormCard from "../../_components/FormCard"
 import "./page.scss"
 
 function DashboardPage() {
-  // const { user } = useUser()
-  // let forms
-
-  // if (!user) {
-  //   return null
-  // } else {
-  //   const { data, error, isLoading } = api.user.getForms.useQuery(undefined)
-  //   forms = data?.forms ?? []
-  // }
-
   return (
     <SignedIn>
       <div className='dashboard-wrapper'>
         <h2>Dashboard</h2>
         <div className='form-card-container'>
-          {/* Create new form card: */}
-          <Link href='/create-form'>
+          {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
+          <Link href={"/create-form"}>
             <div className='create-new-card'>
               <FaPlus />
             </div>

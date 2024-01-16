@@ -1,5 +1,6 @@
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 
+import Button, { IconType } from "./Button"
 import styles from "./SideMenuFormBlocks.module.scss"
 
 function SideMenuFormBlocks() {
@@ -24,6 +25,12 @@ function SideMenuFormBlocks() {
       </div>
       <div className={styles.formBlock}>
         <FaTrashCan onClick={removeFormBlock} />
+        <label id='form-location'>Form Location</label>
+        <input id='form-location' type='text' />
+        <FaGripLines onClick={moveBlock} />
+      </div>
+      <div className={styles.formBlock}>
+        <FaTrashCan onClick={removeFormBlock} />
         <label id='form-date'>Form Date</label>
         <input id='form-date' type='text' />
         <FaGripLines onClick={moveBlock} />
@@ -33,6 +40,11 @@ function SideMenuFormBlocks() {
         <label id='form-description'>Form Description</label>
         <input id='form-description' type='text' />
         <FaGripLines onClick={moveBlock} />
+      </div>
+
+      {/* todo: add rqurierments for button before enabled (zod?) */}
+      <div className={styles.iconContainer}>
+        <Button icon={IconType.Save}>Generate Form</Button>
       </div>
     </div>
   )
