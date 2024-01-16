@@ -1,22 +1,24 @@
 "use client"
 import { useForm } from "../(contexts)/FormContext"
-import "./FormPreview.scss"
+import styles from "./FormPreview.module.scss"
 
 function FormPreview() {
   const { formData } = useForm()
 
   return (
-    <div className='preview-container'>
-      <div className='preview-content'>
+    <div className={styles.preview__container}>
+      <div className={styles.preview__content}>
         {formData ? (
           <>
-            <h1>{formData.title}</h1>
-            <p>{formData.location}</p>
-            <p>{formData.startDate}</p>
-            <p>{formData.startTime}</p>
+            <div className={styles.preview__header}>
+              <h1 className={styles.preview__title}>{formData.title}</h1>
+              <p>
+                {formData.startDate} {formData.startTime}
+              </p>
+              <p>{formData.location}</p>
+            </div>
+            <h2 className={styles.preview__block__title}>Description</h2>
             <p>{formData.description}</p>
-            {/* <p>{formData.endDate}</p> */}
-            {/* <p>{formData.endTime}</p> */}
             <p>
               {formData.formBlocks.map(formBlock => {
                 return (

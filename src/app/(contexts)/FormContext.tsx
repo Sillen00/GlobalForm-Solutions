@@ -40,11 +40,12 @@ interface Response {
 }
 
 const defaultFormData: FormData = {
-  title: "New form",
+  title: "New form with a long for a very cool event",
   startDate: new Date().toISOString().slice(0, 10),
   startTime: "13:30",
   location: "Dårhuset",
-  description: "Welcome to the party!",
+  description:
+    "Join us for an unforgettable event filled with exciting activities and opportunities to connect! This event promises a diverse lineup of engaging experiences suitable for all ages and interests. From interactive workshops and inspiring keynote speeches to entertaining performances and networking sessions, there's something for everyone. Whether you're looking to learn new skills, meet like-minded individuals, or simply enjoy a day of fun and discovery, our event is the perfect destination. Mark your calendars and stay tuned for more details. We look forward to welcoming you and creating memorable moments together",
   formBlocks: [],
   responses: [],
 }
