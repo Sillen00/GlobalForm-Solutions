@@ -42,10 +42,10 @@ model Form {
 model FormBlock {
   id              String        @id @default(auto()) @map("_id") @db.ObjectId
   order           Int
-  title           String
-  description     String?
+  title           String?
+  content         String?
   type            FormBlockType
-  required        Boolean
+  required        Boolean       @default(false)
   placeholderText String?
   options         String[]
   formId          String        @db.ObjectId
@@ -65,6 +65,7 @@ model Response {
 
 enum FormBlockType {
   text
+  textInput
   textarea
   radio
   checkbox

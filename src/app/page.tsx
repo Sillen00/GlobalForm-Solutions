@@ -1,13 +1,9 @@
-import { IoIosArrowDroprightCircle } from "react-icons/io"
-
-// import { api } from "~/trpc/server"
 import Image from "next/image"
+import { IoIosArrowDroprightCircle } from "react-icons/io"
 import Footer from "./_components/Footer"
 import "./page.scss"
 
 export default async function Home() {
-  // const hello = await api.post.hello.query({ text: "from tRPC" })
-
   return (
     <>
       <div className='body-padding'>

@@ -53,6 +53,15 @@ function DashboardPage() {
   //     router.push(`/create-form/${uniqueId}`)
   //   }
   // }, [uniqueId]) // Effect runs when uniqueId changes
+  // const { user } = useUser()
+  // let forms
+
+  // if (!user) {
+  //   return null
+  // } else {
+  //   const { data, error, isLoading } = api.user.getForms.useQuery(undefined)
+  //   forms = data?.forms ?? []
+  // }
 
   return (
     <SignedIn>
@@ -76,6 +85,15 @@ function DashboardPage() {
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
           <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
+          {/* {forms.map((form) => (
+            <FormCard
+              key={form.id}
+              date={form.startDate}
+              time={form.startTime}
+              title={form.title}
+              place={form.location}
+            />
+          ))} */}
         </div>
       </div>
     </SignedIn>

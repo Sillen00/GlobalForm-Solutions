@@ -8,9 +8,10 @@ import {
 import { callProcedure } from "@trpc/server"
 import { observable } from "@trpc/server/observable"
 import { type TRPCErrorResponse } from "@trpc/server/rpc"
-import { cookies } from "next/headers"
+import { cookies, headers } from "next/headers"
+import { NextRequest } from "next/server"
 import { cache } from "react"
-
+import { getAuth } from "@clerk/nextjs/server"
 import { appRouter, type AppRouter } from "~/server/api/root"
 import { createTRPCContext } from "~/server/api/trpc"
 import { transformer } from "./shared"
@@ -25,6 +26,9 @@ const createContext = cache(() => {
       cookie: cookies().toString(),
       "x-trpc-source": "rsc",
     }),
+    auth: getAuth(
+      new NextRequest("https://notused.com", { headers: headers() })
+    ),
   })
 })
 
