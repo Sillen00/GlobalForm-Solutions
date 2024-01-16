@@ -1,6 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
-import { v4 as uuidv4 } from "uuid"
+import { useState } from "react"
 import { useForm } from "~/app/(contexts)/FormContext"
 import Button, { IconType } from "./../Button"
 import styles from "./TextInput.module.scss"
@@ -9,19 +8,10 @@ import styles from "./TextInput.module.scss"
 // Button skall skicka block till createform
 // block skall ha med id, title, type, order, formid, required
 
-import { useParams } from "next/navigation"
-
 function TextInput() {
   const [blockTitle, setBlockTitle] = useState<string>("")
   const { addFormBlock } = useForm()
-  const params = useParams<{ id: string }>()
-  const [uniqueId, setUniqueId] = useState<string | null>(null)
   const [orderNumber, setOrderNumber] = useState<number>(0)
-
-  // Create a unique id for each block when new block nr is added
-  useEffect(() => {
-    setUniqueId(uuidv4())
-  }, [orderNumber])
 
   const handleClick = () => {
     const blockTypeTextInput = "textinput"
@@ -30,7 +20,7 @@ function TextInput() {
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
-      id: `${uniqueId}`,
+      id: "",
       order: orderNumber,
       title: blockTitle,
       description: "", // TODO: Add description to the form
@@ -38,7 +28,7 @@ function TextInput() {
       required: false, // TODO: Add required to the form
       placeholderText: "", // TODO: Add placeholderText to the form
       options: [], // TODO: Add options to the form
-      formId: params.id,
+      formId: "",
     }
     //Send newFormBlock to formContext and add it to the formBlocks array
     addFormBlock(newFormBlock)

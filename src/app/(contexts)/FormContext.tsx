@@ -40,16 +40,16 @@ interface Response {
 }
 
 const defaultFormData: FormData = {
-  id: "11",
-  userId: "22",
-  createdBy: "Simon",
-  title: "Title of the formmmm",
-  startDate: "1971",
-  endDate: "2200",
-  startTime: "19:71",
-  endTime: "22:00",
-  location: "Moskva",
-  description: "",
+  id: "",
+  userId: "",
+  createdBy: "",
+  title: "New form",
+  startDate: "This is where the startdate is",
+  endDate: "",
+  startTime: "",
+  endTime: "",
+  location: "",
+  description: "This is a description field",
   formBlocks: [],
   responses: [],
   createdAt: "",
@@ -63,7 +63,7 @@ export interface ProviderProps {
 interface FormContextValue {
   formData: FormData[]
   setFormData: React.Dispatch<React.SetStateAction<FormData[]>>
-  addForm: (newForm: FormData) => void
+  // addForm: (newForm: FormData) => void
   addFormBlock: (newFormBlock: FormBlock) => void
 }
 
@@ -76,13 +76,13 @@ export const useForm = () => useContext(FormContext)
 
 // This is the provider that will wrap the components that needs access to the form data
 export default function FormProvider({ children }: ProviderProps) {
-  const [formData, setFormData] = useState<FormData[]>([])
+  const [formData, setFormData] = useState<FormData[]>([defaultFormData])
 
   // Add a new form to the formData state
-  const addForm = (newForm: FormData) => {
-    setFormData(prevFormData => [...prevFormData, newForm])
-    console.log("added a new form to formdata", formData)
-  }
+  // const addForm = (newForm: FormData) => {
+  //   setFormData(prevFormData => [...prevFormData, newForm])
+  //   console.log("added a new form to formdata", formData)
+  // }
 
   const addFormBlock = (newBlock: FormBlock) => {
     setFormData(prevFormData => {
@@ -105,7 +105,7 @@ export default function FormProvider({ children }: ProviderProps) {
 
   return (
     <FormContext.Provider
-      value={{ formData, setFormData, addForm, addFormBlock }}
+      value={{ formData, setFormData, addFormBlock }}
     >
       {children}
     </FormContext.Provider>
