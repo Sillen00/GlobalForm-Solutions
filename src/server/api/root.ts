@@ -1,4 +1,5 @@
 import { createTRPCRouter } from "~/server/api/trpc"
+import { formRouter } from "~/server/api/routers/form"
 
 /**
  * This is the primary router for your server.
@@ -6,7 +7,7 @@ import { createTRPCRouter } from "~/server/api/trpc"
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  // post: postRouter,
+  form: formRouter,
 })
 
 // export type definition of API
