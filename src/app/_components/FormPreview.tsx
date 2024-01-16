@@ -15,33 +15,38 @@ function FormPreview() {
               <h1 className={styles.preview__title}>{formData.title}</h1>
               <div className={styles.preview__info}>
                 <FaCalendar />
-                <p>{formData.startDate}</p>
+                <p>
+                  {formData.startDate}
+                  {formData.endDate ? ` – ${formData.endDate}` : ""}
+                </p>
               </div>
               <div className={styles.preview__info}>
                 <FaClock />
-                <p>{formData.startTime}</p>
+                <p>
+                  {formData.startTime}
+                  {formData.endTime ? ` – ${formData.endTime}` : ""}
+                </p>
               </div>
               <div className={styles.preview__info}>
                 <FaLocationDot />
                 <p>{formData.location}</p>
               </div>
             </div>
-            <h2 className={styles.preview__block__title}>Description</h2>
-            <p>{formData.description}</p>
-            <p>
-              {formData.formBlocks.map(formBlock => {
-                return (
-                  <div>
-                    <p>{formBlock.title}</p>
-                    <p>{formBlock.type}</p>
-                    {/* <p>{formBlock.description}</p> */}
-                    {/* <p>{formBlock.required}</p> */}
-                    {/* <p>{formBlock.placeholderText}</p> */}
-                    {/* <p>{formBlock.options}</p> */}
-                  </div>
-                )
-              })}
-            </p>
+            <div className={styles.preview__block__container}>
+              <h2 className={styles.preview__block__title}>Description</h2>
+              <p>{formData.description}</p>
+            </div>
+            {formData.formBlocks.map(formBlock => {
+              return (
+                <div className={styles.preview__block__container}>
+                  <h2 className={styles.preview__block__title}>
+                    {formBlock.title}
+                  </h2>
+                  <p>{formBlock.type}</p>
+                  {/* Here we will use a switch conditional to render the proper component/elements depending on the block type. If it gets too large, we can encapsulate the switch logic to its own function and call on it here. */}
+                </div>
+              )
+            })}
           </>
         ) : (
           <h1>Could not load form preview!</h1>
