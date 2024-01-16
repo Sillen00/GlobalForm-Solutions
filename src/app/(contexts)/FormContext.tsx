@@ -65,6 +65,7 @@ interface FormContextValue {
   setFormData: React.Dispatch<React.SetStateAction<FormData>>
   // addForm: (newForm: FormData) => void
   addFormBlock: (newFormBlock: FormBlock) => void
+  removeFormBlock: (index: number) => void
 }
 
 // This is the context that will be used to pass the form data and the setFormData
@@ -87,9 +88,21 @@ export default function FormProvider({ children }: ProviderProps) {
 
     console.log("updated BLOCK formdata", formData)
   }
+  // not removing the block
+  const removeFormBlock = (index: number) => {
+    setFormData(prevFormData => {
+      const newFormBlocks = prevFormData.formBlocks.filter(
+        (_, i) => i !== index
+      )
+      return { ...prevFormData, formBlocks: newFormBlocks }
+    })
+    console.log("updated BLOCK formdata", formData)
+  }
 
   return (
-    <FormContext.Provider value={{ formData, setFormData, addFormBlock }}>
+    <FormContext.Provider
+      value={{ formData, setFormData, addFormBlock, removeFormBlock }}
+    >
       {children}
     </FormContext.Provider>
   )

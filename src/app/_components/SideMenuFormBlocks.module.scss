@@ -12,7 +12,7 @@
         }
 
         svg {
-            font-size: 1.2rem;
+            min-width: 1.2rem;
             cursor: pointer;
         }
         
@@ -33,6 +33,14 @@
             font-size: 1.2rem;
             margin: 0 0.5rem;
             color: black;
+        }
+
+        p {
+            text-transform: uppercase;            // max-width: 30px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 0 8px 0 8px;
         }
     }
     .iconContainer {
