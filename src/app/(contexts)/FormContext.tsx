@@ -42,9 +42,9 @@ interface Response {
 const defaultFormData: FormData = {
   title: "New form",
   startDate: new Date().toISOString().slice(0, 10),
-  startTime: "",
-  location: "",
-  description: "",
+  startTime: "13:30",
+  location: "Dårhuset",
+  description: "Welcome to the party!",
   formBlocks: [],
   responses: [],
 }
