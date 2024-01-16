@@ -5,6 +5,7 @@ import { cookies } from "next/headers"
 import "~/styles/globals.css"
 import { TRPCReactProvider } from "~/trpc/react"
 import "../styles/clerk.scss"
+import FormContextProvider from "./(contexts)/FormContext"
 import Header from "./_components/Header"
 
 const inter = Jura({
@@ -37,13 +38,12 @@ export default function RootLayout({
       <html lang='en'>
         <body className={`font-sans ${inter.variable}`}>
           <TRPCReactProvider cookies={cookies().toString()}>
-            <div className='body-container'>
-              <Header />
-              {/* <div className='body-padding'> */}
-              {children}
-              {/* </div> */}
-              {/* <Footer /> */}
-            </div>
+            <FormContextProvider>
+              <div className='body-container'>
+                <Header />
+                {children}
+              </div>
+            </FormContextProvider>
           </TRPCReactProvider>
         </body>
       </html>
