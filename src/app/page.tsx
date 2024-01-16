@@ -13,15 +13,17 @@ export default async function Home() {
               GlobalForm <br />
               <span>Solutions</span>
             </h1>
-            <div className='fake-input'></div>
+            {/* <div className='fake-input'></div> */}
 
-            <p>
-              Create your own customized form today and share it with friends or
-              use the form as a invitation for a event or other. Create your own
-              customized form today and share it with friends or use the form as
-              a invitation for a event or other happenings!
-            </p>
-            <IoIosArrowDroprightCircle className='arrow-btn' />
+            <div>
+              <p>
+                Create your own customized form today and share it with friends
+                or use the form as a invitation for a event or other. Create
+                your own customized form today and share it with friends or use
+                the form as a invitation for a event or other happenings!
+              </p>
+              <IoIosArrowDroprightCircle className='arrow-btn' />
+            </div>
           </div>
 
           <section className='landingPageSection'>
