@@ -1,4 +1,5 @@
 "use client"
+import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import { useForm } from "../(contexts)/FormContext"
 import styles from "./FormPreview.module.scss"
 
@@ -12,10 +13,18 @@ function FormPreview() {
           <>
             <div className={styles.preview__header}>
               <h1 className={styles.preview__title}>{formData.title}</h1>
-              <p>
-                {formData.startDate} {formData.startTime}
-              </p>
-              <p>{formData.location}</p>
+              <div className={styles.preview__info}>
+                <FaCalendar />
+                <p>{formData.startDate}</p>
+              </div>
+              <div className={styles.preview__info}>
+                <FaClock />
+                <p>{formData.startTime}</p>
+              </div>
+              <div className={styles.preview__info}>
+                <FaLocationDot />
+                <p>{formData.location}</p>
+              </div>
             </div>
             <h2 className={styles.preview__block__title}>Description</h2>
             <p>{formData.description}</p>
