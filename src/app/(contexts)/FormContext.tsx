@@ -66,6 +66,7 @@ interface FormContextValue {
   // addForm: (newForm: FormData) => void
   addFormBlock: (newFormBlock: FormBlock) => void
   removeFormBlock: (index: number) => void
+  updateFormBlockDescription: (value: string) => void
 }
 
 // This is the context that will be used to pass the form data and the setFormData
@@ -99,9 +100,23 @@ export default function FormProvider({ children }: ProviderProps) {
     console.log("updated BLOCK formdata", formData)
   }
 
+  const updateFormBlockDescription = (descValue: string) => {
+    setFormData(prevFormData => {
+      const updatedDescription = { ...prevFormData, description: descValue }
+      return updatedDescription
+    })
+    console.log("uppdatera descruotuib", descValue)
+  }
+
   return (
     <FormContext.Provider
-      value={{ formData, setFormData, addFormBlock, removeFormBlock }}
+      value={{
+        formData,
+        setFormData,
+        addFormBlock,
+        removeFormBlock,
+        updateFormBlockDescription,
+      }}
     >
       {children}
     </FormContext.Provider>

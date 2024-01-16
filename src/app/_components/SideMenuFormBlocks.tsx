@@ -6,7 +6,12 @@ import Button, { IconType } from "./Button"
 import styles from "./SideMenuFormBlocks.module.scss"
 
 function SideMenuFormBlocks() {
-  const { formData, removeFormBlock } = useForm()
+  const [title, setTitle] = useState<string>("")
+  const [location, setLocation] = useState<string>("")
+  const [date, setDate] = useState<string>("")
+  const [description, setDescription] = useState<string>("")
+
+  const { formData, removeFormBlock, updateFormBlockDescription } = useForm()
 
   const handleRemoveFormBlock = (index: number) => {
     removeFormBlock(index)
@@ -17,19 +22,14 @@ function SideMenuFormBlocks() {
     console.log("moveBlock")
   }
 
-  // const handleDescriptionChange = (
-  //   e: React.ChangeEvent<HTMLInputElement>,
-  //   index: number
-  // ) => {
-  //   const newFormBlocks = formData.formBlocks.map((block, i) => {
-  //     if (i === index) {
-  //       return { ...block, description: e.target.value }
-  //     }
-  //     return block
-  //   })
-  //   setFormData({ ...formData, formBlocks: newFormBlocks })
-  // }
+  const handleFormBlockDescription = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setDescription(event.target.value)
+    updateFormBlockDescription(event.target.value)
+  }
 
+  
   return (
     <div className={styles.sideMenuFormBlock}>
       <div className={styles.formBlock}>
@@ -53,7 +53,13 @@ function SideMenuFormBlocks() {
       <div className={styles.formBlock}>
         <FaTrashCan onClick={handleRemoveFormBlock} />
         <label id='form-description'>Form Description *</label>
-        <input required id='form-description' type='text' />
+        <input
+          required
+          id='form-description'
+          type='text'
+          onChange={handleFormBlockDescription}
+          value={description}
+        />
         <FaGripLines onClick={moveBlock} />
       </div>
       <br />
@@ -81,3 +87,18 @@ function SideMenuFormBlocks() {
 }
 
 export default SideMenuFormBlocks
+
+// function MyComponent() {
+//   const [inputValue, setInputValue] = useState('');
+
+//   const handleInputChange = (event) => {
+//     setInputValue(event.target.value);
+//   };
+
+//   return (
+//     <div>
+//       <input type="text" value={inputValue} onChange={handleInputChange} />
+//       <p>{inputValue}</p>
+//     </div>
+//   );
+// }
