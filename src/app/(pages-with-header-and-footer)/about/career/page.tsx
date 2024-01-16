@@ -1,14 +1,10 @@
 import Button, { IconType } from "../../../_components/Button"
 import styles from "./page.module.scss"
 
-const dashboardMetadata = {
-  title: "Career - GlobalForm Solutions",
-}
-
 function careerPage() {
   return (
     <>
-      <title>{dashboardMetadata.title}</title>
+      <title>Career - GlobalForm Solutions</title>
       <div className={styles.careerContainer}>
         <h1>CAREER</h1>
 

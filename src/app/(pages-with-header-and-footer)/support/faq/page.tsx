@@ -2,14 +2,10 @@
 import Accordion from "./../../../_components/FaqAccordion"
 import styles from "./page.module.scss"
 
-const dashboardMetadata = {
-  title: "FAQ - GlobalForm Solutions",
-}
-
 function faqPage() {
   return (
     <>
-      <title>{dashboardMetadata.title}</title>
+      <title>FAQ - GlobalForm Solutions</title>
       <div className={styles.faqContainer}>
         <h1>FAQ</h1>
         <div className={styles.accordionContainer}>

@@ -4,14 +4,10 @@ import { FaPlus } from "react-icons/fa6"
 import FormCard from "../../_components/FormCard"
 import "./page.scss"
 
-const dashboardMetadata = {
-  title: "Dashboard - GlobalForm Solutions",
-}
-
 function DashboardPage() {
   return (
     <SignedIn>
-      <title>{dashboardMetadata.title}</title>
+      <title>Dashboard - GlobalForm Solutions</title>
       <div className='dashboard-wrapper'>
         <h2>Dashboard</h2>
         <div className='form-card-container'>

@@ -1,13 +1,9 @@
 import styles from "./page.module.scss"
 
-const dashboardMetadata = {
-  title: "News - GlobalForm Solutions",
-}
-
 function newsPage() {
   return (
     <>
-      <title>{dashboardMetadata.title}</title>
+      <title>News - GlobalForm Solutions</title>
       <div className={styles.pressContainer}>
         <h1>News</h1>
         <div className={styles.section}>

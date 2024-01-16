@@ -3,9 +3,12 @@ import styles from "../signup/page.module.scss"
 
 function signUpPage() {
   return (
-    <div className={styles.signUpContainer}>
-      <SignUp />
-    </div>
+    <>
+      <title>Sign up - GlobalForm Solutions</title>
+      <div className={styles.signUpContainer}>
+        <SignUp />
+      </div>
+    </>
   )
 }
 
