@@ -2,58 +2,51 @@
 import { createContext, useContext, useState } from "react"
 
 export interface FormData {
-  id: string
-  userId: string
-  createdBy: string
+  id?: string
+  userId?: string
   title: string
   startDate: string
-  endDate: string
+  endDate?: string
   startTime: string
-  endTime: string
+  endTime?: string
   location: string
   description: string
   formBlocks: FormBlock[]
   responses: Response[]
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 interface FormBlock {
-  id: string
+  id?: string
+  formId?: string
   order: number
-  title: string
-  description: string
+  title?: string
+  content?: string
   type: string
   required: boolean
-  placeholderText: string
-  options: string[]
-  formId: string
+  placeholderText?: string
+  options?: string[]
+  createdAt?: string
+  updatedAt?: string
 }
 
 interface Response {
   id: string
   formId: string
-  form: string
   answer: string
   createdAt: string
   updatedAt: string
 }
 
 const defaultFormData: FormData = {
-  id: "",
-  userId: "",
-  createdBy: "",
-  title: "",
-  startDate: "",
-  endDate: "",
+  title: "New form",
+  startDate: new Date().toISOString().slice(0, 10),
   startTime: "",
-  endTime: "",
   location: "",
   description: "",
   formBlocks: [],
   responses: [],
-  createdAt: "",
-  updatedAt: "",
 }
 
 export interface ProviderProps {
