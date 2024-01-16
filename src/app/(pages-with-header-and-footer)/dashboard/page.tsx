@@ -1,22 +1,21 @@
 "use client"
 
-import { SignedIn, useUser } from "@clerk/nextjs"
+import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
-import { api } from "~/trpc/react"
 import FormCard from "../../_components/FormCard"
 import "./page.scss"
 
 function DashboardPage() {
-  const { user } = useUser()
-  let forms
+  // const { user } = useUser()
+  // let forms
 
-  if (!user) {
-    return null
-  } else {
-    const { data, error, isLoading } = api.user.getForms.useQuery(undefined)
-    forms = data?.forms ?? []
-  }
+  // if (!user) {
+  //   return null
+  // } else {
+  //   const { data, error, isLoading } = api.user.getForms.useQuery(undefined)
+  //   forms = data?.forms ?? []
+  // }
 
   return (
     <SignedIn>
