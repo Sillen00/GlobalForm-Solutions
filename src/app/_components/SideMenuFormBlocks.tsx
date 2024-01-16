@@ -10,25 +10,30 @@ function SideMenuFormBlocks() {
 
   const removeFormBlock = (index: number) => {
     setFormData(prevFormData => {
-      const newFormBlocks = prevFormData.formBlocks.filter((_, i) => i !== index);
-      return { ...prevFormData, formBlocks: newFormBlocks };
-    });
-  };
+      const newFormBlocks = prevFormData.formBlocks.filter(
+        (_, i) => i !== index
+      )
+      return { ...prevFormData, formBlocks: newFormBlocks }
+    })
+  }
 
   const moveBlock = () => {
     // Function to move the form block in the form
     console.log("moveBlock")
   }
 
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     const newFormBlocks = formData.formBlocks.map((block, i) => {
       if (i === index) {
-        return { ...block, description: e.target.value };
+        return { ...block, description: e.target.value }
       }
-      return block;
-    });
-    setFormData({ ...formData, formBlocks: newFormBlocks });
-  };
+      return block
+    })
+    setFormData({ ...formData, formBlocks: newFormBlocks })
+  }
 
   return (
     <div className={styles.sideMenuFormBlock}>
