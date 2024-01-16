@@ -4,7 +4,7 @@ const dashboardMetadata = {
   title: "News - GlobalForm Solutions",
 }
 
-function pressPage() {
+function newsPage() {
   return (
     <>
       <title>{dashboardMetadata.title}</title>
@@ -85,4 +85,4 @@ function pressPage() {
   )
 }
 
-export default pressPage
+export default newsPage
