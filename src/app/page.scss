@@ -85,6 +85,7 @@
 
   p {
     max-width: 300px;
+    font-size: clamp(#{var(--smalltext)}, 0.5833rem + 0.8889vw, #{var(--bodytext)});
   }
 
   img {
