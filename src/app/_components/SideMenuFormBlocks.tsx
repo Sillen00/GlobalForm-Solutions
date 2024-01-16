@@ -29,7 +29,6 @@ function SideMenuFormBlocks() {
     updateFormBlockDescription(event.target.value)
   }
 
-  
   return (
     <div className={styles.sideMenuFormBlock}>
       <div className={styles.formBlock}>
