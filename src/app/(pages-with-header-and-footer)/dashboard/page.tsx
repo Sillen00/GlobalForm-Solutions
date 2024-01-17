@@ -1,4 +1,3 @@
-"use client"
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
@@ -8,6 +7,7 @@ import "./page.scss"
 function DashboardPage() {
   return (
     <SignedIn>
+      <title>Dashboard - GlobalForm Solutions</title>
       <div className='dashboard-wrapper'>
         <h2>Dashboard</h2>
         <div className='form-card-container'>

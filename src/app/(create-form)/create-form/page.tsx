@@ -21,59 +21,64 @@ function CreateFormPage() {
   }
 
   return (
-    <div className='create-form-wrapper'>
-      {/* FORM MENU SECTION -------------------------------------------------------------------------------------------*/}
-      <div
-        className={`side-menu-wrapper ${
-          isPreviewActive ? "activePreview" : ""
-        }`}
-      >
+    <>
+      <title>Create Form - GlobalForm Solutions</title>
+      <div className='create-form-wrapper'>
+        {/* FORM MENU SECTION -------------------------------------------------------------------------------------------*/}
         <div
-          onClick={() => toggleSideMenuContent()}
-          className='side-menu-header'
+          className={`side-menu-wrapper ${
+            isPreviewActive ? "activePreview" : ""
+          }`}
         >
-          {isSideMenuNewBlocksOpen ? (
-            <h3>Add new block</h3>
-          ) : (
-            <h3>Create Form</h3>
-          )}
+          <div
+            onClick={() => toggleSideMenuContent()}
+            className='side-menu-header'
+          >
+            {isSideMenuNewBlocksOpen ? (
+              <h3>Add new block</h3>
+            ) : (
+              <h3>Create Form</h3>
+            )}
 
-          <FaPlus className={isSideMenuNewBlocksOpen ? "plusAnimation" : ""} />
+            <FaPlus
+              className={isSideMenuNewBlocksOpen ? "plusAnimation" : ""}
+            />
+          </div>
+
+          {!isSideMenuNewBlocksOpen && <SideMenuFormBlocks />}
+
+          {isSideMenuNewBlocksOpen && <SideMenuNewFormBlocks />}
+
+          {/* SIDE MENU TOGGLE PREVIEW BUTTON (ONLY MOBILE) */}
+          {!isSideMenuNewBlocksOpen && (
+            <button
+              className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
+              onClick={() => togglePreview()}
+            >
+              Preview Form
+            </button>
+          )}
         </div>
 
-        {!isSideMenuNewBlocksOpen && <SideMenuFormBlocks />}
+        {/* FORM PREVIEW SECTION ------------------------------------------------------------------------------------*/}
+        <section
+          className={`form-preview ${isPreviewActive ? "activePreview" : ""}`}
+        >
+          {/* FORM PREVIEW CONTENT */}
+          <FormPreview />
 
-        {isSideMenuNewBlocksOpen && <SideMenuNewFormBlocks />}
-
-        {/* SIDE MENU TOGGLE PREVIEW BUTTON (ONLY MOBILE) */}
-        {!isSideMenuNewBlocksOpen && (
-          <button
-            className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
-            onClick={() => togglePreview()}
-          >
-            Preview Form
-          </button>
-        )}
+          {/* FORM PREVIEW TOGGLE BUTTON (ONLY MOBILE) */}
+          {!isSideMenuNewBlocksOpen && (
+            <button
+              className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
+              onClick={() => togglePreview()}
+            >
+              Create Form
+            </button>
+          )}
+        </section>
       </div>
-
-      {/* FORM PREVIEW SECTION ------------------------------------------------------------------------------------*/}
-      <section
-        className={`form-preview ${isPreviewActive ? "activePreview" : ""}`}
-      >
-        {/* FORM PREVIEW CONTENT */}
-        <FormPreview />
-
-        {/* FORM PREVIEW TOGGLE BUTTON (ONLY MOBILE) */}
-        {!isSideMenuNewBlocksOpen && (
-          <button
-            className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
-            onClick={() => togglePreview()}
-          >
-            Create Form
-          </button>
-        )}
-      </section>
-    </div>
+    </>
   )
 }
 
