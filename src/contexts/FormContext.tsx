@@ -59,11 +59,6 @@ interface FormContextValue {
   setFormData: React.Dispatch<React.SetStateAction<FormData>>
   addFormBlock: (newFormBlock: FormBlock) => void
   removeFormBlock: (index: number) => void
-  updateFormTitle: (value: string) => void
-  updateFormDate: (value: string) => void
-  updateFormStartTime: (value: string) => void
-  updateFormLocation: (value: string) => void
-  updateFormDescription: (value: string) => void
 }
 
 // This is the context that will be used to pass the form data and the setFormData
@@ -81,8 +76,6 @@ export default function FormProvider({ children }: ProviderProps) {
     setFormData(prevFormData => {
       const newFormBlocks = [...prevFormData.formBlocks, newBlock]
       const updatedFormData = { ...prevFormData, formBlocks: newFormBlocks }
-      console.log(newBlock)
-      console.log(updatedFormData)
       return updatedFormData
     })
 
@@ -98,46 +91,6 @@ export default function FormProvider({ children }: ProviderProps) {
     })
     console.log("updated BLOCK formdata", formData)
   }
-  // This function updates the title of the form block
-  const updateFormTitle = (titleValue: string) => {
-    setFormData(prevFormData => {
-      const updatedTitle = { ...prevFormData, title: titleValue }
-      return updatedTitle
-    })
-    console.log("uppdatera title", titleValue)
-  }
-  // This function updates the start date of the form block
-  const updateFormDate = (startDateValue: string) => {
-    setFormData(prevFormData => {
-      const updatedDate = { ...prevFormData, startDate: startDateValue }
-      return updatedDate
-    })
-    console.log("uppdatera Date", startDateValue)
-  }
-  // This function updates the start time of the form block
-  const updateFormStartTime = (startTimeValue: string) => {
-    setFormData(prevFormData => {
-      const updatedStartTime = { ...prevFormData, startTime: startTimeValue }
-      return updatedStartTime
-    })
-    console.log("uppdatera Date", startTimeValue)
-  }
-  // This function updates the location of the form block
-  const updateFormLocation = (locatioValue: string) => {
-    setFormData(prevFormData => {
-      const updatedLocation = { ...prevFormData, location: locatioValue }
-      return updatedLocation
-    })
-    console.log("uppdatera location", locatioValue)
-  }
-  // This function updates the description of the form block
-  const updateFormDescription = (descValue: string) => {
-    setFormData(prevFormData => {
-      const updatedDescription = { ...prevFormData, description: descValue }
-      return updatedDescription
-    })
-    console.log("uppdatera descruotuib", descValue)
-  }
 
   return (
     <FormContext.Provider
@@ -146,11 +99,6 @@ export default function FormProvider({ children }: ProviderProps) {
         setFormData,
         addFormBlock,
         removeFormBlock,
-        updateFormTitle,
-        updateFormDate,
-        updateFormStartTime,
-        updateFormLocation,
-        updateFormDescription,
       }}
     >
       {children}
