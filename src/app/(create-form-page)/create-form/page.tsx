@@ -2,16 +2,16 @@
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import FormPreview from "~/app/_components/form/FormPreview"
+import SideMenuAddFormBlocks from "~/app/_components/form/SideMenuAddFormBlocks"
 import SideMenuFormBlocks from "~/app/_components/form/SideMenuFormBlocks"
-import SideMenuNewFormBlocks from "~/app/_components/form/SideMenuNewFormBlocks"
 import "./page.scss"
 
 function CreateFormPage() {
-  const [isSideMenuNewBlocksOpen, setIsSideMenuNewBlocksOpen] = useState(false)
+  const [isSideMenuAddBlocksOpen, setIsSideMenuAddBlocksOpen] = useState(false)
   const [isPreviewActive, setIsPreviewActive] = useState(false)
 
   const toggleSideMenuContent = () => {
-    setIsSideMenuNewBlocksOpen(prevState => !prevState)
+    setIsSideMenuAddBlocksOpen(prevState => !prevState)
     console.log("toggleSideMenuContent")
   }
 
@@ -34,23 +34,23 @@ function CreateFormPage() {
             onClick={() => toggleSideMenuContent()}
             className='side-menu-header'
           >
-            {isSideMenuNewBlocksOpen ? (
+            {isSideMenuAddBlocksOpen ? (
               <h3>Add new block</h3>
             ) : (
               <h3>Create Form</h3>
             )}
 
             <FaPlus
-              className={isSideMenuNewBlocksOpen ? "plusAnimation" : ""}
+              className={isSideMenuAddBlocksOpen ? "plusAnimation" : ""}
             />
           </div>
 
-          {!isSideMenuNewBlocksOpen && <SideMenuFormBlocks />}
+          {!isSideMenuAddBlocksOpen && <SideMenuFormBlocks />}
 
-          {isSideMenuNewBlocksOpen && <SideMenuNewFormBlocks />}
+          {isSideMenuAddBlocksOpen && <SideMenuAddFormBlocks />}
 
           {/* SIDE MENU TOGGLE PREVIEW BUTTON (ONLY MOBILE) */}
-          {!isSideMenuNewBlocksOpen && (
+          {!isSideMenuAddBlocksOpen && (
             <button
               className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
               onClick={() => togglePreview()}
@@ -68,7 +68,7 @@ function CreateFormPage() {
           <FormPreview />
 
           {/* FORM PREVIEW TOGGLE BUTTON (ONLY MOBILE) */}
-          {!isSideMenuNewBlocksOpen && (
+          {!isSideMenuAddBlocksOpen && (
             <button
               className={`previewBtn ${isPreviewActive ? "activePreview" : ""}`}
               onClick={() => togglePreview()}

@@ -2,13 +2,12 @@
 import { useState } from "react"
 import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
-import styles from "./TextInput.module.scss"
+import styles from "./SideMenuTextInput.module.scss"
 
 // Button skall skapa ett nytt block i preview
 // Button skall skicka block till createform
-// block skall ha med id, title, type, order, formid, required
 
-function TextInput() {
+function SideMenuTextInput() {
   const [blockTitle, setBlockTitle] = useState<string>("")
   const { addFormBlock } = useForm()
   const [orderNumber, setOrderNumber] = useState<number>(0)
@@ -56,4 +55,4 @@ function TextInput() {
   )
 }
 
-export default TextInput
+export default SideMenuTextInput

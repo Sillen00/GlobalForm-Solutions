@@ -2,9 +2,9 @@
 import { useState } from "react"
 import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
-import styles from "./Text.module.scss"
+import styles from "./SideMenuTextBlock.module.scss"
 
-function Text() {
+function SideMenuTextBlock() {
   const { addFormBlock } = useForm()
   const [blockText, setBlockText] = useState<string>("")
   const [orderNumber, setOrderNumber] = useState<number>(0)
@@ -43,4 +43,4 @@ function Text() {
   )
 }
 
-export default Text
+export default SideMenuTextBlock
