@@ -13,15 +13,17 @@ export default async function Home() {
               GlobalForm <br />
               <span>Solutions</span>
             </h1>
-            <div className='fake-input'></div>
+            {/* <div className='fake-input'></div> */}
 
-            <p>
-              Create your own customized form today and share it with friends or
-              use the form as a invitation for a event or other. Create your own
-              customized form today and share it with friends or use the form as
-              a invitation for a event or other happenings!
-            </p>
-            <IoIosArrowDroprightCircle className='arrow-btn' />
+            <div>
+              <p>
+                Create your own customized form today and share it with friends
+                or use the form as a invitation for a event or other. Create
+                your own customized form today and share it with friends or use
+                the form as a invitation for a event or other happenings!
+              </p>
+              <IoIosArrowDroprightCircle className='arrow-btn' />
+            </div>
           </div>
 
           <section className='landingPageSection'>
@@ -29,8 +31,8 @@ export default async function Home() {
               <Image
                 src='/image1-landingpage.jpg'
                 alt='Girl creating a form on the computer'
-                width={767}
-                height={767}
+                width={1080}
+                height={1080}
               />
             </div>
             <p>
@@ -41,8 +43,8 @@ export default async function Home() {
               <Image
                 src='/image2-landingpage.jpg'
                 alt='Guy writing a his idea on a paper on what to have on his custom form'
-                width={767}
-                height={767}
+                width={1080}
+                height={1080}
               />
             </div>
             <p>
@@ -54,8 +56,8 @@ export default async function Home() {
               <Image
                 src='/image3-landingpage.jpg'
                 alt='Some wooden cirkles triangles and rectangels standing on eachother to illustrate building and creating your own form.'
-                width={767}
-                height={767}
+                width={1080}
+                height={1080}
               />
             </div>
             <p>

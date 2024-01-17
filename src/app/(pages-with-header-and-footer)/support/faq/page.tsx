@@ -5,6 +5,7 @@ import styles from "./page.module.scss"
 function faqPage() {
   return (
     <>
+      <title>FAQ - GlobalForm Solutions</title>
       <div className={styles.faqContainer}>
         <h1>FAQ</h1>
         <div className={styles.accordionContainer}>
