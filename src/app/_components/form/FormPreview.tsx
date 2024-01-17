@@ -46,6 +46,11 @@ function FormPreview() {
                     {formBlock.title}
                   </h2>
                   {formBlock.type === "textInput"}
+                  {formBlock.type === "text" ? (
+                    <p>{formBlock.content}</p>
+                  ) : (
+                    <input type='text' />
+                  )}
                   {/* Here we will use a switch conditional to render the proper component/elements depending on the block type. If it gets too large, we can encapsulate the switch logic to its own function and call on it here. */}
                 </div>
               )

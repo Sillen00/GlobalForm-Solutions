@@ -1,5 +1,7 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs"
 import Image from "next/image"
-import { IoIosArrowDroprightCircle } from "react-icons/io"
+import Link from "next/link"
+import { IoCreateOutline } from "react-icons/io5"
 import Footer from "./_components/Footer"
 import "./page.scss"
 
@@ -9,20 +11,42 @@ export default async function Home() {
       <div className='body-padding'>
         <main>
           <div className='hero'>
-            <h1>
-              GlobalForm <br />
-              <span>Solutions</span>
-            </h1>
-            {/* <div className='fake-input'></div> */}
-
-            <div>
+            <div className='heroLeft'>
+              <h1>
+                GlobalForm <br />
+                <span>Solutions</span>
+              </h1>
               <p>
                 Create your own customized form today and share it with friends
                 or use the form as a invitation for a event or other. Create
                 your own customized form today and share it with friends or use
                 the form as a invitation for a event or other happenings!
               </p>
-              <IoIosArrowDroprightCircle className='arrow-btn' />
+              <SignedOut>
+                <Link href='/login'>
+                  <button>
+                    <span>Create your own form</span>
+                    <IoCreateOutline />
+                  </button>
+                </Link>
+              </SignedOut>
+              <SignedIn>
+                <Link href='/dashboard'>
+                  <button>
+                    <span>Create your own form</span>
+                    <IoCreateOutline />
+                  </button>
+                </Link>
+              </SignedIn>
+            </div>
+
+            <div className='heroRight'>
+              <Image
+                src='/MaskotGFS.png'
+                alt='Girl creating a form on the computer'
+                width={250}
+                height={250}
+              />
             </div>
           </div>
 
