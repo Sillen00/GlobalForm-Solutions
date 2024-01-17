@@ -1,9 +1,9 @@
 "use client"
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
-import FormPreview from "~/app/_components/FormPreview"
-import SideMenuFormBlocks from "~/app/_components/SideMenuFormBlocks"
-import SideMenuNewFormBlocks from "~/app/_components/SideMenuNewFormBlocks"
+import FormPreview from "~/app/_components/form/FormPreview"
+import SideMenuFormBlocks from "~/app/_components/form/SideMenuFormBlocks"
+import SideMenuNewFormBlocks from "~/app/_components/form/SideMenuNewFormBlocks"
 import "./page.scss"
 
 function CreateFormPage() {

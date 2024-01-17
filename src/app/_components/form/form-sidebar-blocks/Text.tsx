@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { useForm } from "~/app/(contexts)/FormContext"
+import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
 import styles from "./Text.module.scss"
 
@@ -15,15 +15,11 @@ function Text() {
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
-      id: "",
       order: orderNumber,
       title: "",
-      description: blockText,
+      content: blockText,
       type: blockTypeText,
       required: false,
-      placeholderText: "",
-      options: [],
-      formId: "",
     }
 
     addFormBlock(newFormBlock)

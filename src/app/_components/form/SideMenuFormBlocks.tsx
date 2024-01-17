@@ -1,26 +1,11 @@
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 
-import { useState } from "react"
-import { useForm } from "../(contexts)/FormContext"
-import Button, { IconType } from "./Button"
+import { useForm } from "../../../contexts/FormContext"
+import Button, { IconType } from "../Button"
 import styles from "./SideMenuFormBlocks.module.scss"
 
 function SideMenuFormBlocks() {
-  const [title, setTitle] = useState<string>("")
-  const [location, setLocation] = useState<string>("")
-  const [startTime, setStartTime] = useState<string>("")
-  const [date, setDate] = useState<string>("")
-  const [description, setDescription] = useState<string>("")
-
-  const {
-    formData,
-    removeFormBlock,
-    updateFormTitle,
-    updateFormStartTime,
-    updateFormDate,
-    updateFormLocation,
-    updateFormDescription,
-  } = useForm()
+  const { formData, setFormData, removeFormBlock } = useForm()
 
   const handleRemoveFormBlock = (index: number) => {
     removeFormBlock(index)
@@ -30,45 +15,24 @@ function SideMenuFormBlocks() {
     // Function to move the form block in the form
     console.log("moveBlock")
   }
-  // Sets the title of the form block
-  const handleFormTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(event.target.value)
-    updateFormTitle(event.target.value)
-  }
-  // Sets the date of the form block
-  const handleFormDate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDate(event.target.value)
-    updateFormDate(event.target.value)
-  }
-  // Sets the time of the form block
-  const handleFormTime = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setStartTime(event.target.value)
-    updateFormStartTime(event.target.value)
-  }
-  // Sets the location of the form block
-  const handleFormLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLocation(event.target.value)
-    updateFormLocation(event.target.value)
-  }
-  // Sets the description of the form block
-  const handleFormDescription = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setDescription(event.target.value)
-    updateFormDescription(event.target.value)
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
   return (
     <div className={styles.sideMenuFormBlock}>
+      <h2 className={styles.sideMenuHeading}>Required blocks</h2>
       <div className={styles.formBlock}>
         <FaTrashCan onClick={handleRemoveFormBlock} />
         <label id='form-title'>Form Title *</label>
         <input
           required
           id='form-title'
+          name='title'
           type='text'
-          onChange={handleFormTitle}
-          value={title}
+          value={formData.title}
+          onChange={handleInputChange}
         />
         <FaGripLines onClick={moveBlock} />
       </div>
@@ -78,9 +42,10 @@ function SideMenuFormBlocks() {
         <input
           required
           id='form-date'
-          type='text'
-          onChange={handleFormDate}
-          value={date}
+          name='startDate'
+          type='date'
+          value={formData.startDate}
+          onChange={handleInputChange}
         />
         <FaGripLines onClick={moveBlock} />
       </div>
@@ -90,9 +55,10 @@ function SideMenuFormBlocks() {
         <input
           required
           id='form-time'
-          type='text'
-          onChange={handleFormTime}
-          value={startTime}
+          name='startTime'
+          type='time'
+          value={formData.startTime}
+          onChange={handleInputChange}
         />
         <FaGripLines onClick={moveBlock} />
       </div>
@@ -102,9 +68,10 @@ function SideMenuFormBlocks() {
         <input
           required
           id='form-date'
+          name='location'
           type='text'
-          value={location}
-          onChange={handleFormLocation}
+          value={formData.location}
+          onChange={handleInputChange}
         />
         <FaGripLines onClick={moveBlock} />
       </div>
@@ -114,21 +81,22 @@ function SideMenuFormBlocks() {
         <input
           required
           id='form-description'
+          name='description'
           type='text'
-          onChange={handleFormDescription}
-          value={description}
+          value={formData.description}
+          onChange={handleInputChange}
         />
         <FaGripLines onClick={moveBlock} />
       </div>
       <br />
-      <br />
 
+      <h2 className={styles.sideMenuHeading}>Added blocks</h2>
       {formData.formBlocks.map((formBlock, index) => {
         return (
           <div className={styles.formBlock} key={index}>
             <FaTrashCan onClick={() => handleRemoveFormBlock(index)} />
             <p>
-              {formBlock.type} - {`${formBlock.title} ${formBlock.description}`}
+              {formBlock.type} - {`${formBlock.title} ${formBlock.content}`}
             </p>
             <FaGripLines onClick={moveBlock} />
           </div>

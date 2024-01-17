@@ -28,9 +28,9 @@ model Form {
   createdBy   User        @relation(fields: [userId], references: [id])
   title       String
   startDate   DateTime
-  endDate     DateTime
+  endDate     DateTime?
   startTime   String
-  endTime     String
+  endTime     String?
   location    String
   description String
   blocks      FormBlock[]
