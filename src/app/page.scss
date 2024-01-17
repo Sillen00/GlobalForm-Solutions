@@ -2,19 +2,16 @@
 
 .hero {
   background-color: var(--background-color);
-  position: relative;
-  min-height: 60vh;
+  min-height: 80vh;
 
   h1 {
-    position: absolute;
-    top: 16.5%;
-    left: 0;
-    z-index: 20;
     font-size: clamp(#{var(--subhead)}, 5vw, #{var(--heading)});
     font-weight: 800;
     color: var(--text-color);
+    padding-top: 20vh;
 
     span {
+      position: relative;
       color: var(--primary-color);
       border: 4px solid var(--primary-color);
       cursor: pointer;
@@ -24,8 +21,8 @@
       &::after {
         content: "";
         position: absolute;
-        top: 57%;
-        left: 67%;
+        top: 16%;
+        left: 65%;
         width: 3px;
         height: clamp(38px, 5.5vw, 60px);
         background-color: black;
@@ -46,24 +43,38 @@
     }
   }
 
-  p {
-    position: absolute;
-    bottom: clamp(10%, 40%, 26%);
-    left: 0;
-    font-size: var(--bodytext);
-    max-width: 740px;
-    min-width: 280px;
-    padding-right: 70px;
-    font-size: clamp(0.75rem, 0.5833rem + 0.8889vw, #{var(--bodytext)});
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+
+    p {
+      padding-top: 4vh;
+      font-size: var(--bodytext);
+      max-width: 740px;
+      min-width: 280px;
+      padding-right: 70px;
+      font-size: clamp(0.75rem, 0.5833rem + 0.8889vw, #{var(--bodytext)});
+    }
+  
+    .arrow-btn {
+      min-width: 70px;
+      min-height: 70px;
+      margin-top: 4vh;
+    }
+
+    
+    @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: flex-end;
+        
+        .arrow-btn {
+          padding-top: 0;
+        }
+    }
   }
 
-  .arrow-btn {
-    position: absolute;
-    bottom: clamp(10%, 40%, 26%);
-    right: 0;
-    min-width: 70px;
-    min-height: 70px;
-  }
 }
 
 .landingPageSection {
@@ -74,6 +85,7 @@
 
   p {
     max-width: 300px;
+    font-size: clamp(#{var(--smalltext)}, 0.5833rem + 0.8889vw, #{var(--bodytext)});
   }
 
   img {
