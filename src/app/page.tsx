@@ -1,4 +1,6 @@
 import Image from "next/image"
+import Link from "next/link"
+import { IoCreateOutline } from "react-icons/io5"
 import Footer from "./_components/Footer"
 import "./page.scss"
 
@@ -23,14 +25,20 @@ export default async function Home() {
               </p>
               {/* <IoIosArrowDroprightCircle className='arrow-btn' /> */}
               {/* </div> */}
+              <Link href='/dashboard'>
+                <button>
+                  <span>Create your own form</span>
+                  <IoCreateOutline />
+                </button>
+              </Link>
             </div>
 
             <div className='heroRight'>
               <Image
-                src='/image1-landingpage.jpg'
+                src='/MaskotGFS.png'
                 alt='Girl creating a form on the computer'
-                width={120}
-                height={120}
+                width={250}
+                height={250}
               />
             </div>
           </div>
