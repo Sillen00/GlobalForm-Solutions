@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { IoCreateOutline } from "react-icons/io5"
@@ -21,12 +22,22 @@ export default async function Home() {
                 your own customized form today and share it with friends or use
                 the form as a invitation for a event or other happenings!
               </p>
-              <Link href='/dashboard'>
-                <button>
-                  <span>Create your own form</span>
-                  <IoCreateOutline />
-                </button>
-              </Link>
+              <SignedOut>
+                <Link href='/login'>
+                  <button>
+                    <span>Create your own form</span>
+                    <IoCreateOutline />
+                  </button>
+                </Link>
+              </SignedOut>
+              <SignedIn>
+                <Link href='/dashboard'>
+                  <button>
+                    <span>Create your own form</span>
+                    <IoCreateOutline />
+                  </button>
+                </Link>
+              </SignedIn>
             </div>
 
             <div className='heroRight'>
