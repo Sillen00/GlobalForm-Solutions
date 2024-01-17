@@ -81,6 +81,8 @@ export default function FormProvider({ children }: ProviderProps) {
     setFormData(prevFormData => {
       const newFormBlocks = [...prevFormData.formBlocks, newBlock]
       const updatedFormData = { ...prevFormData, formBlocks: newFormBlocks }
+      console.log(newBlock)
+      console.log(updatedFormData)
       return updatedFormData
     })
 

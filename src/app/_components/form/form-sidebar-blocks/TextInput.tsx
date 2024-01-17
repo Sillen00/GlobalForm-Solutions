@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
-import { useForm } from "~/app/(contexts)/FormContext"
-import Button, { IconType } from "./../Button"
+import { useForm } from "~/contexts/FormContext"
+import Button, { IconType } from "../../Button"
 import styles from "./TextInput.module.scss"
 
 // Button skall skapa ett nytt block i preview
@@ -14,21 +14,15 @@ function TextInput() {
   const [orderNumber, setOrderNumber] = useState<number>(0)
 
   const handleClick = () => {
-    const blockTypeTextInput = "textinput"
-
     // Create a state that adds the order number +1 every time a new block is added
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
-      id: "",
       order: orderNumber,
       title: blockTitle,
-      description: "", // TODO: Add description to the form
-      type: blockTypeTextInput,
-      required: false, // TODO: Add required to the form
-      placeholderText: "", // TODO: Add placeholderText to the form
-      options: [], // TODO: Add options to the form
-      formId: "",
+      type: "textInput",
+      required: false,
+      placeholderText: "Write something here...",
     }
     //Send newFormBlock to formContext and add it to the formBlocks array
     addFormBlock(newFormBlock)

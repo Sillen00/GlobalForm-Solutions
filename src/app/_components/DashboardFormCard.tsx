@@ -1,4 +1,4 @@
-import "./FormCard.scss"
+import "./DashboardFormCard.scss"
 
 interface FormCardProps {
   date: string
