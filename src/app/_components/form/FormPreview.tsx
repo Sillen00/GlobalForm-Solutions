@@ -1,10 +1,22 @@
 "use client"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
-import { useForm } from "../../../contexts/FormContext"
+import { useForm, type FormBlock } from "../../../contexts/FormContext"
 import styles from "./FormPreview.module.scss"
+import FormTextInput from "./form-blocks/FormTextInput"
 
 function FormPreview() {
   const { formData } = useForm()
+
+  function renderFormBlock(formBlock: FormBlock) {
+    switch (formBlock.type) {
+      case "text":
+        return <p>{formBlock.content}</p>
+      case "textInput":
+        return <FormTextInput />
+      default:
+        return <p>Could not render form block!</p>
+    }
+  }
 
   return (
     <div className={styles.preview__container}>
@@ -45,13 +57,7 @@ function FormPreview() {
                   <h2 className={styles.preview__block__title}>
                     {formBlock.title}
                   </h2>
-                  {formBlock.type === "textInput"}
-                  {formBlock.type === "text" ? (
-                    <p>{formBlock.content}</p>
-                  ) : (
-                    <input type='text' />
-                  )}
-                  {/* Here we will use a switch conditional to render the proper component/elements depending on the block type. If it gets too large, we can encapsulate the switch logic to its own function and call on it here. */}
+                  {renderFormBlock(formBlock)}
                 </div>
               )
             })}

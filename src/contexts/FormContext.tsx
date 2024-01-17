@@ -17,7 +17,7 @@ export interface FormData {
   updatedAt?: string
 }
 
-interface FormBlock {
+export interface FormBlock {
   id?: string
   formId?: string
   order: number
