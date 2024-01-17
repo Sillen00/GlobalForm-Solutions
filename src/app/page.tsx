@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { IoIosArrowDroprightCircle } from "react-icons/io"
 import Footer from "./_components/Footer"
 import "./page.scss"
 
@@ -9,20 +8,30 @@ export default async function Home() {
       <div className='body-padding'>
         <main>
           <div className='hero'>
-            <h1>
-              GlobalForm <br />
-              <span>Solutions</span>
-            </h1>
-            {/* <div className='fake-input'></div> */}
+            <div className='heroLeft'>
+              <h1>
+                GlobalForm <br />
+                <span>Solutions</span>
+              </h1>
 
-            <div>
+              {/* <div> */}
               <p>
                 Create your own customized form today and share it with friends
                 or use the form as a invitation for a event or other. Create
                 your own customized form today and share it with friends or use
                 the form as a invitation for a event or other happenings!
               </p>
-              <IoIosArrowDroprightCircle className='arrow-btn' />
+              {/* <IoIosArrowDroprightCircle className='arrow-btn' /> */}
+              {/* </div> */}
+            </div>
+
+            <div className='heroRight'>
+              <Image
+                src='/image1-landingpage.jpg'
+                alt='Girl creating a form on the computer'
+                width={120}
+                height={120}
+              />
             </div>
           </div>
 
