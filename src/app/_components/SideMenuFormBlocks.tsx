@@ -128,7 +128,7 @@ function SideMenuFormBlocks() {
           <div className={styles.formBlock} key={index}>
             <FaTrashCan onClick={() => handleRemoveFormBlock(index)} />
             <p>
-              {formBlock.type} - {formBlock.title}
+              {formBlock.type} - {`${formBlock.title} ${formBlock.description}`}
             </p>
             <FaGripLines onClick={moveBlock} />
           </div>
