@@ -8,7 +8,7 @@ import { RxDropdownMenu } from "react-icons/rx"
 import { TbLetterT, TbNumbers, TbSquareLetterT } from "react-icons/tb"
 import { TiInputChecked } from "react-icons/ti"
 import styles from "./SideMenuNewFormBlocks.module.scss"
-import Text from "./form-blocks/Text"
+import Text from "./form-blocks/Text/Text"
 import TextInput from "./form-blocks/TextInput"
 
 function SideMenuNewFormBlocks() {

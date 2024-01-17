@@ -22,7 +22,7 @@ function FormPreview() {
                 <div>
                   <p>{formBlock.title}</p>
                   <p>{formBlock.type}</p>
-                  {/* <p>{formBlock.description}</p> */}
+                  <p>{formBlock.description}</p>
                   {/* <p>{formBlock.required}</p> */}
                   {/* <p>{formBlock.placeholderText}</p> */}
                   {/* <p>{formBlock.options}</p> */}
