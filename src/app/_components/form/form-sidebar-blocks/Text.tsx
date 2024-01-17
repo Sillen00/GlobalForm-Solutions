@@ -4,7 +4,11 @@ import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
 import styles from "./Text.module.scss"
 
-function Text() {
+interface Props {
+  toggleSideMenuContent: () => void
+}
+
+function Text({ toggleSideMenuContent }: Props) {
   const { addFormBlock } = useForm()
   const [blockText, setBlockText] = useState<string>("")
   const [orderNumber, setOrderNumber] = useState<number>(0)
@@ -36,7 +40,13 @@ function Text() {
         value={blockText}
         onChange={e => setBlockText(e.target.value)}
       ></textarea>
-      <Button icon={IconType.None} onClick={handleClick}>
+      <Button
+        icon={IconType.None}
+        onClick={() => {
+          handleClick()
+          toggleSideMenuContent()
+        }}
+      >
         Add block
       </Button>
     </div>

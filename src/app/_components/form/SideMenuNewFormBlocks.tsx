@@ -11,13 +11,11 @@ import styles from "./SideMenuNewFormBlocks.module.scss"
 import Text from "./form-sidebar-blocks/Text"
 import TextInput from "./form-sidebar-blocks/TextInput"
 
-interface toggleSideMenuContentProps {
+interface Props {
   toggleSideMenuContent: () => void
 }
 
-function SideMenuNewFormBlocks({
-  toggleSideMenuContent,
-}: toggleSideMenuContentProps) {
+function SideMenuNewFormBlocks({ toggleSideMenuContent }: Props) {
   const [selectedBlock, setSelectedBlock] = useState<string | null>(null)
 
   const handleFormBlockClick = (formBlock: string) => {
@@ -76,7 +74,9 @@ function SideMenuNewFormBlocks({
         </div>
       )}
 
-      {selectedBlock === "text" && <Text />}
+      {selectedBlock === "text" && (
+        <Text toggleSideMenuContent={toggleSideMenuContent} />
+      )}
       {selectedBlock === "textinput" && (
         <TextInput toggleSideMenuContent={toggleSideMenuContent} />
       )}
