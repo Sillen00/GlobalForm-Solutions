@@ -22,6 +22,7 @@ function SideMenuFormBlocks() {
 
   return (
     <div className={styles.sideMenuFormBlock}>
+      <h2 className={styles.sideMenuHeading}>Required blocks</h2>
       <div className={styles.formBlock}>
         <FaTrashCan onClick={handleRemoveFormBlock} />
         <label id='form-title'>Form Title *</label>
@@ -56,7 +57,6 @@ function SideMenuFormBlocks() {
           id='form-time'
           name='startTime'
           type='time'
-          step='3600'
           value={formData.startTime}
           onChange={handleInputChange}
         />
@@ -89,8 +89,8 @@ function SideMenuFormBlocks() {
         <FaGripLines onClick={moveBlock} />
       </div>
       <br />
-      <br />
 
+      <h2 className={styles.sideMenuHeading}>Added blocks</h2>
       {formData.formBlocks.map((formBlock, index) => {
         return (
           <div className={styles.formBlock} key={index}>

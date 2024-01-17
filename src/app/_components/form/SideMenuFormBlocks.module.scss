@@ -1,8 +1,14 @@
 .sideMenuFormBlock {
+
+    .sideMenuHeading {
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 1rem 0.5rem 1rem 2.2rem;
+    }
     
     .formBlock {
         display: flex;
-        justify-content: space-between;
+        // justify-content: space-between;
         align-items: center;
         margin: 2rem 0.5rem 0.5rem 0.5rem;
         position: relative;
@@ -20,8 +26,8 @@
             font-size: var(--smalltext);
             font-weight: bold;
             position: absolute;
-            top: -1.1rem;
-            left: 1.6rem;
+            top: -1.3rem;
+            left: 1.8rem;
         }
         
         input {
@@ -36,7 +42,7 @@
         }
 
         p {
-            text-transform: uppercase;            // max-width: 30px;
+            text-transform: uppercase; 
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
