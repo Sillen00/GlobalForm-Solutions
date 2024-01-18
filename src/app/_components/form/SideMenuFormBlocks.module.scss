@@ -9,10 +9,11 @@
     margin: 0 0 1rem 0;
   }
 
-  .requiredFormBlock {
+  .requiredFormBlocks {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 1rem;
 
     input,
     textarea {
@@ -34,42 +35,8 @@
 
   .formBlock {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
-    margin: 2rem 0.5rem 0.5rem 0.5rem;
-    position: relative;
-
-    svg:first-child {
-      color: red;
-    }
-
-    svg {
-      min-width: 1.2rem;
-      cursor: pointer;
-    }
-
-    label {
-      font-size: var(--smalltext);
-      font-weight: bold;
-      position: absolute;
-      top: -1.3rem;
-      left: 1.8rem;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      border: 1px solid var(--primary-color);
-      border-radius: 5px;
-      padding: 0 0.5rem;
-      font-size: 1.2rem;
-      margin: 0 0.5rem;
-      color: black;
-    }
-
-    textarea {
-      height: 10rem;
-    }
+    margin: 2rem 0.5rem 0.5rem 0rem;
 
     p {
       text-transform: uppercase;
@@ -78,7 +45,38 @@
       text-overflow: ellipsis;
       padding: 0 8px 0 8px;
     }
+
+    svg {
+      min-width: 1.2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .typeIcon {
+			margin-right: 0.4rem;
+      display: inline-block;
+    }
+
+    .trashIcon {
+			margin-right: 0.4rem;
+      display: none;
+    }
+
+    .gripIcon {
+      cursor: grab;
+      margin-left: auto;
+    }
+
+    &:hover {
+      .typeIcon {
+        display: none;
+      }
+      .trashIcon {
+        display: inline-block;
+      }
+    }
   }
+
   .iconContainer {
     display: flex;
     justify-content: center;
