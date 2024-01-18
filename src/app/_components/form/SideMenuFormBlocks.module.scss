@@ -53,12 +53,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0.5rem;
-        position: relative;
+        margin: 0.5rem 0.5rem 6rem 0.5rem;
 
         svg {
             font-size: 1.2rem;
-            cursor: pointer;
         }
     }
 }
