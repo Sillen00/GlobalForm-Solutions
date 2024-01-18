@@ -29,10 +29,16 @@ function SideMenuTextInput() {
 
   return (
     <div className={styles.textInputContainer}>
-      <div>TextInput</div>
+      <h2>Text input block</h2>
+      <p>
+        This block adds a simple input field to the form, that the user can fill
+        in before sending a response back to you.
+      </p>
 
       <div className={styles.inputBox}>
-        <label id='block-title'>Block title (required)</label>
+        <label id='block-title'>
+          Block title <span style={{ color: "red" }}>*</span>
+        </label>
         <input
           id='block-title'
           type='text'

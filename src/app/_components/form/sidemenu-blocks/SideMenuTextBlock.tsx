@@ -6,6 +6,7 @@ import styles from "./SideMenuTextBlock.module.scss"
 
 function SideMenuTextBlock() {
   const { addFormBlock } = useForm()
+  const [blockTitle, setBlockTitle] = useState<string>("")
   const [blockText, setBlockText] = useState<string>("")
   const [orderNumber, setOrderNumber] = useState<number>(0)
 
@@ -16,7 +17,7 @@ function SideMenuTextBlock() {
 
     const newFormBlock = {
       order: orderNumber,
-      title: "",
+      title: blockTitle,
       content: blockText,
       type: blockTypeText,
       required: false,
@@ -27,7 +28,19 @@ function SideMenuTextBlock() {
 
   return (
     <div className={styles.textContainer}>
-      <div>Text</div>
+      <h2>Text block</h2>
+      <p>This block simply adds readable text for the user to read.</p>
+      <div className={styles.inputBox}>
+        <label id='block-title'>Block title (optional)</label>
+        <input
+          id='block-title'
+          type='text'
+          name='block-title'
+          required
+          value={blockTitle}
+          onChange={e => setBlockTitle(e.target.value)}
+        />
+      </div>
       <label id='block-text'>Block text</label>
       <textarea
         id='block-text'
