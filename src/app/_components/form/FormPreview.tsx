@@ -24,29 +24,35 @@ function FormPreview() {
         {formData ? (
           <>
             <div className={styles.preview__header}>
-              <h1 className={styles.preview__title}>{formData.title}</h1>
+              <h1 className={styles.preview__title}>
+                {formData.title ? (
+                  formData.title
+                ) : (
+                  <span style={{ color: "#999999" }}>New form</span>
+                )}
+              </h1>
               <div className={styles.preview__info}>
                 <FaCalendar />
                 <p>
-                  {formData.startDate}
+                  {formData.startDate ? formData.startDate : "Unknown"}
                   {formData.endDate ? ` – ${formData.endDate}` : ""}
                 </p>
               </div>
               <div className={styles.preview__info}>
                 <FaClock />
                 <p>
-                  {formData.startTime}
+                  {formData.startTime ? formData.startTime : "Unknown"}
                   {formData.endTime ? ` – ${formData.endTime}` : ""}
                 </p>
               </div>
               <div className={styles.preview__info}>
                 <FaLocationDot />
-                <p>{formData.location}</p>
+                <p>{formData.location ? formData.location : "Unknown"}</p>
               </div>
             </div>
             <div className={styles.preview__block__container}>
               <h2 className={styles.preview__block__title}>Description</h2>
-              <p>{formData.description}</p>
+              <p>{formData.description ? formData.description : 'No description of the event has been given.'}</p>
             </div>
             {formData.formBlocks.map((formBlock, index) => {
               return (

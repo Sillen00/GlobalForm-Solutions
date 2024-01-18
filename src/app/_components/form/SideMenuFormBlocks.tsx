@@ -100,7 +100,7 @@ function SideMenuFormBlocks() {
                 />
                 <div className={styles.formTextBlock}>
                   <p className={styles.formBlockTitle}>
-                    {formBlock.title ? formBlock.title : "Untitled"}
+                    {formBlock.title ? formBlock.title : "Untitled block"}
                   </p>
                   <p>{formBlock.content}</p>
                 </div>
@@ -118,7 +118,7 @@ function SideMenuFormBlocks() {
                 />
                 <div className={styles.formTextBlock}>
                   <p className={styles.formBlockTitle}>
-                    {formBlock.title ? formBlock.title : "Untitled"}
+                    {formBlock.title ? formBlock.title : "Untitled block"}
                   </p>
                 </div>
                 <FaGripLines className={styles.gripIcon} onClick={moveBlock} />
