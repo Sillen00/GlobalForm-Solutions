@@ -8,7 +8,11 @@ import styles from "./TextInput.module.scss"
 // Button skall skicka block till createform
 // block skall ha med id, title, type, order, formid, required
 
-function TextInput() {
+interface Props {
+  toggleSideMenuContent: () => void
+}
+
+function TextInput({ toggleSideMenuContent }: Props) {
   const [blockTitle, setBlockTitle] = useState<string>("")
   const { addFormBlock } = useForm()
   const [orderNumber, setOrderNumber] = useState<number>(0)
@@ -47,7 +51,10 @@ function TextInput() {
         <Button
           icon={IconType.None}
           className={styles.iconStyle}
-          onClick={handleClick}
+          onClick={() => {
+            handleClick()
+            toggleSideMenuContent()
+          }}
         >
           Add block
         </Button>
