@@ -48,12 +48,9 @@ function FormPreview() {
               <h2 className={styles.preview__block__title}>Description</h2>
               <p>{formData.description}</p>
             </div>
-            {formData.formBlocks.map(formBlock => {
+            {formData.formBlocks.map((formBlock, index) => {
               return (
-                <div
-                  key={formBlock.order}
-                  className={styles.preview__block__container}
-                >
+                <div key={index} className={styles.preview__block__container}>
                   <h2 className={styles.preview__block__title}>
                     {formBlock.title}
                   </h2>
