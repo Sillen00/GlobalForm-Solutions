@@ -8,7 +8,7 @@
 }
 
 .preview__content {
-  padding: 4rem 10rem 4rem 4rem;
+  padding: 4rem 10rem 10rem 4rem;
   width: 50rem;
   min-height: calc(100vh - 4.5rem);
   background-color: rgb(255, 255, 255);
@@ -36,7 +36,7 @@
 .preview__block__container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .preview__block__title {
@@ -46,7 +46,7 @@
 
 @media (max-width: 1250px) {
   .preview__content {
-    padding: 4rem 2rem 4rem 2rem;
+    padding: 4rem 2rem 10rem 2rem;
     width: 100%;
   }
 }
