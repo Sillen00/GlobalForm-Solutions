@@ -1,15 +1,11 @@
+// "use client"
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
-
-import { useUser } from "@clerk/nextjs"
 import { api } from "~/trpc/server"
 import { useForm } from "../../../contexts/FormContext"
-import Button, { IconType } from "../Button"
 import styles from "./SideMenuFormBlocks.module.scss"
 
 function SideMenuFormBlocks() {
   const { formData, setFormData, removeFormBlock } = useForm()
-
-  const user = useUser()
 
   const handleRemoveFormBlock = (index: number) => {
     removeFormBlock(index)
@@ -25,39 +21,44 @@ function SideMenuFormBlocks() {
   }
 
   const generateForm = async () => {
-    try {
-      // Use the trpc method to call the createForm endpoint
-      if (!user?.user?.id) throw new Error("User is not logged in")
+    // try {
+    //   // Use the trpc method to call the createForm endpoint
+    //   const mutate = api.form.createForm.mutate({
+    //     title: formData.title,
+    //     startDate: formData.startDate,
+    //     endDate: formData.endDate,
+    //     startTime: formData.startTime,
+    //     endTime: formData.endTime,
+    //     location: formData.location,
+    //     description: formData.description,
+    //     blocks: formData.formBlocks.map(block => ({
+    //       order: block.order,
+    //       title: block.title ?? "",
+    //       content: block.content ?? "",
+    //       type: block.type as
+    //         | "number"
+    //         | "date"
+    //         | "text"
+    //         | "textInput"
+    //         | "textarea"
+    //         | "radio"
+    //         | "checkbox"
+    //         | "dropdown"
+    //         | "email"
+    //         | "tel"
+    //         | "url",
+    //       required: block.required ?? false,
+    //       placeholderText: block.placeholderText ?? "",
+    //       options: block.options ?? [""],
+    //     })),
+    //   })
 
-      const result = await api.form.createForm.mutate({
-        input: {
-          userId: user?.user?.id, // Make sure formData.userId is correct
-          title: formData.title,
-          startDate: formData.startDate,
-          endDate: formData.endDate,
-          startTime: formData.startTime,
-          endTime: formData.endTime,
-          location: formData.location,
-          description: formData.description,
-          blocks: formData.formBlocks.map(block => ({
-            type: block.type,
-            title: block.title ?? "", // Add default value or adjust as needed
-            content: block.content ?? "", // Add default value or adjust as needed
-            // Include other properties from formBlockSchema as needed
-            order: block.order,
-            required: block.required ?? false, // Add default value or adjust as needed
-            placeholderText: block.placeholderText ?? "", // Add default value or adjust as needed
-            options: block.options ?? [], // Add default value or adjust as needed
-          })),
-        },
-      })
+    //   return mutate
 
-      // Handle the result as needed
-      console.log("Form created successfully:", result)
-    } catch (error) {
-      // Handle errors
-      console.error("Error:", error)
-    }
+    //   // Handle the result as needed
+    // } catch (error) {
+    //   console.error("Error:", error)
+    // }
   }
 
   return (
@@ -145,9 +146,7 @@ function SideMenuFormBlocks() {
 
       {formData.formBlocks.length > 0 && (
         <div className={styles.iconContainer}>
-          <Button icon={IconType.Save} onClick={() => generateForm()}>
-            Generate Form
-          </Button>
+          <button onClick={generateForm}>Generate Form</button>
         </div>
       )}
     </div>
