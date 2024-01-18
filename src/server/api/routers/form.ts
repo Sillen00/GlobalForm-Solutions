@@ -35,12 +35,12 @@ const formResponsesSchema = z.object({
 })
 
 const formSchema = z.object({
-  userId: z.string(),
+  // userId: z.string(),
   title: z.string(),
   startDate: z.string(),
-  endDate: z.string(),
+  endDate: z.string().optional(),
   startTime: z.string(),
-  endTime: z.string(),
+  endTime: z.string().optional(),
   location: z.string(),
   description: z.string(),
   blocks: z.array(formBlockSchema),
