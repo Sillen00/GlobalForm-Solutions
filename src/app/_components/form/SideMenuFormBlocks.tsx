@@ -27,7 +27,10 @@ function SideMenuFormBlocks() {
   return (
     <div className={styles.sideMenuFormBlock}>
       {/* Required blocks */}
-      <h2 className={styles.sideMenuHeading}>Required blocks</h2>
+      <h2 className={styles.sideMenuHeading}>
+        Required blocks
+        <hr className={styles.sideMenuDivider}></hr>
+      </h2>
       <div className={styles.requiredFormBlocks}>
         <label id='form-title'>Form Title</label>
         <input
@@ -81,7 +84,9 @@ function SideMenuFormBlocks() {
       </div>
 
       {/* Added blocks */}
-      <h2 className={styles.sideMenuHeading}>Added blocks</h2>
+      <h2 className={styles.sideMenuHeading}>
+        Added blocks <hr className={styles.sideMenuDivider}></hr>
+      </h2>
       {formData.formBlocks.map((formBlock, index) => {
         switch (formBlock.type) {
           case "text":

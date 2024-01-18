@@ -6,7 +6,14 @@
   .sideMenuHeading {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.4rem 0;
+  }
+
+  .sideMenuDivider {
+    background-color: var(--primary-color);
+    height: 2px;
+		margin-top: 2px;
+    border: none;
   }
 
   .requiredFormBlocks {
@@ -36,7 +43,7 @@
   .formBlock {
     display: flex;
     align-items: center;
-    margin: 2rem 0.5rem 0.5rem 0rem;
+    margin: 0rem 0.5rem 2rem 0rem;
 
     p {
       text-transform: uppercase;
@@ -53,12 +60,12 @@
     }
 
     .typeIcon {
-			margin-right: 0.4rem;
+      margin-right: 0.4rem;
       display: inline-block;
     }
 
     .trashIcon {
-			margin-right: 0.4rem;
+      margin-right: 0.4rem;
       display: none;
     }
 
