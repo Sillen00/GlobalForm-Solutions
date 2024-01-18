@@ -42,6 +42,8 @@
 .preview__block__title {
   font-size: 1.6rem;
   margin-bottom: 0.4rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 @media (max-width: 1250px) {

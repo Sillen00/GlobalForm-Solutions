@@ -52,7 +52,11 @@ function FormPreview() {
             </div>
             <div className={styles.preview__block__container}>
               <h2 className={styles.preview__block__title}>Description</h2>
-              <p>{formData.description ? formData.description : 'No description of the event has been given.'}</p>
+              <p>
+                {formData.description
+                  ? formData.description
+                  : "No description of the event has been given."}
+              </p>
             </div>
             {formData.formBlocks.map((formBlock, index) => {
               return (
