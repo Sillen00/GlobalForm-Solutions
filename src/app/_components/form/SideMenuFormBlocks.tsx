@@ -52,9 +52,7 @@ function SideMenuFormBlocks() {
     //       options: block.options ?? [""],
     //     })),
     //   })
-
     //   return mutate
-
     //   // Handle the result as needed
     // } catch (error) {
     //   console.error("Error:", error)
