@@ -47,7 +47,11 @@ function CreateFormPage() {
 
           {!isSideMenuAddBlocksOpen && <SideMenuFormBlocks />}
 
-          {isSideMenuAddBlocksOpen && <SideMenuAddFormBlocks />}
+          {isSideMenuAddBlocksOpen && (
+            <SideMenuAddFormBlocks
+              toggleSideMenuContent={toggleSideMenuContent}
+            />
+          )}
 
           {/* SIDE MENU TOGGLE PREVIEW BUTTON (ONLY MOBILE) */}
           {!isSideMenuAddBlocksOpen && (

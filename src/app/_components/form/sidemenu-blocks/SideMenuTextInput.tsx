@@ -7,7 +7,11 @@ import styles from "./SideMenuTextInput.module.scss"
 // Button skall skapa ett nytt block i preview
 // Button skall skicka block till createform
 
-function SideMenuTextInput() {
+interface Props {
+  toggleSideMenuContent: () => void
+}
+
+function SideMenuTextInput({ toggleSideMenuContent }: Props) {
   const [blockTitle, setBlockTitle] = useState<string>("")
   const { addFormBlock } = useForm()
   const [orderNumber, setOrderNumber] = useState<number>(0)
@@ -52,7 +56,10 @@ function SideMenuTextInput() {
         <Button
           icon={IconType.None}
           className={styles.iconStyle}
-          onClick={handleClick}
+          onClick={() => {
+            handleClick()
+            toggleSideMenuContent()
+          }}
         >
           Add block
         </Button>

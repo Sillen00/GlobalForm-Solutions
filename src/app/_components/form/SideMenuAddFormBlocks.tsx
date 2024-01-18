@@ -11,7 +11,11 @@ import styles from "./SideMenuAddFormBlocks.module.scss"
 import SideMenuTextBlock from "./sidemenu-blocks/SideMenuTextBlock"
 import SideMenuTextInput from "./sidemenu-blocks/SideMenuTextInput"
 
-function SideMenuAddFormBlocks() {
+interface Props {
+  toggleSideMenuContent: () => void
+}
+
+function SideMenuAddFormBlocks({ toggleSideMenuContent }: Props) {
   const [selectedBlock, setSelectedBlock] = useState<string | null>(null)
 
   const handleFormBlockClick = (formBlock: string) => {
@@ -27,7 +31,7 @@ function SideMenuAddFormBlocks() {
             <TbLetterT />
             <p>Text</p>
           </div>
-          <div onClick={() => handleFormBlockClick("textinput")}>
+          <div onClick={() => handleFormBlockClick("textInput")}>
             <LuFormInput />
             <p>Text input</p>
           </div>
@@ -70,8 +74,12 @@ function SideMenuAddFormBlocks() {
         </div>
       )}
 
-      {selectedBlock === "text" && <SideMenuTextBlock />}
-      {selectedBlock === "textinput" && <SideMenuTextInput />}
+      {selectedBlock === "text" && (
+        <SideMenuTextBlock toggleSideMenuContent={toggleSideMenuContent} />
+      )}
+      {selectedBlock === "textInput" && (
+        <SideMenuTextInput toggleSideMenuContent={toggleSideMenuContent} />
+      )}
     </div>
   )
 }
