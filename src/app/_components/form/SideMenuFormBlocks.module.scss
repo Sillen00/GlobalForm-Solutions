@@ -12,7 +12,7 @@
   .sideMenuDivider {
     background-color: var(--primary-color);
     height: 2px;
-		margin-top: 2px;
+    margin-top: 2px;
     border: none;
   }
 
@@ -43,10 +43,9 @@
   .formBlock {
     display: flex;
     align-items: center;
-    margin: 0rem 0.5rem 2rem 0rem;
+    margin: 0rem 0rem 1.4rem 0rem;
 
     p {
-      text-transform: uppercase;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -81,6 +80,19 @@
       .trashIcon {
         display: inline-block;
       }
+    }
+
+    .formTextBlock {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .formBlockTitle {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: #888888;
+      font-weight: bold;
+      margin: 0 0 0rem 0;
     }
   }
 

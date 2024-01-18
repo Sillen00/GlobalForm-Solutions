@@ -98,9 +98,12 @@ function SideMenuFormBlocks() {
                   className={styles.trashIcon}
                   onClick={() => handleRemoveFormBlock(index)}
                 />
-                <p>
-                  {formBlock.type} - {formBlock.content}
-                </p>
+                <div className={styles.formTextBlock}>
+                  <p className={styles.formBlockTitle}>
+                    {formBlock.title ? formBlock.title : "Untitled"}
+                  </p>
+                  <p>{formBlock.content}</p>
+                </div>
                 <FaGripLines className={styles.gripIcon} onClick={moveBlock} />
               </div>
             )
@@ -113,7 +116,11 @@ function SideMenuFormBlocks() {
                   className={styles.trashIcon}
                   onClick={() => handleRemoveFormBlock(index)}
                 />
-                <p>{`${formBlock.title} ${formBlock.content}`}</p>
+                <div className={styles.formTextBlock}>
+                  <p className={styles.formBlockTitle}>
+                    {formBlock.title ? formBlock.title : "Untitled"}
+                  </p>
+                </div>
                 <FaGripLines className={styles.gripIcon} onClick={moveBlock} />
               </div>
             )
