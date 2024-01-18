@@ -45,11 +45,10 @@
     display: flex;
     align-items: center;
     margin: 0rem 0rem 1.4rem 0rem;
+    min-width: 0;
+    position: relative;
 
     p {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       padding: 0 8px 0 8px;
     }
 
@@ -85,8 +84,16 @@
 
     .formTextBlock {
       display: flex;
+      min-width: 0;
       flex-direction: column;
       user-select: none;
+
+      p {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-right: 1rem;
+      }
     }
 
     .formBlockTitle {
