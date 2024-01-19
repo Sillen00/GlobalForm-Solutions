@@ -2,13 +2,16 @@
 import { useState } from "react"
 import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
-import styles from "./TextInput.module.scss"
+import styles from "./SideMenuTextInput.module.scss"
 
 // Button skall skapa ett nytt block i preview
 // Button skall skicka block till createform
-// block skall ha med id, title, type, order, formid, required
 
-function TextInput() {
+interface Props {
+  toggleSideMenuContent: () => void
+}
+
+function SideMenuTextInput({ toggleSideMenuContent }: Props) {
   const [blockTitle, setBlockTitle] = useState<string>("")
   const { addFormBlock } = useForm()
   const [orderNumber, setOrderNumber] = useState<number>(0)
@@ -30,10 +33,16 @@ function TextInput() {
 
   return (
     <div className={styles.textInputContainer}>
-      <div>TextInput</div>
+      <h2>Text input block</h2>
+      <p>
+        This block adds a simple input field to the form, that the user can fill
+        in before sending a response back to you.
+      </p>
 
       <div className={styles.inputBox}>
-        <label id='block-title'>Block title (required)</label>
+        <label id='block-title'>
+          Block title <span style={{ color: "red" }}>*</span>
+        </label>
         <input
           id='block-title'
           type='text'
@@ -47,7 +56,10 @@ function TextInput() {
         <Button
           icon={IconType.None}
           className={styles.iconStyle}
-          onClick={handleClick}
+          onClick={() => {
+            handleClick()
+            toggleSideMenuContent()
+          }}
         >
           Add block
         </Button>
@@ -56,4 +68,4 @@ function TextInput() {
   )
 }
 
-export default TextInput
+export default SideMenuTextInput

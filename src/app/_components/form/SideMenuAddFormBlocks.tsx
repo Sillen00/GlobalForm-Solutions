@@ -7,11 +7,15 @@ import { MdEmail } from "react-icons/md"
 import { RxDropdownMenu } from "react-icons/rx"
 import { TbLetterT, TbNumbers, TbSquareLetterT } from "react-icons/tb"
 import { TiInputChecked } from "react-icons/ti"
-import styles from "./SideMenuNewFormBlocks.module.scss"
-import Text from "./form-sidebar-blocks/Text"
-import TextInput from "./form-sidebar-blocks/TextInput"
+import styles from "./SideMenuAddFormBlocks.module.scss"
+import SideMenuTextBlock from "./sidemenu-blocks/SideMenuTextBlock"
+import SideMenuTextInput from "./sidemenu-blocks/SideMenuTextInput"
 
-function SideMenuNewFormBlocks() {
+interface Props {
+  toggleSideMenuContent: () => void
+}
+
+function SideMenuAddFormBlocks({ toggleSideMenuContent }: Props) {
   const [selectedBlock, setSelectedBlock] = useState<string | null>(null)
 
   const handleFormBlockClick = (formBlock: string) => {
@@ -19,7 +23,7 @@ function SideMenuNewFormBlocks() {
   }
 
   return (
-    <div className={styles.sideMenuNewBlocks}>
+    <div className={styles.sideMenuAddBlocks}>
       {/* If the selectedblock state is empty show all blocks */}
       {selectedBlock === null && (
         <div className={styles.blockTypeContainer}>
@@ -27,7 +31,7 @@ function SideMenuNewFormBlocks() {
             <TbLetterT />
             <p>Text</p>
           </div>
-          <div onClick={() => handleFormBlockClick("textinput")}>
+          <div onClick={() => handleFormBlockClick("textInput")}>
             <LuFormInput />
             <p>Text input</p>
           </div>
@@ -70,10 +74,14 @@ function SideMenuNewFormBlocks() {
         </div>
       )}
 
-      {selectedBlock === "text" && <Text />}
-      {selectedBlock === "textinput" && <TextInput />}
+      {selectedBlock === "text" && (
+        <SideMenuTextBlock toggleSideMenuContent={toggleSideMenuContent} />
+      )}
+      {selectedBlock === "textInput" && (
+        <SideMenuTextInput toggleSideMenuContent={toggleSideMenuContent} />
+      )}
     </div>
   )
 }
 
-export default SideMenuNewFormBlocks
+export default SideMenuAddFormBlocks
