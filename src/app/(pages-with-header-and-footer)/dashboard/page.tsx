@@ -9,9 +9,11 @@ import "./page.scss"
 
 function DashboardPage() {
   const { user } = useUser()
+  let forms
   if (user) {
-    const forms = api.user.getForms.useQuery(undefined)
-    console.log(forms?.data)
+    const { data } = api.user.getForms.useQuery(undefined)
+    forms = data
+    console.log(data)
   }
   return (
     <SignedIn>
@@ -25,24 +27,17 @@ function DashboardPage() {
               <FaPlus />
             </div>
           </Link>
-          {/* Form cards: */} {/* Example cards....*/}
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          {/* {forms.map((form) => (
-            <FormCard
-              key={form.id}
-              date={form.startDate}
-              time={form.startTime}
-              title={form.title}
-              place={form.location}
-            />
-          ))} */}
+          {forms
+            ? forms.map(form => (
+                <FormCard
+                  key={form.id}
+                  date={form.startDate}
+                  time={form.startTime}
+                  title={form.title}
+                  place={form.location}
+                />
+              ))
+            : "No forms created yet"}
         </div>
       </div>
     </SignedIn>

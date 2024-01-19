@@ -43,7 +43,7 @@ function SideMenuFormBlocks() {
   const { mutate } = api.form.createForm.useMutation()
 
   const generateForm = () => {
-    // mutate(formData)
+    mutate(formData)
     console.log(formData)
   }
 
