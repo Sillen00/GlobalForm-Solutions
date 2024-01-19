@@ -39,7 +39,7 @@ interface Response {
   updatedAt: string
 }
 
-enum FormBlockType {
+export enum FormBlockType {
   text = "text",
   textInput = "textInput",
   textarea = "textarea",

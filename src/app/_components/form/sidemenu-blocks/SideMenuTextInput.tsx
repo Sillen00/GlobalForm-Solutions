@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
 import styles from "./SideMenuTextInput.module.scss"
+import { type FormBlockType } from "~/contexts/FormContext"
 
 // Button skall skapa ett nytt block i preview
 // Button skall skicka block till createform
@@ -23,7 +24,7 @@ function SideMenuTextInput({ toggleSideMenuContent }: Props) {
     const newFormBlock = {
       order: orderNumber,
       title: blockTitle,
-      type: "textInput",
+      type: "textInput" as FormBlockType,
       required: false,
       placeholderText: "Write something here...",
     }
