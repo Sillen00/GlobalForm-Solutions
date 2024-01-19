@@ -2,6 +2,7 @@
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 import { api } from "~/trpc/react"
 import { useForm } from "../../../contexts/FormContext"
+import Button, { IconType } from "../Button"
 import styles from "./SideMenuFormBlocks.module.scss"
 
 function SideMenuFormBlocks() {
@@ -112,7 +113,9 @@ function SideMenuFormBlocks() {
 
       {formData.formBlocks.length > 0 && (
         <div className={styles.iconContainer}>
-          <button onClick={generateForm}>Generate Form</button>
+          <Button icon={IconType.Save} onClick={generateForm}>
+            Generate Form
+          </Button>
         </div>
       )}
     </div>
