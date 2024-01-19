@@ -24,7 +24,7 @@ model User {
 
 model Form {
   id          String      @id @default(auto()) @map("_id") @db.ObjectId
-  userId      String      @db.ObjectId
+  userId      String
   createdBy   User        @relation(fields: [userId], references: [id])
   title       String
   startDate   String

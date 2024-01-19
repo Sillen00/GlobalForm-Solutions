@@ -1,10 +1,18 @@
-import { SignedIn } from "@clerk/nextjs"
+"use client"
+
+import { SignedIn, useUser } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
+import { api } from "~/trpc/react"
 import FormCard from "../../_components/DashboardFormCard"
 import "./page.scss"
 
 function DashboardPage() {
+  const { user } = useUser()
+  if (user) {
+    const forms = api.user.getForms.useQuery(undefined)
+    console.log(forms?.data)
+  }
   return (
     <SignedIn>
       <title>Dashboard - GlobalForm Solutions</title>
