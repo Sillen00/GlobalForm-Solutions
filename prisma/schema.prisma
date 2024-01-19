@@ -33,7 +33,7 @@ model Form {
   endTime     String?
   location    String
   description String
-  blocks      FormBlock[]
+  formBlocks  FormBlock[]
   responses   Response[]
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt

@@ -1,6 +1,6 @@
 // "use client"
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
-import { api } from "~/trpc/server"
+import { api } from "~/trpc/react"
 import { useForm } from "../../../contexts/FormContext"
 import styles from "./SideMenuFormBlocks.module.scss"
 
@@ -20,39 +20,45 @@ function SideMenuFormBlocks() {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
-  const generateForm = async () => {
+  console.log("formData", formData)
+
+  const generateForm = () => {
+    const hello = api.form.createForm.useMutation() //formdata
+
+    return hello
+    // mutate({
+    //   userId: "1",
+    //   title: formData.title,
+    //   startDate: formData.startDate,
+    //   endDate: formData.endDate,
+    //   startTime: formData.startTime,
+    //   endTime: formData.endTime,
+    //   location: formData.location,
+    //   description: formData.description,
+    //   blocks: formData.formBlocks.map(block => ({
+    //     order: block.order,
+    //     title: block.title ?? "",
+    //     content: block.content ?? "",
+    //     type: block.type as
+    //       | "number"
+    //       | "date"
+    //       | "text"
+    //       | "textInput"
+    //       | "textarea"
+    //       | "radio"
+    //       | "checkbox"
+    //       | "dropdown"
+    //       | "email"
+    //       | "tel"
+    //       | "url",
+    //     required: block.required ?? false,
+    //     placeholderText: block.placeholderText ?? "",
+    //     options: block.options ?? [""],
+    //   })),
+    // })
+
     // try {
     //   // Use the trpc method to call the createForm endpoint
-    //   const mutate = api.form.createForm.mutate({
-    //     title: formData.title,
-    //     startDate: formData.startDate,
-    //     endDate: formData.endDate,
-    //     startTime: formData.startTime,
-    //     endTime: formData.endTime,
-    //     location: formData.location,
-    //     description: formData.description,
-    //     blocks: formData.formBlocks.map(block => ({
-    //       order: block.order,
-    //       title: block.title ?? "",
-    //       content: block.content ?? "",
-    //       type: block.type as
-    //         | "number"
-    //         | "date"
-    //         | "text"
-    //         | "textInput"
-    //         | "textarea"
-    //         | "radio"
-    //         | "checkbox"
-    //         | "dropdown"
-    //         | "email"
-    //         | "tel"
-    //         | "url",
-    //       required: block.required ?? false,
-    //       placeholderText: block.placeholderText ?? "",
-    //       options: block.options ?? [""],
-    //     })),
-    //   })
-    //   return mutate
     //   // Handle the result as needed
     // } catch (error) {
     //   console.error("Error:", error)

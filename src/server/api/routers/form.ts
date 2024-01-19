@@ -43,7 +43,7 @@ const formSchema = z.object({
   endTime: z.string().optional(),
   location: z.string(),
   description: z.string(),
-  blocks: z.array(formBlockSchema),
+  formBlocks: z.array(formBlockSchema),
   responses: z.array(formResponsesSchema).optional(),
 })
 
@@ -88,8 +88,8 @@ export const formRouter = createTRPCRouter({
           endTime: input.endTime,
           location: input.location,
           description: input.description,
-          blocks: {
-            create: input.blocks,
+          formBlocks: {
+            create: input.formBlocks,
           },
         },
       })
