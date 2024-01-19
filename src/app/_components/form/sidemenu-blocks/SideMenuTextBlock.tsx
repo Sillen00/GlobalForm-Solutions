@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { useForm } from "~/contexts/FormContext"
+import { useForm, type FormBlockType } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
 import styles from "./SideMenuTextBlock.module.scss"
 
@@ -15,15 +15,13 @@ function SideMenuTextBlock({ toggleSideMenuContent }: Props) {
   const [orderNumber, setOrderNumber] = useState<number>(0)
 
   const handleClick = () => {
-    const blockTypeText = "text"
-
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
       order: orderNumber,
       title: blockTitle,
       content: blockText,
-      type: blockTypeText,
+      type: "text" as FormBlockType,
       required: false,
     }
 

@@ -1,7 +1,8 @@
+// "use client"
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
-
 import { LuFormInput } from "react-icons/lu"
 import { TbLetterT } from "react-icons/tb"
+import { api } from "~/trpc/react"
 import { useForm } from "../../../contexts/FormContext"
 import Button, { IconType } from "../Button"
 import styles from "./SideMenuFormBlocks.module.scss"
@@ -22,6 +23,13 @@ function SideMenuFormBlocks() {
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
+  }
+
+  const { mutate } = api.form.createForm.useMutation()
+
+  const generateForm = () => {
+    mutate(formData)
+    console.log(formData)
   }
 
   return (
@@ -88,7 +96,7 @@ function SideMenuFormBlocks() {
         Added blocks <hr className={styles.sideMenuDivider}></hr>
       </h2>
       {formData.formBlocks.map((formBlock, index) => {
-        switch (formBlock.type) {
+        switch (formBlock.type as "text" | "textInput") {
           case "text":
             return (
               <div className={styles.formBlock} key={index}>
@@ -133,7 +141,9 @@ function SideMenuFormBlocks() {
 
       {formData.formBlocks.length > 0 && (
         <div className={styles.iconContainer}>
-          <Button icon={IconType.Save}>Generate Form</Button>
+          <Button icon={IconType.Save} onClick={generateForm}>
+            Generate Form
+          </Button>
         </div>
       )}
     </div>

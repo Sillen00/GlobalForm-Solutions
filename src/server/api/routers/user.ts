@@ -3,12 +3,12 @@ import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc"
 
 export const userRouter = createTRPCRouter({
   getForms: protectedProcedure.input(z.undefined()).query(async ({ ctx }) => {
-    const forms = await ctx.db.user.findUnique({
+    const forms = await ctx.db.form.findMany({
       where: {
-        clerkUserId: ctx.authenticatedUser.userId,
+        userId: ctx.authenticatedUser.userId,
       },
-      select: {
-        forms: true,
+      include: {
+        formBlocks: true,
       },
     })
     return forms

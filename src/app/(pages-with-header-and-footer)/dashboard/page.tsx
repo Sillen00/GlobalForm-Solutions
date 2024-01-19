@@ -1,10 +1,20 @@
-import { SignedIn } from "@clerk/nextjs"
+"use client"
+
+import { SignedIn, useUser } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
+import { api } from "~/trpc/react"
 import FormCard from "../../_components/DashboardFormCard"
 import "./page.scss"
 
 function DashboardPage() {
+  const { user } = useUser()
+  let forms
+  if (user) {
+    const { data } = api.user.getForms.useQuery(undefined)
+    forms = data
+    console.log(data)
+  }
   return (
     <SignedIn>
       <title>Dashboard - GlobalForm Solutions</title>
@@ -17,24 +27,17 @@ function DashboardPage() {
               <FaPlus />
             </div>
           </Link>
-          {/* Form cards: */} {/* Example cards....*/}
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          <FormCard date='Datum' time='Tid' title='Titel' place='Plats' />
-          {/* {forms.map((form) => (
-            <FormCard
-              key={form.id}
-              date={form.startDate}
-              time={form.startTime}
-              title={form.title}
-              place={form.location}
-            />
-          ))} */}
+          {forms
+            ? forms.map(form => (
+                <FormCard
+                  key={form.id}
+                  date={form.startDate}
+                  time={form.startTime}
+                  title={form.title}
+                  place={form.location}
+                />
+              ))
+            : "No forms created yet"}
         </div>
       </div>
     </SignedIn>

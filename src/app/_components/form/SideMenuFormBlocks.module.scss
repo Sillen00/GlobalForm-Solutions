@@ -39,6 +39,16 @@
       padding-top: 0.5rem;
       padding-bottom: 1rem;
     }
+    .iconContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5rem 0.5rem 6rem 0.5rem;
+
+      svg {
+          font-size: 1.2rem;
+      }
+    }
   }
 
   .formBlock {

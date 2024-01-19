@@ -2,13 +2,13 @@
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import { useForm, type FormBlock } from "../../../contexts/FormContext"
 import styles from "./FormPreview.module.scss"
-import FormTextInput from "./form-blocks/FormTextInput"
+import FormTextInput from "./form-view-blocks/FormTextInput"
 
 function FormPreview() {
   const { formData } = useForm()
 
   function renderFormBlock(formBlock: FormBlock) {
-    switch (formBlock.type) {
+    switch (formBlock.type as "text" | "textInput") {
       case "text":
         return <p>{formBlock.content}</p>
       case "textInput":

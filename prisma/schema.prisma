@@ -24,16 +24,16 @@ model User {
 
 model Form {
   id          String      @id @default(auto()) @map("_id") @db.ObjectId
-  userId      String      @db.ObjectId
-  createdBy   User        @relation(fields: [userId], references: [id])
+  userId      String
+  createdBy   User        @relation(fields: [userId], references: [clerkUserId])
   title       String
-  startDate   DateTime
-  endDate     DateTime?
+  startDate   String
+  endDate     String?
   startTime   String
   endTime     String?
   location    String
   description String
-  blocks      FormBlock[]
+  formBlocks  FormBlock[]
   responses   Response[]
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
