@@ -29,13 +29,15 @@ function DashboardPage() {
           </Link>
           {forms
             ? forms.map(form => (
-                <FormCard
-                  key={form.id}
-                  date={form.startDate}
-                  time={form.startTime}
-                  title={form.title}
-                  place={form.location}
-                />
+                <Link href={`/form-details/${form.id}`} key={form.id}>
+                  <FormCard
+                    key={form.id}
+                    date={form.startDate}
+                    time={form.startTime}
+                    title={form.title}
+                    place={form.location}
+                  />
+                </Link>
               ))
             : "No forms created yet"}
         </div>
