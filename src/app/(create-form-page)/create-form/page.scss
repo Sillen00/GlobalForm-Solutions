@@ -18,24 +18,28 @@
     scrollbar-width: none; /* Firefox 64 */
 
     @media (min-width: 768px) {
-      max-width: 300px;
+      max-width: 450px;
       display: block;
     }
 
     .side-menu-header {
       border-bottom: 2px solid var(--primary-color);
+      background-color: inherit;
       display: flex;
+      position: sticky;
+      top: 0;
       justify-content: space-between;
       align-items: center;
-      padding: 0 0.5rem;
+      padding: 0.5rem 2rem;
 
       h3 {
-        font-size: var(--bodytext);
+        font-size: 2rem;
         font-weight: bold;
+        user-select: none;
       }
 
       svg {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
         transition: all 0.2s ease-in-out;
       }
 
@@ -43,13 +47,14 @@
         transform: rotate(45deg);
       }
     }
-    
+
     .activePreview {
       background-color: orange;
     }
 
     // hide side menu scroll bar
-  }::-webkit-scrollbar {
+  }
+  ::-webkit-scrollbar {
     display: none;
   }
 
@@ -78,13 +83,13 @@
       display: none;
     }
   }
-  
+
   .form-preview {
     width: 100%;
     height: calc(100vh - 72px);
     overflow-y: scroll;
     display: none;
-  
+
     @media (min-width: 768px) {
       display: block;
     }
