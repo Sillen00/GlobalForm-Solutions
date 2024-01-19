@@ -27,8 +27,8 @@ model Form {
   userId      String      @db.ObjectId
   createdBy   User        @relation(fields: [userId], references: [id])
   title       String
-  startDate   DateTime
-  endDate     DateTime?
+  startDate   String
+  endDate     String?
   startTime   String
   endTime     String?
   location    String
