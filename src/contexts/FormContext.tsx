@@ -23,7 +23,7 @@ interface FormBlock {
   order: number
   title?: string
   content?: string
-  type: string
+  type: FormBlockType
   required: boolean
   placeholderText?: string
   options?: string[]
@@ -34,9 +34,23 @@ interface FormBlock {
 interface Response {
   id: string
   formId: string
-  answer: string
+  answers: Record<string, unknown>
   createdAt: string
   updatedAt: string
+}
+
+enum FormBlockType {
+  text = "text",
+  textInput = "textInput",
+  textarea = "textarea",
+  radio = "radio",
+  checkbox = "checkbox",
+  dropdown = "dropdown",
+  date = "date",
+  number = "number",
+  email = "email",
+  tel = "tel",
+  url = "url",
 }
 
 const defaultFormData: FormData = {

@@ -20,26 +20,6 @@ function SideMenuFormBlocks() {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
-  //   {
-  //     "title": "New form with a long for a very cool event",
-  //     "startDate": "2024-01-19",
-  //     "endDate": "2024-01-19",
-  //     "startTime": "13:30",
-  //     "endTime": "16:30",
-  //     "location": "Dårhuset",
-  //     "description": "Join us for an unforgettable event filled with exciting activities and opportunities to connect! This event promises a diverse lineup of engaging experiences suitable for all ages and interests. From interactive workshops and inspiring keynote speeches to entertaining performances and networking sessions, there's something for everyone. Whether you're looking to learn new skills, meet like-minded individuals, or simply enjoy a day of fun and discovery, our event is the perfect destination. Mark your calendars and stay tuned for more details. We look forward to welcoming you and creating memorable moments together",
-  //     "formBlocks": [
-  //         {
-  //             "order": 0,
-  //             "title": "sdaasd",
-  //             "type": "textInput",
-  //             "required": false,
-  //             "placeholderText": "Write something here..."
-  //         }
-  //     ],
-  //     "responses": []
-  // }
-
   const { mutate } = api.form.createForm.useMutation()
 
   const generateForm = () => {
