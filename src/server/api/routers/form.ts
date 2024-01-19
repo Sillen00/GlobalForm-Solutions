@@ -35,7 +35,7 @@ const formResponsesSchema = z.object({
 })
 
 const formSchema = z.object({
-  // userId: z.string(),
+  userId: z.string().optional(),
   title: z.string(),
   startDate: z.string(),
   endDate: z.string().optional(),
