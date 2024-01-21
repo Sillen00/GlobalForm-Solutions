@@ -1,6 +1,9 @@
 // DASHBOARD PAGE SCSS
 
 .dashboard-wrapper {
+
+  min-height: 60vh;
+
   h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -9,12 +12,12 @@
 
   .form-card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
+    justify-content: start;
     align-items: center;
-
+    
     .create-new-card {
-      min-width: 200px;
       min-height: 150px;
       background-color: var(--background-color-footer);
       border-radius: 10px;
