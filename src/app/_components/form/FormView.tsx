@@ -1,11 +1,10 @@
 "use client"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import type { FormBlock, FormData } from "../../../contexts/FormContext"
-import styles from "./FormPreview.module.scss"
+import styles from "./FormView.module.scss"
 import FormTextInput from "./form-view-blocks/FormTextInput"
 
 function FormView({ formData }: { formData: FormData }) {
-  console.log("formData: ", formData)
   function renderFormBlock(formBlock: FormBlock) {
     switch (formBlock.type as "text" | "textInput") {
       case "text":
@@ -17,40 +16,45 @@ function FormView({ formData }: { formData: FormData }) {
     }
   }
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    console.log("submitted")
+  }
+
   return (
-    <div className={styles.preview__container}>
-      <div className={styles.preview__content}>
+    <form onSubmit={handleSubmit} className={styles.form__container}>
+      <div className={styles.form__content}>
         {formData ? (
           <>
-            <div className={styles.preview__header}>
-              <h1 className={styles.preview__title}>
+            <div className={styles.form__header}>
+              <h1 className={styles.form__title}>
                 {formData.title ? (
                   formData.title
                 ) : (
                   <span style={{ color: "#999999" }}>New form</span>
                 )}
               </h1>
-              <div className={styles.preview__info}>
+              <div className={styles.form__info}>
                 <FaCalendar />
                 <p>
                   {formData.startDate ? formData.startDate : "Unknown"}
                   {formData.endDate ? ` – ${formData.endDate}` : ""}
                 </p>
               </div>
-              <div className={styles.preview__info}>
+              <div className={styles.form__info}>
                 <FaClock />
                 <p>
                   {formData.startTime ? formData.startTime : "Unknown"}
                   {formData.endTime ? ` – ${formData.endTime}` : ""}
                 </p>
               </div>
-              <div className={styles.preview__info}>
+              <div className={styles.form__info}>
                 <FaLocationDot />
                 <p>{formData.location ? formData.location : "Unknown"}</p>
               </div>
             </div>
-            <div className={styles.preview__block__container}>
-              <h2 className={styles.preview__block__title}>Description</h2>
+            <div className={styles.form__block__container}>
+              <h2 className={styles.form__block__title}>Description</h2>
               <p>
                 {formData.description
                   ? formData.description
@@ -59,8 +63,8 @@ function FormView({ formData }: { formData: FormData }) {
             </div>
             {formData.formBlocks.map((formBlock, index) => {
               return (
-                <div key={index} className={styles.preview__block__container}>
-                  <h2 className={styles.preview__block__title}>
+                <div key={index} className={styles.form__block__container}>
+                  <h2 className={styles.form__block__title}>
                     {formBlock.title}
                   </h2>
                   {renderFormBlock(formBlock)}
@@ -69,10 +73,10 @@ function FormView({ formData }: { formData: FormData }) {
             })}
           </>
         ) : (
-          <h1>Could not load form preview!</h1>
+          <h1>Could not load form!</h1>
         )}
       </div>
-    </div>
+    </form>
   )
 }
 
