@@ -64,7 +64,7 @@ function FormDetailPage() {
           <li onClick={() => setActiveResponsePreview("summary")}>Summary</li>
           <li onClick={() => setActiveResponsePreview("question")}>Question</li>
           <li onClick={() => setActiveResponsePreview("individual")}>
-            Individual Responses
+            Individual
           </li>
         </ul>
       </nav>

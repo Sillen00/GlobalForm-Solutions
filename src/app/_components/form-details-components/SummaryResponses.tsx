@@ -55,32 +55,46 @@ function SummaryResponses({
     },
   ]
 
-  // function RenderJsonObject({ formDataResponses.answer }) {
-  //   return (
-  //     <div>
-  //       {Object.entries(formDataResponses).map(([key, value], index) => (
-  //         <div key={index}>
-  //           <strong>{key}:</strong> {JSON.stringify(value)}
-  //         </div>
-  //       ))}
-  //     </div>
-  //   );
-  // }
+  const response1 = fakeResponses[0]
 
-  console.log("formData", formDataResponses)
   return (
     <div className={styles.form_responses_summary}>
-      {fakeResponses.map(response =>
-        response.answers.map(answer =>
-          Object.entries(answer).map(([key, value], index) => (
-            <div key={index}>
-              <strong>
-                {key}: {value}
-              </strong>
-            </div>
-          ))
-        )
-      )}
+      <div>
+        <>
+          {(() => {
+            // Your .map() function logic goes here
+            const answers = response1?.answers
+
+            if (answers && answers.length > 0) {
+              return answers.map((answer, answerIndex) => (
+                <div key={answerIndex}>
+                  <strong>
+                    {Object.entries(answer).map(([key, value]) => (
+                      <div key={key}>{key}</div>
+                    ))}
+                  </strong>
+                </div>
+              ))
+            }
+
+            // You can return null or any other component if there are no answers
+            return null
+          })()}
+        </>
+        {fakeResponses.map((response, responseIndex) => (
+          <div key={responseIndex}>
+            {response.answers.map((answer, answerIndex) => (
+              <div key={answerIndex}>
+                <strong>
+                  {Object.entries(answer).map(([key, value]) => (
+                    <div key={key}>{value}</div>
+                  ))}
+                </strong>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
 
       <h4>FRÅGA</h4>
       <p>4 Svar (visa antalet svar.)</p>
