@@ -1,16 +1,29 @@
 "use client"
 import Link from "next/link"
 import { useParams } from "next/navigation"
+import { useState } from "react"
 import IndividualResponses from "~/app/_components/form-details-components/IndividualResponses"
 import QuestionResponses from "~/app/_components/form-details-components/QuestionResponses"
 import SummaryResponses from "~/app/_components/form-details-components/SummaryResponses"
 import { api } from "~/trpc/react"
 import styles from "./page.module.scss"
 
-function FormDetalPage() {
+function FormDetailPage() {
   const params = useParams<{ formid: string }>()
+  const [activeResponsePreview, setActiveResponsePreview] = useState("summary")
 
   const { data: formData } = api.form.getFormById.useQuery(params.formid)
+
+  if (
+    !formData ||
+    !formData.responses ||
+    !formData.formBlocks ||
+    !formData.title
+  ) {
+    return <p>Loading...</p>
+  }
+
+  console.log("formData FROM API", formData)
 
   const copyToClipboard = async () => {
     try {
@@ -48,19 +61,23 @@ function FormDetalPage() {
 
       <nav className={styles.responses_menu}>
         <ul>
-          <li>Summary</li>
-          <li>Question</li>
-          <li>Individual Responses</li>
+          <li onClick={() => setActiveResponsePreview("summary")}>Summary</li>
+          <li onClick={() => setActiveResponsePreview("question")}>Question</li>
+          <li onClick={() => setActiveResponsePreview("individual")}>
+            Individual Responses
+          </li>
         </ul>
       </nav>
 
       <div className={styles.form_responses_container}>
-        <SummaryResponses />
-        <QuestionResponses />
-        <IndividualResponses />
+        {activeResponsePreview === "summary" && formData && (
+          <SummaryResponses formDataResponses={formData.responses} />
+        )}
+        {activeResponsePreview === "question" && <QuestionResponses />}
+        {activeResponsePreview === "individual" && <IndividualResponses />}
       </div>
     </div>
   )
 }
 
-export default FormDetalPage
+export default FormDetailPage

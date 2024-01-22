@@ -1,4 +1,5 @@
 "use client"
+import { type FormBlockType } from "@prisma/client"
 import { createContext, useContext, useState } from "react"
 
 export interface FormData {
@@ -6,51 +7,37 @@ export interface FormData {
   userId?: string
   title: string
   startDate: string
-  endDate: string
+  endDate: string | null
   startTime: string
-  endTime: string
+  endTime: string | null
   location: string
   description: string
   formBlocks: FormBlock[]
-  responses: Response[]
-  createdAt?: string
-  updatedAt?: string
+  responses?: Response[]
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface FormBlock {
   id?: string
   formId?: string
   order: number
-  title?: string
-  content?: string
+  title?: string | null
+  content?: string | null
   type: FormBlockType
   required: boolean
-  placeholderText?: string
+  placeholderText?: string | null
   options?: string[]
-  createdAt?: string
-  updatedAt?: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 interface Response {
   id: string
   formId: string
   answers: Record<string, unknown>
-  createdAt: string
-  updatedAt: string
-}
-
-export enum FormBlockType {
-  text = "text",
-  textInput = "textInput",
-  textarea = "textarea",
-  radio = "radio",
-  checkbox = "checkbox",
-  dropdown = "dropdown",
-  date = "date",
-  number = "number",
-  email = "email",
-  tel = "tel",
-  url = "url",
+  createdAt: Date
+  updatedAt: Date
 }
 
 const defaultFormData: FormData = {
