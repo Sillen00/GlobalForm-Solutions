@@ -89,7 +89,7 @@ function FormView({ formData }: { formData: FormData }) {
                 </div>
               )
             })}
-            <button className={styles.form__submit} type='submit'>
+            <button className={styles.form__submit__button} type='submit'>
               Submit
             </button>
           </>

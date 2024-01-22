@@ -46,6 +46,19 @@
   overflow: hidden;
 }
 
+.form__submit__button {
+  margin-top: 4rem;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
 @media (max-width: 800px) {
   .form__content {
     padding: 4rem 2rem 10rem 2rem;
