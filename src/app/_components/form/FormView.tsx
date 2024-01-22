@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { useState } from "react"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import { api } from "~/trpc/react"
@@ -44,8 +45,20 @@ function FormView({ formData }: { formData: FormData }) {
     return (
       <div className={styles.form__container}>
         <div className={styles.form__content}>
-          <h1 className={styles.form__submission__success__title}>Thank you for submitting your response!</h1>
-          The event holder has recieved your response and you can now close this window. See you at the event!
+          <h1 className={styles.form__submission__success__title}>
+            Thank you for submitting your response!
+          </h1>
+          The event holder has recieved your response and you can now close this
+          window. See you at the event!
+          <br />
+          <br />
+          <br />
+          <div className={styles.form__success__gfs}>
+            Powered by
+            <Link className={styles.form__success__link} href={"/"}>
+              <span>GlobalForm Solutions</span>
+            </Link>
+          </div>
         </div>
       </div>
     )

@@ -64,6 +64,21 @@
   margin-bottom: 1.6rem;
 }
 
+.form__success__gfs {
+  display: flex;
+  gap: 0.3rem;
+  font-style: italic;
+}
+
+.form__success__link {
+  color: var(--primary-color);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .form__error {
   color: red;
   font-size: 1.4rem;
