@@ -6,9 +6,11 @@ import { api } from "~/trpc/react"
 import { useForm } from "../../../contexts/FormContext"
 import Button, { IconType } from "../Button"
 import styles from "./SideMenuFormBlocks.module.scss"
+import { useRouter } from "next/navigation"
 
 function SideMenuFormBlocks() {
   const { formData, setFormData, removeFormBlock } = useForm()
+  const router = useRouter()
 
   const handleRemoveFormBlock = (index: number) => {
     removeFormBlock(index)
@@ -29,7 +31,7 @@ function SideMenuFormBlocks() {
 
   const generateForm = () => {
     mutate(formData)
-    console.log(formData)
+    router.push("/create-form/success")
   }
 
   return (
