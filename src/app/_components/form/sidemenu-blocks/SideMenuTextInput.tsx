@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
 import styles from "./SideMenuTextInput.module.scss"
-import { type FormBlockType } from "~/contexts/FormContext"
+import { type FormBlockType } from "@prisma/client"
 
 // Button skall skapa ett nytt block i preview
 // Button skall skicka block till createform

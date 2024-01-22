@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
-import { useForm, type FormBlockType } from "~/contexts/FormContext"
+import { useForm } from "~/contexts/FormContext"
+import { type FormBlockType } from "@prisma/client"
 import Button, { IconType } from "../../Button"
 import styles from "./SideMenuTextBlock.module.scss"
 
