@@ -1,24 +1,42 @@
 "use client"
+import { useState } from "react"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
+import { api } from "~/trpc/react"
 import type { FormBlock, FormData } from "../../../contexts/FormContext"
 import styles from "./FormView.module.scss"
 import FormTextInput from "./form-view-blocks/FormTextInput"
 
 function FormView({ formData }: { formData: FormData }) {
+  const [inputValues, setInputValues] = useState({})
+  const submitResponse = api.form.addResponse.useMutation()
+
   function renderFormBlock(formBlock: FormBlock) {
     switch (formBlock.type as "text" | "textInput") {
       case "text":
         return <p>{formBlock.content}</p>
       case "textInput":
-        return <FormTextInput />
+        return (
+          <FormTextInput
+            title={formBlock.title!}
+            onChange={handleInputChange}
+          />
+        )
       default:
         return <p>Could not render form block!</p>
     }
   }
 
+  const handleInputChange = (title: string, value: string) => {
+    setInputValues(prevValues => ({ ...prevValues, [title]: value }))
+  }
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log("submitted")
+    submitResponse.mutate({
+      formId: formData.id!,
+      answers: inputValues,
+    })
+    console.log("Form data: ", inputValues)
   }
 
   return (
@@ -71,6 +89,9 @@ function FormView({ formData }: { formData: FormData }) {
                 </div>
               )
             })}
+            <button className={styles.form__submit} type='submit'>
+              Submit
+            </button>
           </>
         ) : (
           <h1>Could not load form!</h1>
