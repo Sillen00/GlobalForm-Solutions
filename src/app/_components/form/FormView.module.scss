@@ -59,6 +59,12 @@
   cursor: pointer;
 }
 
+.form__error {
+  color: red;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
 @media (max-width: 800px) {
   .form__content {
     padding: 4rem 2rem 10rem 2rem;
