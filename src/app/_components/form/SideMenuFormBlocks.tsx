@@ -1,12 +1,12 @@
 // "use client"
+import { useRouter } from "next/navigation"
 import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 import { LuFormInput } from "react-icons/lu"
 import { TbLetterT } from "react-icons/tb"
 import { api } from "~/trpc/react"
-import { useForm, defaultFormData } from "../../../contexts/FormContext"
+import { defaultFormData, useForm } from "../../../contexts/FormContext"
 import Button, { IconType } from "../Button"
 import styles from "./SideMenuFormBlocks.module.scss"
-import { useRouter } from "next/navigation"
 
 function SideMenuFormBlocks() {
   const { formData, setFormData, removeFormBlock } = useForm()
@@ -30,7 +30,8 @@ function SideMenuFormBlocks() {
   const { mutate } = api.form.createForm.useMutation()
 
   const generateForm = () => {
-    mutate(formData)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
+    mutate(formData as any)
     router.push("/create-form/success")
     setFormData(defaultFormData)
   }
