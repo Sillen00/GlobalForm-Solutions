@@ -3,7 +3,7 @@ import { FaGripLines, FaTrashCan } from "react-icons/fa6"
 import { LuFormInput } from "react-icons/lu"
 import { TbLetterT } from "react-icons/tb"
 import { api } from "~/trpc/react"
-import { useForm } from "../../../contexts/FormContext"
+import { useForm, defaultFormData } from "../../../contexts/FormContext"
 import Button, { IconType } from "../Button"
 import styles from "./SideMenuFormBlocks.module.scss"
 import { useRouter } from "next/navigation"
@@ -32,6 +32,7 @@ function SideMenuFormBlocks() {
   const generateForm = () => {
     mutate(formData)
     router.push("/create-form/success")
+    setFormData(defaultFormData)
   }
 
   return (
