@@ -1,0 +1,22 @@
+.form_responses_summary{
+    h3 {
+        font-size: var(--bodytext);
+        font-weight: bold;
+    }
+
+    p {
+        font-size: var(--smalltext);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        li {
+            background-color: rgba(88, 88, 88, 0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    }
+}
