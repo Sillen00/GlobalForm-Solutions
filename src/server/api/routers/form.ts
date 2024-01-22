@@ -58,6 +58,10 @@ export const formRouter = createTRPCRouter({
           id: input,
           userId: ctx.authenticatedUser.userId,
         },
+        include: {
+          formBlocks: true,
+          responses: true,
+        },
       })
       if (!form) {
         throw new Error("Form could not be found or you were denied access")
@@ -71,6 +75,10 @@ export const formRouter = createTRPCRouter({
       const form = await ctx.db.form.findUnique({
         where: {
           id: input,
+        },
+        include: {
+          formBlocks: true,
+          responses: true,
         },
       })
       return form
