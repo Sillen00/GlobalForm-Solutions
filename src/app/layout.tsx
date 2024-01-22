@@ -6,7 +6,6 @@ import "~/styles/globals.css"
 import { TRPCReactProvider } from "~/trpc/react"
 import FormContextProvider from "../contexts/FormContext"
 import "../styles/clerk.scss"
-import Header from "./_components/Header"
 
 const inter = Jura({
   subsets: ["latin"],
@@ -39,10 +38,7 @@ export default function RootLayout({
         <body className={`font-sans ${inter.variable}`}>
           <TRPCReactProvider cookies={cookies().toString()}>
             <FormContextProvider>
-              <div className='body-container'>
-                <Header />
-                {children}
-              </div>
+              <div className='body-container'>{children}</div>
             </FormContextProvider>
           </TRPCReactProvider>
         </body>
