@@ -24,13 +24,13 @@ function SummaryResponses({
       formId: "string",
       answers: [
         {
-          Question1: "Answerfromfirst user",
+          Question1: "Answerfromfirst user1",
         },
         {
-          Question2: "Answerfromfirst user",
+          Question2: "Answerfromfirst user2",
         },
         {
-          Question3: "Answerfromfirst user",
+          Question3: "Answerfromfirst user3",
         },
       ],
       createdAt: "Date",
@@ -41,13 +41,13 @@ function SummaryResponses({
       formId: "string",
       answers: [
         {
-          Question1: "AnswerfromSECOND user",
+          Question1: "AnswerfromSECOND user1",
         },
         {
-          Question2: "AnswerfromSECOND user",
+          Question2: "AnswerfromSECOND user2",
         },
         {
-          Question3: "AnswerfromSECOND user",
+          Question3: "AnswerfromSECOND user3",
         },
       ],
       createdAt: "Date",
@@ -63,14 +63,33 @@ function SummaryResponses({
         <>
           {(() => {
             // Your .map() function logic goes here
-            const answers = response1?.answers
+            const questionAndAnswerArray = response1?.answers
 
-            if (answers && answers.length > 0) {
-              return answers.map((answer, answerIndex) => (
-                <div key={answerIndex}>
+            if (questionAndAnswerArray && questionAndAnswerArray.length > 0) {
+              return questionAndAnswerArray.map((answerObj, answerObjIndex) => (
+                <div key={answerObjIndex}>
                   <strong>
-                    {Object.entries(answer).map(([key, value]) => (
-                      <div key={key}>{key}</div>
+                    {Object.entries(answerObj).map(([question, value]) => (
+                      <>
+                        <div key={question}>{question}</div>
+
+                        {/* Map out the answers only if the key/question is corelated to the answers. */}
+                        {fakeResponses.map((responseObj, responseIndex) => (
+                          <div key={responseIndex}>
+                            {responseObj.answers.map((answer, answerIndex) => (
+                              <div key={answerIndex}>
+                                <strong>
+                                  {Object.entries(answer).map(([key, value]) =>
+                                    question === key ? (
+                                      <div key={key}>{value}</div>
+                                    ) : null
+                                  )}
+                                </strong>
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </>
                     ))}
                   </strong>
                 </div>
@@ -81,7 +100,7 @@ function SummaryResponses({
             return null
           })()}
         </>
-        {fakeResponses.map((response, responseIndex) => (
+        {/* {fakeResponses.map((response, responseIndex) => (
           <div key={responseIndex}>
             {response.answers.map((answer, answerIndex) => (
               <div key={answerIndex}>
@@ -93,7 +112,7 @@ function SummaryResponses({
               </div>
             ))}
           </div>
-        ))}
+        ))} */}
       </div>
 
       <h4>FRÅGA</h4>
