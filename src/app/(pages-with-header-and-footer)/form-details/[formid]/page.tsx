@@ -14,12 +14,7 @@ function FormDetailPage() {
 
   const { data: formData } = api.form.getFormById.useQuery(params.formid)
 
-  if (
-    !formData ||
-    !formData.responses ||
-    !formData.formBlocks ||
-    !formData.title
-  ) {
+  if (!formData) {
     return <p>Loading...</p>
   }
 
