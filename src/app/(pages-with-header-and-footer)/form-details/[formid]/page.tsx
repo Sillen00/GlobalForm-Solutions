@@ -109,7 +109,9 @@ function FormDetailPage() {
           <SummaryResponses formDataResponses={formData.responses} />
         )}
         {activeResponsePreview === "question" && <QuestionResponses />}
-        {activeResponsePreview === "individual" && <IndividualResponses />}
+        {activeResponsePreview === "individual" && (
+          <IndividualResponses formDataResponses={formData.responses} />
+        )}
       </div>
     </div>
   )
