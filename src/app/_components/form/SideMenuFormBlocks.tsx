@@ -54,7 +54,7 @@ function SideMenuFormBlocks() {
           value={formData.title}
           onChange={handleInputChange}
         />
-        <label id='form-location'>Form Date</label>
+        <label id='form-date'>Form Date</label>
         <input
           required
           id='form-date'
@@ -64,7 +64,7 @@ function SideMenuFormBlocks() {
           value={formData.startDate}
           onChange={handleInputChange}
         />
-        <label id='form-location'>Form Time</label>
+        <label id='form-time'>Form Time</label>
         <input
           required
           id='form-time'
@@ -74,10 +74,10 @@ function SideMenuFormBlocks() {
           value={formData.startTime}
           onChange={handleInputChange}
         />
-        <label id='form-date'>Form Location</label>
+        <label id='form-location'>Form Location</label>
         <input
           required
-          id='form-date'
+          id='form-location'
           placeholder="Write your form's location here"
           name='location'
           type='text'
