@@ -1,12 +1,16 @@
 .sideMenuAddBlocks {
   position: relative;
-  margin: 1.4rem;
+  margin: 0.5rem;
+
+  @media (min-width: 768px) {
+    margin: 2rem;
+  }
 
   .blockTypeContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    margin: 0 0.5rem;
+    // margin: 0 0.5rem;
 
     div {
       display: flex;
