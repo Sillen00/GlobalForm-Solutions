@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useState } from "react"
+import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import IndividualResponses from "~/app/_components/form-details-components/IndividualResponses"
 import QuestionResponses from "~/app/_components/form-details-components/QuestionResponses"
 import SummaryResponses from "~/app/_components/form-details-components/SummaryResponses"
@@ -18,8 +19,6 @@ function FormDetailPage() {
     return <p>Loading...</p>
   }
 
-  console.log("formData FROM API", formData)
-
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(
@@ -34,9 +33,33 @@ function FormDetailPage() {
     <div className={styles.form_details_wrapper}>
       <div className={styles.title_link_div}>
         <h2>{formData?.title}</h2>
-        <Link href={`/form-view/${params.formid}`}>Link to form</Link>
         <button onClick={copyToClipboard}>Copy link to clipboard</button>
       </div>
+
+      <div className={styles.form__info}>
+        <FaCalendar />
+        <p>
+          {formData.startDate ? formData.startDate : "Unknown"}
+          {formData.endDate ? ` - ${formData.endDate}` : ""}
+        </p>
+      </div>
+      <div className={styles.form__info}>
+        <FaClock />
+        <p>
+          {formData.startTime ? formData.startTime : "Unknown"}
+          {formData.endTime ? ` - ${formData.endTime}` : ""}
+        </p>
+      </div>
+      <div className={styles.form__info}>
+        <FaLocationDot />
+        <p>{formData.location ? formData.location : "Unknown"}</p>
+      </div>
+      <Link
+        className={styles.link_to_form}
+        href={`/form-view/${params.formid}`}
+      >
+        Link to form
+      </Link>
 
       <h3 className={styles.subheader}>Responses</h3>
       <div className={styles.responses_active_form_div}>
@@ -56,9 +79,26 @@ function FormDetailPage() {
 
       <nav className={styles.responses_menu}>
         <ul>
-          <li onClick={() => setActiveResponsePreview("summary")}>Summary</li>
-          <li onClick={() => setActiveResponsePreview("question")}>Question</li>
-          <li onClick={() => setActiveResponsePreview("individual")}>
+          <li
+            onClick={() => setActiveResponsePreview("summary")}
+            className={activeResponsePreview === "summary" ? styles.active : ""}
+          >
+            Summary
+          </li>
+          <li
+            onClick={() => setActiveResponsePreview("question")}
+            className={
+              activeResponsePreview === "question" ? styles.active : ""
+            }
+          >
+            Questions
+          </li>
+          <li
+            onClick={() => setActiveResponsePreview("individual")}
+            className={
+              activeResponsePreview === "individual" ? styles.active : ""
+            }
+          >
             Individual
           </li>
         </ul>
