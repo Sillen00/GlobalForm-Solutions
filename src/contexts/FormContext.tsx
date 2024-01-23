@@ -35,7 +35,7 @@ export interface FormBlock {
 export interface Response {
   id: string
   formId: string
-  answers: Record<string, unknown>
+  answers: Record<string, string>
   createdAt: Date
   updatedAt: Date
 }
