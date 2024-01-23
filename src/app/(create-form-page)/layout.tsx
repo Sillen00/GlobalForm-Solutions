@@ -1,5 +1,12 @@
+import Header from "../_components/Header"
+
 const CreateFormLayout = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  )
 }
 
 export default CreateFormLayout

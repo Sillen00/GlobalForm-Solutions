@@ -13,7 +13,6 @@ function DashboardPage() {
   if (user) {
     const { data } = api.user.getForms.useQuery(undefined)
     forms = data
-    console.log(data)
   }
   return (
     <SignedIn>

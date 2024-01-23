@@ -78,7 +78,6 @@ export const formRouter = createTRPCRouter({
         },
         include: {
           formBlocks: true,
-          responses: true,
         },
       })
       return form

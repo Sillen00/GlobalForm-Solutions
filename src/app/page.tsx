@@ -3,11 +3,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { IoCreateOutline } from "react-icons/io5"
 import Footer from "./_components/Footer"
+import Header from "./_components/Header"
 import "./page.scss"
 
 export default async function Home() {
   return (
     <>
+      <Header />
       <div className='body-padding'>
         <main>
           <div className='hero'>
