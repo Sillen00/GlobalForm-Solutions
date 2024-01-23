@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import { useForm, type FormBlock } from "../../../contexts/FormContext"
 import styles from "./FormPreview.module.scss"
@@ -6,16 +7,26 @@ import FormTextInput from "./form-view-blocks/FormTextInput"
 
 function FormPreview() {
   const { formData } = useForm()
+  const [inputValues, setInputValues] = useState({})
 
   function renderFormBlock(formBlock: FormBlock) {
     switch (formBlock.type as "text" | "textInput") {
       case "text":
         return <p>{formBlock.content}</p>
       case "textInput":
-        return <FormTextInput />
+        return (
+          <FormTextInput
+            title={formBlock.title!}
+            onChange={handleInputChange}
+          />
+        )
       default:
         return <p>Could not render form block!</p>
     }
+  }
+
+  const handleInputChange = (title: string, value: string) => {
+    setInputValues(prevValues => ({ ...prevValues, [title]: value }))
   }
 
   return (

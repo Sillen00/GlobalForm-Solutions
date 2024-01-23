@@ -1,4 +1,5 @@
 "use client"
+import { type FormBlockType } from "@prisma/client"
 import { createContext, useContext, useState } from "react"
 
 export interface FormData {
@@ -6,62 +7,47 @@ export interface FormData {
   userId?: string
   title: string
   startDate: string
-  endDate: string
+  endDate: string | null
   startTime: string
-  endTime: string
+  endTime: string | null
   location: string
   description: string
   formBlocks: FormBlock[]
-  responses: Response[]
-  createdAt?: string
-  updatedAt?: string
+  responses?: Response[]
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface FormBlock {
   id?: string
   formId?: string
   order: number
-  title?: string
-  content?: string
+  title?: string | null
+  content?: string | null
   type: FormBlockType
   required: boolean
-  placeholderText?: string
+  placeholderText?: string | null
   options?: string[]
-  createdAt?: string
-  updatedAt?: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 interface Response {
   id: string
   formId: string
   answers: Record<string, unknown>
-  createdAt: string
-  updatedAt: string
+  createdAt: Date
+  updatedAt: Date
 }
 
-export enum FormBlockType {
-  text = "text",
-  textInput = "textInput",
-  textarea = "textarea",
-  radio = "radio",
-  checkbox = "checkbox",
-  dropdown = "dropdown",
-  date = "date",
-  number = "number",
-  email = "email",
-  tel = "tel",
-  url = "url",
-}
-
-const defaultFormData: FormData = {
-  title: "New form with a long for a very cool event",
-  startDate: new Date().toISOString().slice(0, 10),
-  endDate: new Date().toISOString().slice(0, 10),
-  startTime: "13:30",
-  endTime: "16:30",
-  location: "Dårhuset",
-  description:
-    "Join us for an unforgettable event filled with exciting activities and opportunities to connect! This event promises a diverse lineup of engaging experiences suitable for all ages and interests. From interactive workshops and inspiring keynote speeches to entertaining performances and networking sessions, there's something for everyone. Whether you're looking to learn new skills, meet like-minded individuals, or simply enjoy a day of fun and discovery, our event is the perfect destination. Mark your calendars and stay tuned for more details. We look forward to welcoming you and creating memorable moments together",
+export const defaultFormData: FormData = {
+  title: "New form",
+  startDate: "",
+  endDate: "",
+  startTime: "",
+  endTime: "",
+  location: "",
+  description: "This is a description of your event.",
   formBlocks: [],
   responses: [],
 }
