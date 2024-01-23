@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { IoClose, IoMenu } from "react-icons/io5"
-import "./Header.scss"
+import styles from "./Header.module.scss"
 
 function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -15,10 +15,10 @@ function Header() {
 
   return (
     <header>
-      <nav>
+      <nav className={styles.navigation}>
         <Link href='/'>
           <Image
-            className='logo'
+            className={styles.logo}
             src='/favicon.png'
             alt='Global Form Solutions logo'
             width={50}
@@ -61,7 +61,7 @@ function Header() {
           </SignedIn>
         </ul>
 
-        <div className='hamburger' onClick={toggleMenu}>
+        <div className={styles.hamburger} onClick={toggleMenu}>
           {isMenuOpen ? <IoClose /> : <IoMenu />}
         </div>
       </nav>
