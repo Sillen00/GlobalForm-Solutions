@@ -7,9 +7,7 @@ function IndividualResponses({
 }: {
   formDataResponses?: Response[]
 }) {
-  const [selectedPersonIndex, setSelectedPersonIndex] = useState<number | null>(
-    null
-  )
+  const [selectedPersonIndex, setSelectedPersonIndex] = useState(0)
 
   if (!formDataResponses || formDataResponses.length === 0) {
     return <p>No responses available.</p>
@@ -42,7 +40,7 @@ function IndividualResponses({
           type='number'
           min={0}
           max={formDataResponses.length - 1}
-          value={selectedPersonIndex?.toString() ?? ""}
+          value={selectedPersonIndex?.toString() ?? 0}
           onChange={e => setSelectedPersonIndex(Number(e.target.value))}
         />
       </div>
@@ -50,11 +48,7 @@ function IndividualResponses({
       {questions.map((question, index) => (
         <div key={index}>
           <h3>{question}</h3>
-          <p>
-            {selectedPersonIndex !== null
-              ? organizedResponses[question]?.[selectedPersonIndex] ?? ""
-              : ""}
-          </p>
+          <p>{organizedResponses[question]?.[selectedPersonIndex] ?? ""}</p>
         </div>
       ))}
     </div>
