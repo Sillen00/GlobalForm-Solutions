@@ -2,21 +2,28 @@
 
     background-color: rgba(0,0,0, 0.3);
     border: 1px solid var(--secondary-color);
-    padding: 20px 30px;
+    padding: 4px 6px;
     border-radius: 10px;
 
+    @media (min-width: 768px) {
+        padding: 20px 30px;
+    }
+
     h3 {
-        font-size: var(--bodytext);
         font-weight: bold;
-        text-decoration: underline;
+        font-size: clamp(0.875rem, 0.429rem + 1.19vw, 1.5rem);
         margin-bottom: 0.5rem;
     }
 
     p {
-        font-size: var(--smalltext);
+        font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
         background-color: rgba(88, 88, 88, 0.4);
-        padding: 5px 10px;
+        padding: 1px 2px;
         border-radius: 5px;
         margin-bottom: 4px;
+
+        @media (min-width: 768px) {
+            padding: 5px 10px;
+        }
     }
 }
