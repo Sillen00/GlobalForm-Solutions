@@ -32,7 +32,7 @@ export interface FormBlock {
   updatedAt?: Date
 }
 
-interface Response {
+export interface Response {
   id: string
   formId: string
   answers: Record<string, unknown>

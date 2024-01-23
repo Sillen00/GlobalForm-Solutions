@@ -58,6 +58,10 @@ export const formRouter = createTRPCRouter({
           id: input,
           userId: ctx.authenticatedUser.userId,
         },
+        include: {
+          formBlocks: true,
+          responses: true,
+        },
       })
       if (!form) {
         throw new Error("Form could not be found or you were denied access")
