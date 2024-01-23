@@ -41,13 +41,13 @@ export interface Response {
 }
 
 export const defaultFormData: FormData = {
-  title: "New form",
+  title: "",
   startDate: "",
   endDate: "",
   startTime: "",
   endTime: "",
   location: "",
-  description: "This is a description of your event.",
+  description: "",
   formBlocks: [],
   responses: [],
 }

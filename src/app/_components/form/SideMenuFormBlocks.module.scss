@@ -30,6 +30,10 @@
     label {
       font-size: var(--smalltext);
       user-select: none;
+    
+      span {
+        color: red;
+      }
     }
 
     input,

@@ -26,14 +26,27 @@ function SideMenuFormBlocks() {
   ) => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
+  const requiredFields: Array<keyof typeof formData> = [
+    "title",
+    "startDate",
+    "startTime",
+    "description",
+  ]
+  const isFormValid = requiredFields.every(field => formData[field])
 
   const { mutate } = api.form.createForm.useMutation()
 
   const generateForm = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
-    mutate(formData as any)
-    router.push("/create-form/success")
-    setFormData(defaultFormData)
+    if (isFormValid) {
+      // If all required fields are filled, proceed to form generation
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
+      mutate(formData as any)
+      router.push("/create-form/success")
+      setFormData(defaultFormData)
+    } else {
+      // If any required field is not filled, show an alert or handle it as needed
+      alert("Please fill in all required fields before generating the form.")
+    }
   }
 
   return (
@@ -44,7 +57,9 @@ function SideMenuFormBlocks() {
         <hr className={styles.sideMenuDivider}></hr>
       </h2>
       <div className={styles.requiredFormBlocks}>
-        <label id='form-title'>Form Title</label>
+        <label id='form-title'>
+          Form Title <span>*</span>
+        </label>
         <input
           required
           id='form-title'
@@ -54,7 +69,9 @@ function SideMenuFormBlocks() {
           value={formData.title}
           onChange={handleInputChange}
         />
-        <label id='form-date'>Form Date</label>
+        <label id='form-date'>
+          Form Date <span>*</span>
+        </label>
         <input
           required
           id='form-date'
@@ -64,7 +81,9 @@ function SideMenuFormBlocks() {
           value={formData.startDate}
           onChange={handleInputChange}
         />
-        <label id='form-time'>Form Time</label>
+        <label id='form-time'>
+          Form Time <span>*</span>
+        </label>
         <input
           required
           id='form-time'
@@ -84,7 +103,9 @@ function SideMenuFormBlocks() {
           value={formData.location}
           onChange={handleInputChange}
         />
-        <label id='form-description'>Form Description</label>
+        <label id='form-description'>
+          Form Description <span>*</span>
+        </label>
         <textarea
           required
           id='form-description'
