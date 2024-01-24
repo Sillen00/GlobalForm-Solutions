@@ -2,7 +2,7 @@
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
-import LoadingSpinner from "~/app/_components/LoadingSpinner"
+import DashboardFormCardSkeleton from "~/app/_components/loading-skeleton-components/DashboardFormCardSkeleton"
 import { api } from "~/trpc/react"
 import FormCard from "../../_components/DashboardFormCard"
 import "./page.scss"
@@ -11,9 +11,10 @@ const DashboardFormCardFeed = () => {
   const { data: forms, isLoading } = api.user.getForms.useQuery(undefined)
   if (isLoading) {
     return (
-      <div className='loading_spinner_div'>
-        <LoadingSpinner size={60} />
-      </div>
+      <>
+        <DashboardFormCardSkeleton />
+        <DashboardFormCardSkeleton />
+      </>
     )
   }
   if (!forms) {
