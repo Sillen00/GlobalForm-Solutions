@@ -9,16 +9,16 @@ function Footer() {
   return (
     <footer>
       <AccordionSection title='Info'>
-        <Link href='#'>
+        <Link href='/404'>
           <p>Terms & Conditions</p>
         </Link>
-        <Link href='#'>
+        <Link href='/404'>
           <p>Customer Service</p>
         </Link>
-        <Link href='#'>
+        <Link href='/404'>
           <p>Privacy Policy</p>
         </Link>
-        <Link href='#'>
+        <Link href='/404'>
           <p>Cookie Settings</p>
         </Link>
       </AccordionSection>

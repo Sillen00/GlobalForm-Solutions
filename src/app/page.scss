@@ -87,8 +87,8 @@
   }
 
   .heroRight {
-    
     img {
+
       transition: all 0.3s ease-in-out;
       width: 18rem;
       &:hover {
@@ -98,6 +98,9 @@
       @media (min-width: 768px) {
         width: 20rem;
       }
+    }
+    @media (min-width: 768px) {
+      padding-right: 5rem;
     }
   }
 }
