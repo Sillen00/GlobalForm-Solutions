@@ -21,7 +21,7 @@
 }
 
 .preview__title {
-  font-size: 3rem;
+  font-size: clamp(var(--bodytext), -2.688rem + 6vw, var(--subhead));
   margin-bottom: 1.6rem;
   line-height: 1.3;
 }
@@ -31,12 +31,24 @@
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 0.2rem;
+
+  p {
+    font-size: clamp(var(--smalltext), -1.875rem + 4vw, var(--bodytext));
+  }
 }
 
 .preview__block__container {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+
+  h2 {
+    font-size: clamp(var(--bodytext), -2.688rem + 6vw, var(--subhead));
+  }
+
+  p {
+    font-size: clamp(var(--smalltext), -1.875rem + 4vw, var(--bodytext));
+  }
 }
 
 .preview__block__title {

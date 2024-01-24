@@ -16,6 +16,12 @@ function SideMenuTextBlock({ toggleSideMenuContent }: Props) {
   const [orderNumber, setOrderNumber] = useState<number>(0)
 
   const handleClick = () => {
+    // Validate that the block title is not empty
+    if (blockText.trim() === "") {
+      alert("Please enter a text to show in the form.")
+      return
+    }
+
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
@@ -27,6 +33,7 @@ function SideMenuTextBlock({ toggleSideMenuContent }: Props) {
     }
 
     addFormBlock(newFormBlock)
+    toggleSideMenuContent()
   }
 
   return (
@@ -44,7 +51,9 @@ function SideMenuTextBlock({ toggleSideMenuContent }: Props) {
           onChange={e => setBlockTitle(e.target.value)}
         />
       </div>
-      <label id='block-text'>Block text</label>
+      <label id='block-text'>
+        Block text <span>*</span>
+      </label>
       <textarea
         id='block-text'
         name='block-text'
@@ -56,7 +65,6 @@ function SideMenuTextBlock({ toggleSideMenuContent }: Props) {
         icon={IconType.None}
         onClick={() => {
           handleClick()
-          toggleSideMenuContent()
         }}
       >
         Add block
