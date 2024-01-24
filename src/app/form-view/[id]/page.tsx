@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import { useParams } from "next/navigation"
+import LoadingSpinner from "~/app/_components/LoadingSpinner"
 import FormView from "~/app/_components/form/FormView"
 import { api } from "~/trpc/react"
 import styles from "../../_components/form/FormView.module.scss"
@@ -13,7 +14,9 @@ export default function page() {
     return (
       <div className={styles.form__container}>
         <div className={styles.form__content}>
-          <h1>Loading...</h1>
+          <div className={styles.loading__spinner__div}>
+            <LoadingSpinner size={100} />
+          </div>
         </div>
       </div>
     )

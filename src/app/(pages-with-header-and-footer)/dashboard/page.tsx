@@ -22,15 +22,12 @@ const DashboardFormCardFeed = () => {
     )
   }
   if (!forms) {
-    return <p>Could not get forms from database.</p>
+    return <p>Could not find any forms in the database.</p>
   }
 
   return (
     <>
-      {isLoading && isError ? (
-        // Display loading message
-        <p>Fetching forms...</p>
-      ) : forms && forms.length > 0 ? (
+      {forms && forms.length > 0 ? (
         forms.map(form => (
           <Link href={`/form-details/${form.id}`} key={form.id}>
             <FormCard
@@ -43,7 +40,7 @@ const DashboardFormCardFeed = () => {
           </Link>
         ))
       ) : (
-        <p>No forms created yet!</p>
+        <p> &lt;-- Create Form!</p>
       )}
 
       {isError && <p>Something went wrong!</p>}
