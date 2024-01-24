@@ -3,10 +3,10 @@ import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useState } from "react"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
-import LoadingSpinner from "~/app/_components/LoadingSpinner"
 import IndividualResponses from "~/app/_components/form-details-components/IndividualResponses"
 import QuestionResponses from "~/app/_components/form-details-components/QuestionResponses"
 import SummaryResponses from "~/app/_components/form-details-components/SummaryResponses"
+import FormDetailsSkeletonPage from "~/app/_components/loading-skeleton-components/FormDetailsSkeletonPage"
 import { api } from "~/trpc/react"
 import styles from "./page.module.scss"
 
@@ -19,11 +19,7 @@ function FormDetailPage() {
   )
 
   if (isLoading) {
-    return (
-      <div className={styles.loading_spinner_div}>
-        <LoadingSpinner size={100} />
-      </div>
-    )
+    return <FormDetailsSkeletonPage />
   }
 
   if (!formData) {
