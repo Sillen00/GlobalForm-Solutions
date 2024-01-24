@@ -1,9 +1,6 @@
+import type { Response } from "@prisma/client"
 import { useState } from "react"
 import styles from "./QuestionResponses.module.scss"
-
-interface Response {
-  answers: Record<string, string | string[]>
-}
 
 function QuestionResponses({
   formDataResponses,
