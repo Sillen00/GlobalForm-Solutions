@@ -77,21 +77,21 @@ function FormView({ formData }: { formData: FormData }) {
               )}
             </h1>
             <div className={styles.form__info}>
-              <FaCalendar />
+              <FaCalendar aria-label='Calendar icon' />
               <p>
                 {formData.startDate ? formData.startDate : "Unknown"}
                 {formData.endDate ? ` – ${formData.endDate}` : ""}
               </p>
             </div>
             <div className={styles.form__info}>
-              <FaClock />
+              <FaClock aria-label='Clock icon' />
               <p>
                 {formData.startTime ? formData.startTime : "Unknown"}
                 {formData.endTime ? ` – ${formData.endTime}` : ""}
               </p>
             </div>
             <div className={styles.form__info}>
-              <FaLocationDot />
+              <FaLocationDot aria-label='Location icon' />
               <p>{formData.location ? formData.location : "Unknown"}</p>
             </div>
           </div>
@@ -111,6 +111,7 @@ function FormView({ formData }: { formData: FormData }) {
               </div>
             )
           })}
+          <hr className={styles.form__line}></hr>
           <button className={styles.form__submit__button} type='submit'>
             Submit
           </button>

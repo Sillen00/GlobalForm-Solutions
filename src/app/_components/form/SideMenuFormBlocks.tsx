@@ -11,6 +11,7 @@ import styles from "./SideMenuFormBlocks.module.scss"
 function SideMenuFormBlocks() {
   const { formData, setFormData, removeFormBlock } = useForm()
   const router = useRouter()
+  const todaysDate = new Date().toISOString().slice(0, 10)
 
   const handleRemoveFormBlock = (index: number) => {
     removeFormBlock(index)
@@ -26,6 +27,7 @@ function SideMenuFormBlocks() {
   ) => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
+
   const requiredFields: Array<keyof typeof formData> = [
     "title",
     "startDate",
@@ -78,6 +80,8 @@ function SideMenuFormBlocks() {
           placeholder="Write your form's start date here"
           name='startDate'
           type='date'
+          min={todaysDate}
+          max='2099-12-31'
           value={formData.startDate}
           onChange={handleInputChange}
         />
@@ -125,8 +129,9 @@ function SideMenuFormBlocks() {
           case "text":
             return (
               <div className={styles.formBlock} key={index}>
-                <TbLetterT className={styles.typeIcon} />
+                <TbLetterT className={styles.typeIcon} aria-label='Text icon' />
                 <FaTrashCan
+                  aria-label='Delete icon'
                   color='red'
                   className={styles.trashIcon}
                   onClick={() => handleRemoveFormBlock(index)}
@@ -137,14 +142,22 @@ function SideMenuFormBlocks() {
                   </p>
                   <p>{formBlock.content}</p>
                 </div>
-                <FaGripLines className={styles.gripIcon} onClick={moveBlock} />
+                <FaGripLines
+                  aria-label='Grip icon'
+                  className={styles.gripIcon}
+                  onClick={moveBlock}
+                />
               </div>
             )
           case "textInput":
             return (
               <div className={styles.formBlock} key={index}>
-                <LuFormInput className={styles.typeIcon} />
+                <LuFormInput
+                  aria-label='Text input icon'
+                  className={styles.typeIcon}
+                />
                 <FaTrashCan
+                  aria-label='Delete icon'
                   color='red'
                   className={styles.trashIcon}
                   onClick={() => handleRemoveFormBlock(index)}
@@ -154,7 +167,11 @@ function SideMenuFormBlocks() {
                     {formBlock.title ? formBlock.title : "Untitled block"}
                   </p>
                 </div>
-                <FaGripLines className={styles.gripIcon} onClick={moveBlock} />
+                <FaGripLines
+                  aria-label='Grip icon'
+                  className={styles.gripIcon}
+                  onClick={moveBlock}
+                />
               </div>
             )
           default:

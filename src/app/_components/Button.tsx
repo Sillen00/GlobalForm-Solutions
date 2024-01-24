@@ -55,7 +55,9 @@ function Button({
   return (
     <button className={`buttonStyle ${className}`} onClick={onClick}>
       {children}
-      {Icon && <Icon className={`arrow-btn ${className}`} />}
+      {Icon && (
+        <Icon aria-label='Custom icon' className={`arrow-btn ${className}`} />
+      )}
     </button>
   )
 }
