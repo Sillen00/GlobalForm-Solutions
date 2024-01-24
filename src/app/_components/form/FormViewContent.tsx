@@ -4,10 +4,10 @@ import { useState } from "react"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import { api } from "~/trpc/react"
 import type { FormBlock, FormData } from "../../../contexts/FormContext"
-import styles from "./FormView.module.scss"
+import styles from "./FormViewContent.module.scss"
 import FormTextInput from "./form-view-blocks/FormTextInput"
 
-function FormView({ formData }: { formData: FormData }) {
+function FormViewContent({ formData }: { formData: FormData }) {
   const [inputValues, setInputValues] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const { mutate: mutateResponse } = api.form.addResponse.useMutation()
@@ -115,4 +115,4 @@ function FormView({ formData }: { formData: FormData }) {
   )
 }
 
-export default FormView
+export default FormViewContent
