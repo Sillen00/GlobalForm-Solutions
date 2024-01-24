@@ -55,7 +55,7 @@ function QuestionResponses({
       </select>
 
       {selectedQuestion && (
-        <div>
+        <div className={styles.question_answer_div}>
           <h3>{selectedQuestion}</h3>
           {organizedResponses[selectedQuestion]?.map((answer, index) => (
             <p key={index}>{answer}</p>

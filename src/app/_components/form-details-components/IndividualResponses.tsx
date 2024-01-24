@@ -34,7 +34,7 @@ function IndividualResponses({
 
   return (
     <div className={styles.form_responses_individual_responses}>
-      <div className={styles.select_responce_div}>
+      <div className={styles.select_responce_nr_div}>
         <label>Select Response: </label>
         <input
           type='number'
@@ -46,7 +46,7 @@ function IndividualResponses({
       </div>
 
       {questions.map((question, index) => (
-        <div key={index}>
+        <div className={styles.quesion_answer_div} key={index}>
           <h3>{question}</h3>
           <p>{organizedResponses[question]?.[selectedPersonIndex] ?? ""}</p>
         </div>

@@ -30,7 +30,7 @@ function SummaryResponses({
   return (
     <div className={styles.form_responses_summary}>
       {Object.entries(organizedResponses).map(([question, answers]) => (
-        <div key={question}>
+        <div className={styles.quesion_answer_div} key={question}>
           <h3>{question}</h3>
           {answers.map((answer, index) => (
             <p key={index}>{answer}</p>
