@@ -13,10 +13,16 @@ function FormDetailPage() {
   const params = useParams<{ formid: string }>()
   const [activeResponsePreview, setActiveResponsePreview] = useState("summary")
 
-  const { data: formData } = api.form.getFormById.useQuery(params.formid)
+  const { data: formData, isLoading } = api.form.getFormById.useQuery(
+    params.formid
+  )
+
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
 
   if (!formData) {
-    return <p>Loading...</p>
+    return <p>Form not found</p>
   }
 
   const copyToClipboard = async () => {

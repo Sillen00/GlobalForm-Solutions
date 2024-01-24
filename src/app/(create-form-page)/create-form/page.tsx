@@ -12,12 +12,10 @@ function CreateFormPage() {
 
   const toggleSideMenuContent = () => {
     setIsSideMenuAddBlocksOpen(prevState => !prevState)
-    console.log("toggleSideMenuContent")
   }
 
   const togglePreview = () => {
     setIsPreviewActive(prevState => !prevState)
-    console.log("togglePreview")
   }
 
   return (
