@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import { useState } from "react"
 import { FaCalendar, FaClock, FaLink, FaLocationDot } from "react-icons/fa6"
 import IndividualResponses from "~/app/_components/form-details-components/IndividualResponses"
@@ -12,6 +12,8 @@ import styles from "./page.module.scss"
 function FormDetailPage() {
   const params = useParams<{ formid: string }>()
   const [activeResponsePreview, setActiveResponsePreview] = useState("summary")
+  const router = useRouter()
+  const { mutate } = api.form.deleteForm.useMutation()
 
   const { data: formData, isLoading } = api.form.getFormById.useQuery(
     params.formid
@@ -36,6 +38,13 @@ function FormDetailPage() {
       )
     } catch (error) {
       console.error("Failed to copy text to clipboard:", error)
+    }
+  }
+
+  function deleteForm() {
+    if (formData) {
+      router.push("/form-details/deletion-success")
+      mutate(formData.id)
     }
   }
 
@@ -78,7 +87,7 @@ function FormDetailPage() {
             <button className={styles.copy__button} onClick={copyToClipboard}>
               Copy link
             </button>
-            <button className={styles.delete__button} onClick={copyToClipboard}>
+            <button className={styles.delete__button} onClick={deleteForm}>
               Delete form
             </button>
           </div>
