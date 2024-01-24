@@ -48,13 +48,13 @@ function Footer() {
       </AccordionSection>
 
       <div className='socials'>
-        <Link href='#'>
+        <Link href='/404'>
           <FaLinkedin />
         </Link>
-        <Link href='#'>
+        <Link href='/404'>
           <FaInstagram />
         </Link>
-        <Link href='#'>
+        <Link href='/404'>
           <FaXTwitter />
         </Link>
       </div>
