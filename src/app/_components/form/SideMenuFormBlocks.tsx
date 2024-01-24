@@ -11,6 +11,7 @@ import styles from "./SideMenuFormBlocks.module.scss"
 function SideMenuFormBlocks() {
   const { formData, setFormData, removeFormBlock } = useForm()
   const router = useRouter()
+  const todaysDate = new Date().toISOString().slice(0, 10)
 
   const handleRemoveFormBlock = (index: number) => {
     removeFormBlock(index)
@@ -26,6 +27,7 @@ function SideMenuFormBlocks() {
   ) => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
+
   const requiredFields: Array<keyof typeof formData> = [
     "title",
     "startDate",
@@ -78,6 +80,8 @@ function SideMenuFormBlocks() {
           placeholder="Write your form's start date here"
           name='startDate'
           type='date'
+          min={todaysDate}
+          max='2099-12-31'
           value={formData.startDate}
           onChange={handleInputChange}
         />

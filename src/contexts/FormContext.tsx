@@ -42,7 +42,7 @@ export interface Response {
 
 export const defaultFormData: FormData = {
   title: "",
-  startDate: "",
+  startDate: new Date().toISOString().slice(0, 10),
   endDate: "",
   startTime: "",
   endTime: "",
