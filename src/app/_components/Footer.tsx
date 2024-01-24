@@ -49,13 +49,13 @@ function Footer() {
 
       <div className='socials'>
         <Link href='#'>
-          <FaLinkedin />
+          <FaLinkedin aria-label='LinkedIn icon' />
         </Link>
         <Link href='#'>
-          <FaInstagram />
+          <FaInstagram aria-label='Instagram icon' />
         </Link>
         <Link href='#'>
-          <FaXTwitter />
+          <FaXTwitter aria-label='Twitter icon' />
         </Link>
       </div>
     </footer>

@@ -129,8 +129,9 @@ function SideMenuFormBlocks() {
           case "text":
             return (
               <div className={styles.formBlock} key={index}>
-                <TbLetterT className={styles.typeIcon} />
+                <TbLetterT className={styles.typeIcon} aria-label='Text icon' />
                 <FaTrashCan
+                  aria-label='Delete icon'
                   color='red'
                   className={styles.trashIcon}
                   onClick={() => handleRemoveFormBlock(index)}
@@ -141,14 +142,22 @@ function SideMenuFormBlocks() {
                   </p>
                   <p>{formBlock.content}</p>
                 </div>
-                <FaGripLines className={styles.gripIcon} onClick={moveBlock} />
+                <FaGripLines
+                  aria-label='Grip icon'
+                  className={styles.gripIcon}
+                  onClick={moveBlock}
+                />
               </div>
             )
           case "textInput":
             return (
               <div className={styles.formBlock} key={index}>
-                <LuFormInput className={styles.typeIcon} />
+                <LuFormInput
+                  aria-label='Text input icon'
+                  className={styles.typeIcon}
+                />
                 <FaTrashCan
+                  aria-label='Delete icon'
                   color='red'
                   className={styles.trashIcon}
                   onClick={() => handleRemoveFormBlock(index)}
@@ -158,7 +167,11 @@ function SideMenuFormBlocks() {
                     {formBlock.title ? formBlock.title : "Untitled block"}
                   </p>
                 </div>
-                <FaGripLines className={styles.gripIcon} onClick={moveBlock} />
+                <FaGripLines
+                  aria-label='Grip icon'
+                  className={styles.gripIcon}
+                  onClick={moveBlock}
+                />
               </div>
             )
           default:

@@ -1,92 +1,116 @@
 // FORM DETAILS PAGE STYLES
 
-.form_details_wrapper {
-    min-height: 60vh;
+.form__details__wrapper {
+  min-height: 60vh;
+  margin-top: 2rem;
 
-    .title_link_div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    
-        h2 {
-            font-size: clamp(var(--bodytext), 0.714rem + 1.429vw, var(--subhead));
-            font-weight: bold;
-        }
+  .form__info__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
 
-        a {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        button {
-            background-color: var(--secondary-color);
-            border: 4 px solid var(--primary);
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
-        }
+    h2 {
+      font-size: clamp(var(--bodytext), 0.714rem + 1.429vw, var(--subhead));
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
 
-    .form__info {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        margin-bottom: 0.2rem;
-        
-        p {
-            font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
-        }
+    @media screen and (max-width: 768px) {
+    //   flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .link__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+
+    button {
+      border: 4 px solid var(--primary);
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
     }
 
-    .link_to_form {
+    @media screen and (max-width: 768px) {
+      flex-direction: column-reverse;
+      gap: 1rem;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  .copy__button {
+    background-color: var(--secondary-color);
+  }
+
+  .delete__button {
+    background-color: rgb(221, 52, 52);
+  }
+
+  .form__info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.2rem;
+
+    p {
+      font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
+    }
+  }
+
+  .link_to_form {
+    font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
+    text-decoration: underline;
+  }
+
+  .subheader {
+    font-size: clamp(var(--bodytext), 0.714rem + 1.429vw, var(--subhead));
+    text-decoration: underline;
+    margin-top: 4rem;
+  }
+
+  .responses_active_form_div {
+    display: flex;
+    justify-content: space-between;
+
+    // Total responses:
+    p {
+      font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
+      font-style: italic;
+      color: rgb(209, 209, 209);
+    }
+  }
+
+  .responses_menu {
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+
+      li {
+        list-style: none;
         font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
-        text-decoration: underline;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .active {
+        background-color: var(--secondary-color);
+      }
     }
+  }
 
-    .subheader {
-        font-size: clamp(var(--bodytext), 0.714rem + 1.429vw, var(--subhead));
-        text-decoration: underline;
-        margin-top: 4rem;
-    }
-
-    .responses_active_form_div {
-        display: flex;
-        justify-content: space-between;
-
-        // Total responses:
-        p {
-            font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
-            font-style: italic;
-            color: rgb(209, 209, 209);
-        }
-    }
-
-    .responses_menu {
-        ul {
-            display: flex;
-            justify-content: flex-start;
-            gap: 15px;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-
-            li {
-                list-style: none;
-                font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
-                padding: 5px 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                
-            }
-            
-            .active {
-                background-color: var(--secondary-color);
-            }
-        }
-    }
-
-
-    .form_responses_container {
-        
-    }
-
+//   .form_responses_container {
+//   }
 }
