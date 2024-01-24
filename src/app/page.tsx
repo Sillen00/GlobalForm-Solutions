@@ -45,7 +45,7 @@ export default async function Home() {
             <div className='heroRight'>
               <Image
                 src='/MaskotGFS.png'
-                alt='Girl creating a form on the computer'
+                alt='Robot holding an inputfield'
                 width={250}
                 height={250}
               />
