@@ -39,6 +39,7 @@ function CreateFormPage() {
             )}
 
             <FaPlus
+              aria-label='Add icon'
               className={isSideMenuAddBlocksOpen ? "plusAnimation" : ""}
             />
           </div>

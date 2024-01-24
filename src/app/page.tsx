@@ -27,8 +27,8 @@ export default async function Home() {
               <SignedOut>
                 <Link href='/login'>
                   <button>
-                    <span>Create your own form</span>
-                    <IoCreateOutline />
+                    <span>Create an account and create your own form!</span>
+                    <IoCreateOutline aria-label='Create ouline icon' />
                   </button>
                 </Link>
               </SignedOut>
@@ -36,7 +36,7 @@ export default async function Home() {
                 <Link href='/dashboard'>
                   <button>
                     <span>Create your own form</span>
-                    <IoCreateOutline />
+                    <IoCreateOutline aria-label='Create outline icon' />
                   </button>
                 </Link>
               </SignedIn>

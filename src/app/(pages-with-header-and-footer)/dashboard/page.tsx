@@ -23,7 +23,7 @@ function DashboardPage() {
           {/* Create new form card */}
           <Link href={"/create-form"}>
             <div className='create-new-card'>
-              <FaPlus />
+              <FaPlus aria-label='Add icon' />
             </div>
           </Link>
 

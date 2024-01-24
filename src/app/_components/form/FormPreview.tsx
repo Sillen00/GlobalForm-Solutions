@@ -43,21 +43,21 @@ function FormPreview() {
                 )}
               </h1>
               <div className={styles.preview__info}>
-                <FaCalendar />
+                <FaCalendar aria-label='Calendar icon' />
                 <p>
                   {formData.startDate ? formData.startDate : "Unknown"}
                   {formData.endDate ? ` – ${formData.endDate}` : ""}
                 </p>
               </div>
               <div className={styles.preview__info}>
-                <FaClock />
+                <FaClock aria-label='Clock icon' />
                 <p>
                   {formData.startTime ? formData.startTime : "Unknown"}
                   {formData.endTime ? ` – ${formData.endTime}` : ""}
                 </p>
               </div>
               <div className={styles.preview__info}>
-                <FaLocationDot />
+                <FaLocationDot aria-label='Location icon' />
                 <p>{formData.location ? formData.location : "Unknown"}</p>
               </div>
             </div>

@@ -56,25 +56,25 @@ function FormDetailPage() {
             <h2>{formData?.title}</h2>
 
             <div className={styles.form__info}>
-              <FaCalendar />
+              <FaCalendar aria-label='Calendar icon' />
               <p>
                 {formData.startDate ? formData.startDate : "Unknown"}
                 {formData.endDate ? ` - ${formData.endDate}` : ""}
               </p>
             </div>
             <div className={styles.form__info}>
-              <FaClock />
+              <FaClock aria-label='Clock icon' />
               <p>
                 {formData.startTime ? formData.startTime : "Unknown"}
                 {formData.endTime ? ` - ${formData.endTime}` : ""}
               </p>
             </div>
             <div className={styles.form__info}>
-              <FaLocationDot />
+              <FaLocationDot aria-label='Location icon' />
               <p>{formData.location ? formData.location : "Unknown"}</p>
             </div>
             <div className={styles.form__info}>
-              <FaLink />
+              <FaLink aria-label='Link icon' />
               <Link
                 className={styles.link_to_form}
                 href={`/form-view/${params.formid}`}
