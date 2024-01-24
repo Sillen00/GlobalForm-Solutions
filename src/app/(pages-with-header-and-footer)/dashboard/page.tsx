@@ -2,7 +2,7 @@
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
-import LoadingIcon from "~/app/_components/LoadingIcon"
+import LoadingSpinner from "~/app/_components/LoadingSpinner"
 import { api } from "~/trpc/react"
 import FormCard from "../../_components/DashboardFormCard"
 import "./page.scss"
@@ -13,7 +13,7 @@ function DashboardPage() {
   if (isLoading) {
     return (
       <div className='loading_spinner_div'>
-        <LoadingIcon size={140} />
+        <LoadingSpinner size={140} />
       </div>
     )
   }

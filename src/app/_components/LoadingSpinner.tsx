@@ -1,4 +1,4 @@
-function LoadingIcon({ size }: { size: number }) {
+function LoadingSpinner({ size }: { size: number }) {
   return (
     <div role='status'>
       <svg
@@ -24,4 +24,4 @@ function LoadingIcon({ size }: { size: number }) {
   )
 }
 
-export default LoadingIcon
+export default LoadingSpinner
