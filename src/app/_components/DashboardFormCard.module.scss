@@ -1,6 +1,6 @@
 // FORM CARD SCSS
 
-.form-card {
+.form_card {
   min-height: 10rem;
   background-color: var(--primary-color);
   border-radius: 10px;
@@ -13,7 +13,7 @@
     transform: translateY(-5px);
   }
 
-  .top-card-text {
+  .top_card_text {
     display: flex;
     justify-content: space-between;
 
