@@ -17,7 +17,7 @@
     gap: 4rem;
   }
 
-  .heroLeft {
+  .hero_left {
 
     h1 {
       font-size: clamp(#{var(--subhead)}, 5vw, #{var(--heading)});
@@ -86,7 +86,7 @@
     }
   }
 
-  .heroRight {
+  .hero_right {
     
     img {
       transition: all 0.3s ease-in-out;
@@ -105,7 +105,7 @@
 
 
 
-.landingPageSection {
+.landing_page_section {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   align-items: center;

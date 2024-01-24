@@ -4,7 +4,7 @@ import Link from "next/link"
 import { IoCreateOutline } from "react-icons/io5"
 import Footer from "./_components/Footer"
 import Header from "./_components/Header"
-import "./page.scss"
+import styles from "./page.module.scss"
 
 export default async function Home() {
   return (
@@ -12,8 +12,8 @@ export default async function Home() {
       <Header />
       <div className='body-padding'>
         <main>
-          <div className='hero'>
-            <div className='heroLeft'>
+          <div className={styles.hero}>
+            <div className={styles.hero_left}>
               <h1>
                 GlobalForm <br />
                 <span>Solutions</span>
@@ -42,7 +42,7 @@ export default async function Home() {
               </SignedIn>
             </div>
 
-            <div className='heroRight'>
+            <div className={styles.hero_right}>
               <Image
                 src='/MaskotGFS.png'
                 alt='Robot holding an inputfield'
@@ -52,7 +52,7 @@ export default async function Home() {
             </div>
           </div>
 
-          <section className='landingPageSection'>
+          <section className={styles.landing_page_section}>
             <div>
               <Image
                 src='/image1-landingpage.jpg'
