@@ -7,46 +7,52 @@ import { api } from "~/trpc/react"
 import FormCard from "../../_components/DashboardFormCard"
 import "./page.scss"
 
-function DashboardPage() {
+const DashboardFormCardFeed = () => {
   const { data: forms, isLoading } = api.user.getForms.useQuery(undefined)
-
   if (isLoading) {
     return (
       <div className='loading_spinner_div'>
-        <LoadingSpinner size={140} />
+        <LoadingSpinner size={60} />
       </div>
     )
   }
-
   if (!forms) {
     return <p>Could not get forms from database.</p>
   }
 
   return (
+    <>
+      {forms
+        ? forms.map(form => (
+            <Link href={`/form-details/${form.id}`} key={form.id}>
+              <FormCard
+                key={form.id}
+                date={form.startDate}
+                time={form.startTime}
+                title={form.title}
+                place={form.location}
+              />
+            </Link>
+          ))
+        : "No forms created yet!"}
+    </>
+  )
+}
+
+function DashboardPage() {
+  return (
     <SignedIn>
       <title>Dashboard - GlobalForm Solutions</title>
       <div className='dashboard-wrapper'>
         <h2>Dashboard</h2>
+        {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
         <div className='form-card-container'>
-          {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
           <Link href={"/create-form"}>
             <div className='create-new-card'>
               <FaPlus />
             </div>
           </Link>
-          {forms
-            ? forms.map(form => (
-                <Link href={`/form-details/${form.id}`} key={form.id}>
-                  <FormCard
-                    key={form.id}
-                    date={form.startDate}
-                    time={form.startTime}
-                    title={form.title}
-                    place={form.location}
-                  />
-                </Link>
-              ))
-            : "No forms created yet!"}
+          <DashboardFormCardFeed />
         </div>
       </div>
     </SignedIn>
