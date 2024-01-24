@@ -111,6 +111,7 @@ function FormView({ formData }: { formData: FormData }) {
               </div>
             )
           })}
+          <hr className={styles.form__line}></hr>
           <button className={styles.form__submit__button} type='submit'>
             Submit
           </button>

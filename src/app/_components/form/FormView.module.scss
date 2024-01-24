@@ -8,7 +8,7 @@
 }
 
 .form__content {
-  padding: 4rem 10rem 10rem 4rem;
+  padding: 4rem 10rem 6rem 4rem;
   width: 50rem;
   min-height: 100vh;
   background-color: rgb(255, 255, 255);
@@ -46,8 +46,16 @@
   overflow: hidden;
 }
 
-.form__submit__button {
+.form__line {
+  width: 100%;
+  height: 1px;
+  background-color:#e2e2e2;
+  border: none;
+  margin-bottom: 2.4rem;
   margin-top: 4rem;
+}
+
+.form__submit__button {
   width: 10rem;
   height: 3rem;
   font-size: 1.6rem;
@@ -87,7 +95,7 @@
 
 @media (max-width: 800px) {
   .form__content {
-    padding: 4rem 2rem 10rem 2rem;
+    padding: 4rem 2rem 6rem 2rem;
     width: 100%;
   }
 }
