@@ -1,8 +1,8 @@
 "use client"
-
 import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
+import LoadingIcon from "~/app/_components/LoadingIcon"
 import { api } from "~/trpc/react"
 import FormCard from "../../_components/DashboardFormCard"
 import "./page.scss"
@@ -11,7 +11,11 @@ function DashboardPage() {
   const { data: forms, isLoading } = api.user.getForms.useQuery(undefined)
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return (
+      <div className='loading_spinner_div'>
+        <LoadingIcon size={140} />
+      </div>
+    )
   }
 
   if (!forms) {
