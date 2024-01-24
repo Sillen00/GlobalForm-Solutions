@@ -74,6 +74,7 @@ function SideMenuAddFormBlocks({ toggleSideMenuContent }: Props) {
         </div>
       )}
 
+      {/* Side Menu Blocks */}
       {selectedBlock === "text" && (
         <SideMenuTextBlock toggleSideMenuContent={toggleSideMenuContent} />
       )}

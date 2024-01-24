@@ -5,9 +5,6 @@ import { useForm } from "~/contexts/FormContext"
 import Button, { IconType } from "../../Button"
 import styles from "./SideMenuTextInput.module.scss"
 
-// Button skall skapa ett nytt block i preview
-// Button skall skicka block till createform
-
 interface Props {
   toggleSideMenuContent: () => void
 }
@@ -18,7 +15,13 @@ function SideMenuTextInput({ toggleSideMenuContent }: Props) {
   const [orderNumber, setOrderNumber] = useState<number>(0)
 
   const handleClick = () => {
-    // Create a state that adds the order number +1 every time a new block is added
+    // Validate that the block title is not empty
+    if (blockTitle.trim() === "") {
+      alert("Please enter a title for the input field.")
+      return
+    }
+
+    // A state that adds the order number +1 every time a new block is added
     setOrderNumber(orderNumber + 1)
 
     const newFormBlock = {
@@ -30,6 +33,7 @@ function SideMenuTextInput({ toggleSideMenuContent }: Props) {
     }
     //Send newFormBlock to formContext and add it to the formBlocks array
     addFormBlock(newFormBlock)
+    toggleSideMenuContent()
   }
 
   return (
@@ -59,7 +63,6 @@ function SideMenuTextInput({ toggleSideMenuContent }: Props) {
           className={styles.iconStyle}
           onClick={() => {
             handleClick()
-            toggleSideMenuContent()
           }}
         >
           Add block
