@@ -1,3 +1,49 @@
 .form_responses_individual_responses {
+    background-color: rgba(0,0,0, 0.3);
+    border: 1px solid var(--secondary-color);
+    padding: 4px 6px;
+    border-radius: 10px;
+
+    @media (min-width: 768px) {
+        padding: 20px 30px;
+    }
+
+    .select_responce_nr_div {
+        margin-bottom: 10px;
+
+        label {
+            font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
+            margin-right: 10px;
+        }
+
+        input {
+            color: black;
+            padding-left: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--secondary-color);
+            font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
+            height: 30px;
+        }
+    }
+
+    .quesion_answer_div {
+        margin-bottom: 40px;
+
+        h3 {
+            font-weight: bold;
+            font-size: clamp(0.875rem, 0.429rem + 1.19vw, 1.5rem);
+            margin-bottom: 0.5rem;
+        }
     
+        p {
+            font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
+            background-color: rgba(88, 88, 88, 0.4);
+            border-radius: 5px;
+            padding: 1px 2px;
+    
+            @media (min-width: 768px) {
+                padding: 5px 10px;
+            }
+        }
+    }
 }
