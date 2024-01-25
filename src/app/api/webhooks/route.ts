@@ -5,10 +5,6 @@ import { verifyWebhook } from "./verification/webhook-verification"
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
 
 export async function POST(req: Request) {
-  // Console.log till Marcus
-  console.log("req", req)
-  console.log("req.body", req.body)
-
   if (!WEBHOOK_SECRET) {
     throw new Error(
       "Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local"

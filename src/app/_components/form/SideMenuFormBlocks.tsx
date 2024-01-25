@@ -19,7 +19,7 @@ function SideMenuFormBlocks() {
 
   const moveBlock = () => {
     // Function to move the form block in the form
-    console.log("moveBlock")
+    // console.log("moveBlock")
   }
 
   const handleInputChange = (

@@ -11,7 +11,6 @@ const AccordionSection = ({ title, children }: FooterAccordionProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleAccordion = () => {
-    console.log("Accordion is being toggled")
     setIsOpen(!isOpen)
   }
 

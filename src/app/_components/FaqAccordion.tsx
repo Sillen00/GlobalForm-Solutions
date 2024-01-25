@@ -11,7 +11,6 @@ const FaqAccordion = ({ title, children }: FaqAccordionProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleAccordion = () => {
-    console.log("Accordion is being toggled")
     setIsOpen(!isOpen)
   }
 
