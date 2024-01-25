@@ -37,9 +37,20 @@ function SummaryResponses({
       {Object.entries(organizedResponses).map(([question, answers]) => (
         <div className={styles.quesion_answer_div} key={question}>
           <h3>{question}</h3>
+
           {answers.map((answer, index) => (
             <p key={index}>{answer}</p>
           ))}
+
+          {/* Check for additional responses in formDataResponses */}
+          {Array.from(
+            { length: formDataResponses.length - answers.length },
+            (_, additionalIndex) => (
+              <div key={additionalIndex + answers.length}>
+                <p className='text-gray-400'>Empty answer</p>
+              </div>
+            )
+          )}
         </div>
       ))}
     </div>
