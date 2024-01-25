@@ -35,13 +35,13 @@ function FormPreview() {
         {formData ? (
           <>
             <div className={styles.preview__header}>
-              <h1 className={styles.preview__title}>
+              <h2 className={styles.preview__title}>
                 {formData.title ? (
                   formData.title
                 ) : (
                   <span style={{ color: "#999999" }}>New form</span>
                 )}
-              </h1>
+              </h2>
               <div className={styles.preview__info}>
                 <FaCalendar aria-label='Calendar icon' />
                 <p>
@@ -81,7 +81,7 @@ function FormPreview() {
             })}
           </>
         ) : (
-          <h1>Could not load form preview!</h1>
+          <h2>Could not load form preview!</h2>
         )}
       </div>
     </div>
