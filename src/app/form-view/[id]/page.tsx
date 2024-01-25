@@ -26,7 +26,7 @@ function FormView() {
     return (
       <div className={styles.form__container}>
         <div className={styles.form__content}>
-          <h1 className={styles.form__error}>The form could not be found!</h1>
+          <h2 className={styles.form__error}>The form could not be found!</h2>
           <br />
           Check the URL and try again.
           <br />

@@ -8,8 +8,8 @@
 }
 
 .form__content {
-  padding: 4rem 4rem 6rem 4rem;
-  width: 50rem;
+  width: 100%;
+  padding: 4rem 2rem 6rem 2rem;
   min-height: 100vh;
   background-color: rgb(255, 255, 255);
   border-left: 1px solid black;
@@ -102,13 +102,13 @@
 
 .form__error {
   color: red;
-  font-size: 1.4rem;
+  font-size: var(--subhead);
   margin-bottom: 0.4rem;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 817px) {
   .form__content {
-    padding: 4rem 2rem 6rem 2rem;
-    width: 100%;
+    padding: 4rem 4rem 6rem 4rem;
+    width: 50rem;
   }
 }
