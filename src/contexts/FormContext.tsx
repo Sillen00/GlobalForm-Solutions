@@ -81,7 +81,7 @@ export default function FormProvider({ children }: ProviderProps) {
       return updatedFormData
     })
   }
-  
+
   // not removing the block
   const removeFormBlock = (index: number) => {
     setFormData(prevFormData => {

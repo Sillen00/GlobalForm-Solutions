@@ -9,18 +9,18 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <AccordionSection title='Info'>
-        <Link href='/404'>
+        {/* <Link href='#'> */}
           <p>Terms & Conditions</p>
-        </Link>
-        <Link href='/404'>
+        {/* </Link> */}
+        {/* <Link href='#'> */}
           <p>Customer Service</p>
-        </Link>
-        <Link href='/404'>
+        {/* </Link> */}
+        {/* <Link href='#'> */}
           <p>Privacy Policy</p>
-        </Link>
-        <Link href='/404'>
+        {/* </Link> */}
+        {/* <Link href='#'> */}
           <p>Cookie Settings</p>
-        </Link>
+        {/* </Link> */}
       </AccordionSection>
       <AccordionSection title='About Us'>
         <Link href='/about/press'>
@@ -48,15 +48,15 @@ function Footer() {
       </AccordionSection>
 
       <div className={styles.socials}>
-        <Link href='/404'>
+        {/* <Link href='#'> */}
           <FaLinkedin />
-        </Link>
-        <Link href='/404'>
+        {/* </Link> */}
+        {/* <Link href='#'> */}
           <FaInstagram />
-        </Link>
-        <Link href='/404'>
+        {/* </Link> */}
+        {/* <Link href='#'> */}
           <FaXTwitter />
-        </Link>
+        {/* </Link> */}
       </div>
     </footer>
   )
