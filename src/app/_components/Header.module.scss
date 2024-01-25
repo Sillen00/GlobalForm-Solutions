@@ -71,6 +71,9 @@
           &:hover:after {
             width: 100%; 
           }
+          &:hover {
+            background-color: transparent;
+          }
         }
       }
   
