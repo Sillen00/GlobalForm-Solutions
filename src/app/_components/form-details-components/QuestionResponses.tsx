@@ -81,7 +81,7 @@ function QuestionResponses({
                   (organizedResponses[selectedQuestion]?.length ?? 0)
                 }
               >
-                <p className='text-gray-400'>No response</p>
+                <p className='text-gray-400'>Empty answer</p>
               </div>
             )
           )}

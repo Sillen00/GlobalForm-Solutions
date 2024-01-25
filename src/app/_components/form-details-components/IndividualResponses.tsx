@@ -53,7 +53,12 @@ function IndividualResponses({
       {questions.map((question, index) => (
         <div className={styles.quesion_answer_div} key={index}>
           <h3>{question}</h3>
-          <p>{organizedResponses[question]?.[selectedPersonIndex] ?? ""}</p>
+
+          <p>
+            {organizedResponses[question]?.[selectedPersonIndex] ?? (
+              <span className='text-gray-400'>Empty answer</span>
+            )}
+          </p>
         </div>
       ))}
     </div>
