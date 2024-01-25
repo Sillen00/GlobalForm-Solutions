@@ -5,18 +5,24 @@
   justify-content: center;
   height: 100%;
   margin-top: 3rem;
-}
-
-.title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
-
-.link {
-  color: var(--primary-color);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
+  
+  .title {
+    font-size: clamp(var(--bodytext), -0.179rem + 3.81vw, var(--heading));
+    margin-bottom: 2rem;
   }
+  
+  p {
+    font-size: clamp(var(--smalltext), 0.393rem + 0.952vw, var(--bodytext));
+
+    .link {
+      color: var(--primary-color);
+      text-decoration: none;
+    
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
 }
+
