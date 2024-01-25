@@ -14,7 +14,7 @@ function Header() {
   }
 
   return (
-    <header>
+    <header className={styles.header}>
       <nav className={styles.navigation}>
         <Link href='/'>
           <Image
@@ -25,7 +25,7 @@ function Header() {
             height={50}
           />
         </Link>
-        <ul className={isMenuOpen ? "display-flex" : ""}>
+        <ul className={isMenuOpen ? styles.display_flex : ""}>
           <li>
             <Link onClick={toggleMenu} href='/'>
               Home

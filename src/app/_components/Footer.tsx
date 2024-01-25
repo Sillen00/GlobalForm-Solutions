@@ -47,7 +47,7 @@ function Footer() {
         </Link>
       </AccordionSection>
 
-      <div className='socials'>
+      <div className={styles.socials}>
         <Link href='/404'>
           <FaLinkedin />
         </Link>

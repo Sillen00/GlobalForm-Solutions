@@ -54,6 +54,11 @@ function QuestionResponses({
         ))}
       </select>
 
+      {/* Empty responses message. */}
+      {formDataResponses.length === 0 && (
+        <p className='mt-4'>There are no responses for this form yet.</p>
+      )}
+
       {selectedQuestion && (
         <div className={styles.question_answer_div}>
           <h3>{selectedQuestion}</h3>

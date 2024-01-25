@@ -9,8 +9,8 @@ function IndividualResponses({
 }) {
   const [selectedPersonIndex, setSelectedPersonIndex] = useState(0)
 
-  if (!formDataResponses || formDataResponses.length === 0) {
-    return <p>No responses available.</p>
+  if (!formDataResponses) {
+    return <p>Could not find responses data.</p>
   }
 
   const organizedResponses = formDataResponses.reduce(
@@ -44,6 +44,11 @@ function IndividualResponses({
           onChange={e => setSelectedPersonIndex(Number(e.target.value))}
         />
       </div>
+
+      {/* Empty responses message. */}
+      {formDataResponses.length === 0 && (
+        <p>There are no responses for this form yet.</p>
+      )}
 
       {questions.map((question, index) => (
         <div className={styles.quesion_answer_div} key={index}>

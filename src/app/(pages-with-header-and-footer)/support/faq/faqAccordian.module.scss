@@ -1,48 +1,46 @@
 // ACCORDION SECTION SCSS
 
-.accordionsection {
+// .accordionSection {
  
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
   
 
-  h2 {
-    cursor: pointer;
-    border-top: 1px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
-    padding: 1rem 1rem 1rem 1rem;
-    font-size: 2rem;
+  // h2 {
+  //   cursor: pointer;
+  //   border-top: 1px solid var(--primary-color);
+  //   border-bottom: 1px solid var(--primary-color);
+  //   padding: 1rem 1rem 1rem 1rem;
+  //   font-size: var(--subhead);
+  // }
 
- 
-  }
+  // .content {
 
-  .content {
+  //   // display: none;
+  //   padding: 1rem 1rem 1rem 1rem;
+  //   // font-size: 10rem;
 
-    // display: none;
-    padding: 1rem 1rem 1rem 1rem;
-    font-size: 2rem;
+  //   p {
+  //   color: aqua !important;
 
-    p {
-    color: aqua !important;
+  //   font-size: 2rem;
 
-    font-size: 2rem;
-
-      &:hover {
-        text-decoration: underline;
-        text-decoration-color: var(--text-color);
-      }
-    }
+  //     &:hover {
+  //       text-decoration: underline;
+  //       text-decoration-color: var(--text-color);
+  //     }
+  //   }
 
     
-      display: block;
-      padding: 0 0 0 0;
+  //     display: block;
+  //     padding: 0 0 0 0;
     
-  }
+  // }
 
-  &.active {
-    .content {
-      display: block;
+  // &.active {
+  //   .content {
+  //     display: block;
       
-    }
-  }
-}
+  //   }
+  // }
+// }

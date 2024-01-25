@@ -45,9 +45,9 @@ function FormViewContent({ formData }: { formData: FormData }) {
     return (
       <div className={styles.form__container}>
         <div className={styles.form__content}>
-          <h1 className={styles.form__submission__success__title}>
+          <h2 className={styles.form__submission__success__title}>
             Thank you for submitting your response!
-          </h1>
+          </h2>
           The event holder has recieved your response and you can now close this
           window. See you at the event!
           <br />

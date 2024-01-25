@@ -5,10 +5,10 @@ function pressPage() {
     <>
       <title>Press - GlobalForm Solutions</title>
       <div className={styles.pressContainer}>
-        <h1>Press</h1>
+        <h2>Press</h2>
         <div className={styles.section}>
           <div>
-            <h2>NEW CEO</h2>
+            <h3>NEW CEO</h3>
             <span>
               <i>2023-10-25</i>
             </span>
@@ -23,7 +23,7 @@ function pressPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>PEOPLES CHOICE</h2>
+            <h3>PEOPLES CHOICE</h3>
             <span>
               <i>2023-07-13</i>
             </span>
@@ -38,7 +38,7 @@ function pressPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>SECURITY INFO</h2>
+            <h3>SECURITY INFO</h3>
             <span>
               <i>2023-02-01</i>
             </span>
@@ -59,7 +59,7 @@ function pressPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>WALLSTREET STOCKEXCHANGE</h2>
+            <h3>WALLSTREET STOCKEXCHANGE</h3>
             <span>
               <i>2023-01-29</i>
             </span>
@@ -72,7 +72,7 @@ function pressPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>NEW BOARD MEMEBERS</h2>
+            <h3>NEW BOARD MEMEBERS</h3>
             <span>
               <i>2023-07-13</i>
             </span>
