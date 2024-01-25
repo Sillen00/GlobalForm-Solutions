@@ -44,10 +44,10 @@ export default async function Home() {
 
             <div className={styles.hero_right}>
               <Image
-                src='/MaskotGFS.png'
-                alt='Robot holding an inputfield'
-                width={250}
-                height={250}
+                src='/mobileForm.png'
+                alt='Mobile phone with a form on the screen'
+                width={500}
+                height={500}
               />
             </div>
           </div>
