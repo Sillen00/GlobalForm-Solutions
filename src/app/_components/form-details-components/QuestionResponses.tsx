@@ -62,9 +62,29 @@ function QuestionResponses({
       {selectedQuestion && (
         <div className={styles.question_answer_div}>
           <h3>{selectedQuestion}</h3>
+
           {organizedResponses[selectedQuestion]?.map((answer, index) => (
-            <p key={index}>{answer}</p>
+            <div key={index}>
+              <p>{answer}</p>
+            </div>
           ))}
+          {Array.from(
+            {
+              length:
+                formDataResponses.length -
+                (organizedResponses[selectedQuestion]?.length ?? 0),
+            },
+            (_, additionalIndex) => (
+              <div
+                key={
+                  additionalIndex +
+                  (organizedResponses[selectedQuestion]?.length ?? 0)
+                }
+              >
+                <p className='text-gray-400'>No response</p>
+              </div>
+            )
+          )}
         </div>
       )}
     </div>
