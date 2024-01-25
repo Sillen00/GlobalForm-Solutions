@@ -45,15 +45,28 @@
         width: 100%;
       }
     }
+
+    .copy__button {
+      background-color: var(--secondary-color);
+      &:hover {
+        cursor: pointer;
+        box-shadow: 1px 1px 10px 0 rgba(160, 160, 160, 0.5);
+      }
+    }
+  
+    .delete__button {
+      background-color: #9e0707;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 1px 1px 10px 0 rgba(160, 160, 160, 0.5);
+      }
+    }
+
+    // MODAL STYLES ----------------------------
+    
+    // END MODAL STYLES ----------------------------
   }
 
-  .copy__button {
-    background-color: var(--secondary-color);
-  }
-
-  .delete__button {
-    background-color: rgb(221, 52, 52);
-  }
 
   .form__info {
     display: flex;
