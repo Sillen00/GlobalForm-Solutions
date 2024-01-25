@@ -9,10 +9,12 @@ import SummaryResponses from "~/app/_components/form-details-components/SummaryR
 import FormDetailsSkeletonPage from "~/app/_components/loading-skeleton-components/FormDetailsSkeletonPage"
 import { api } from "~/trpc/react"
 import styles from "./page.module.scss"
+import DeleteModal from "~/app/_components/form-details-components/DeleteModal"
 
 function FormDetailPage() {
   const params = useParams<{ formid: string }>()
   const [activeResponsePreview, setActiveResponsePreview] = useState("summary")
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
   const router = useRouter()
   const { mutate } = api.form.deleteForm.useMutation()
 
@@ -42,11 +44,20 @@ function FormDetailPage() {
     }
   }
 
-  function deleteForm() {
+  const deleteForm = () => {
+    setShowDeleteModal(true)
+  }
+
+  const confirmDeleteForm = () => {
     if (formData) {
       router.push("/form-details/deletion-success")
       mutate(formData.id)
+      setShowDeleteModal(false)
     }
+  }
+
+  const cancelDeleteForm = () => {
+    setShowDeleteModal(false)
   }
 
   return (
@@ -87,9 +98,18 @@ function FormDetailPage() {
           <button className={styles.copy__button} onClick={copyToClipboard}>
             Copy link
           </button>
+
           <button className={styles.delete__button} onClick={deleteForm}>
             Delete form
           </button>
+
+          {/* Delete confirmation modal */}
+          {showDeleteModal && (
+            <DeleteModal
+              confirmDeleteForm={confirmDeleteForm}
+              cancelDeleteForm={cancelDeleteForm}
+            />
+          )}
         </div>
       </div>
 
