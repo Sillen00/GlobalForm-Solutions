@@ -29,6 +29,11 @@ function SummaryResponses({
 
   return (
     <div className={styles.form_responses_summary}>
+      {/* Empty responses message. */}
+      {formDataResponses.length === 0 && (
+        <p>There are no responses for this form yet.</p>
+      )}
+
       {Object.entries(organizedResponses).map(([question, answers]) => (
         <div className={styles.quesion_answer_div} key={question}>
           <h3>{question}</h3>
