@@ -4,7 +4,7 @@ import Link from "next/link"
 import { IoCreateOutline } from "react-icons/io5"
 import Footer from "./_components/Footer"
 import Header from "./_components/Header"
-import "./page.scss"
+import styles from "./page.module.scss"
 
 export default async function Home() {
   return (
@@ -12,8 +12,8 @@ export default async function Home() {
       <Header />
       <div className='body-padding'>
         <main>
-          <div className='hero'>
-            <div className='heroLeft'>
+          <div className={styles.hero}>
+            <div className={styles.hero_left}>
               <h1>
                 GlobalForm <br />
                 <span>Solutions</span>
@@ -27,8 +27,8 @@ export default async function Home() {
               <SignedOut>
                 <Link href='/login'>
                   <button>
-                    <span>Create your own form</span>
-                    <IoCreateOutline />
+                    <span>Create an account and create your own form!</span>
+                    <IoCreateOutline aria-label='Create ouline icon' />
                   </button>
                 </Link>
               </SignedOut>
@@ -36,13 +36,13 @@ export default async function Home() {
                 <Link href='/dashboard'>
                   <button>
                     <span>Create your own form</span>
-                    <IoCreateOutline />
+                    <IoCreateOutline aria-label='Create outline icon' />
                   </button>
                 </Link>
               </SignedIn>
             </div>
 
-            <div className='heroRight'>
+            <div className={styles.hero_right}>
               <Image
                 src='/mobileForm.png'
                 alt='Mobile phone with a form on the screen'
@@ -52,7 +52,7 @@ export default async function Home() {
             </div>
           </div>
 
-          <section className='landingPageSection'>
+          <section className={styles.landing_page_section}>
             <div>
               <Image
                 src='/image1-landingpage.jpg'

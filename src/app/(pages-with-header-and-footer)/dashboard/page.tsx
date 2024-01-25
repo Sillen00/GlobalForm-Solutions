@@ -1,44 +1,68 @@
 "use client"
-
-import { SignedIn, useUser } from "@clerk/nextjs"
+import { SignedIn } from "@clerk/nextjs"
 import Link from "next/link"
 import { FaPlus } from "react-icons/fa6"
+import DashboardFormCardSkeleton from "~/app/_components/loading-skeleton-components/DashboardFormCardSkeleton"
 import { api } from "~/trpc/react"
 import FormCard from "../../_components/DashboardFormCard"
 import "./page.scss"
 
-function DashboardPage() {
-  const { user } = useUser()
-  let forms
-  if (user) {
-    const { data } = api.user.getForms.useQuery(undefined)
-    forms = data
+const DashboardFormCardFeed = () => {
+  const {
+    data: forms,
+    isLoading,
+    isError,
+  } = api.user.getForms.useQuery(undefined)
+  if (isLoading) {
+    return (
+      <>
+        <DashboardFormCardSkeleton />
+        <DashboardFormCardSkeleton />
+      </>
+    )
   }
+  if (!forms) {
+    return <p>Could not find any forms in the database.</p>
+  }
+
+  return (
+    <>
+      {forms && forms.length > 0 ? (
+        forms.map(form => (
+          <Link href={`/form-details/${form.id}`} key={form.id}>
+            <FormCard
+              key={form.id}
+              date={form.startDate}
+              time={form.startTime}
+              title={form.title}
+              place={form.location}
+            />
+          </Link>
+        ))
+      ) : (
+        <p> &lt;-- Create Form!</p>
+      )}
+
+      {isError && <p>Something went wrong!</p>}
+    </>
+  )
+}
+
+function DashboardPage() {
   return (
     <SignedIn>
       <title>Dashboard - GlobalForm Solutions</title>
       <div className='dashboard-wrapper'>
         <h2>Dashboard</h2>
+        {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
         <div className='form-card-container'>
-          {/* Create new form card: Lägg till så att det blir en SLUG länk. ge formuläret ett unikt id. */}
+          {/* Create new form card */}
           <Link href={"/create-form"}>
             <div className='create-new-card'>
-              <FaPlus />
+              <FaPlus aria-label='Add icon' />
             </div>
           </Link>
-          {forms
-            ? forms.map(form => (
-                <Link href={`/form-details/${form.id}`} key={form.id}>
-                  <FormCard
-                    key={form.id}
-                    date={form.startDate}
-                    time={form.startTime}
-                    title={form.title}
-                    place={form.location}
-                  />
-                </Link>
-              ))
-            : "No forms created yet"}
+          <DashboardFormCardFeed />
         </div>
       </div>
     </SignedIn>

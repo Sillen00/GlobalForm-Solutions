@@ -28,47 +28,47 @@ function SideMenuAddFormBlocks({ toggleSideMenuContent }: Props) {
       {selectedBlock === null && (
         <div className={styles.blockTypeContainer}>
           <div onClick={() => handleFormBlockClick("text")}>
-            <TbLetterT />
+            <TbLetterT aria-label='Text icon' />
             <p>Text</p>
           </div>
           <div onClick={() => handleFormBlockClick("textInput")}>
-            <LuFormInput />
+            <LuFormInput aria-label='Form input icon' />
             <p>Text input</p>
           </div>
           <div className='text-gray-600'>
-            <TbSquareLetterT />
+            <TbSquareLetterT aria-label='Text area icon' />
             <p>Text Area</p>
           </div>
           <div className='text-gray-600'>
-            <TbNumbers />
+            <TbNumbers aria-label='Number icon' />
             <p>Number input</p>
           </div>
           <div className='text-gray-600'>
-            <FaPhoneAlt />
+            <FaPhoneAlt aria-label='Phone icon' />
             <p>Phone input</p>
           </div>
           <div className='text-gray-600'>
-            <MdEmail />
+            <MdEmail aria-label='Email icon' />
             <p>Email input</p>
           </div>
           <div className='text-gray-600'>
-            <IoCalendarNumberSharp />
+            <IoCalendarNumberSharp aria-label='Calendar icon' />
             <p>Date input</p>
           </div>
           <div className='text-gray-600'>
-            <CiLink />
+            <CiLink aria-label='Link icon' />
             <p>Url input</p>
           </div>
           <div className='text-gray-600'>
-            <RxDropdownMenu />
+            <RxDropdownMenu aria-label='Dropdown icon' />
             <p>Dropdown input</p>
           </div>
           <div className='text-gray-600'>
-            <FaRegDotCircle />
+            <FaRegDotCircle aria-label='Radio buttons icon' />
             <p>Radio Button</p>
           </div>
           <div className='text-gray-600'>
-            <TiInputChecked />
+            <TiInputChecked aria-label='Checkbox icon' />
             <p>Checkbox</p>
           </div>
         </div>

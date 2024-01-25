@@ -62,7 +62,11 @@ function Header() {
         </ul>
 
         <div className={styles.hamburger} onClick={toggleMenu}>
-          {isMenuOpen ? <IoClose /> : <IoMenu />}
+          {isMenuOpen ? (
+            <IoClose aria-label='Close icon' />
+          ) : (
+            <IoMenu aria-label='Menu icon' />
+          )}
         </div>
       </nav>
     </header>

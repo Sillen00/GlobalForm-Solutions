@@ -3,11 +3,11 @@ import { FaXTwitter } from "react-icons/fa6"
 import AccordionSection from "./FooterAccordion"
 
 import Link from "next/link"
-import "./Footer.scss"
+import styles from "./Footer.module.scss"
 
 function Footer() {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <AccordionSection title='Info'>
         <Link href='/404'>
           <p>Terms & Conditions</p>

@@ -5,7 +5,7 @@ import {
   IoIosArrowDropup,
   IoIosSave,
 } from "react-icons/io"
-import "./Button.scss"
+import styles from "./Button.module.scss"
 
 /**
  * Enumeration of icon types
@@ -53,9 +53,14 @@ function Button({
 }: ButtonProps): JSX.Element {
   const Icon = iconMap[icon]
   return (
-    <button className={`buttonStyle ${className}`} onClick={onClick}>
+    <button className={`${styles.buttonStyle} ${className}`} onClick={onClick}>
       {children}
-      {Icon && <Icon className={`arrow-btn ${className}`} />}
+      {Icon && (
+        <Icon
+          aria-label='Custom icon'
+          className={`${styles.arrow_btn} ${className}`}
+        />
+      )}
     </button>
   )
 }

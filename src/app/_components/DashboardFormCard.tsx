@@ -1,4 +1,4 @@
-import "./DashboardFormCard.scss"
+import styles from "./DashboardFormCard.module.scss"
 
 interface FormCardProps {
   date: string
@@ -9,8 +9,8 @@ interface FormCardProps {
 
 function FormCard({ date, time, title, place }: FormCardProps) {
   return (
-    <div className='form-card'>
-      <div className='top-card-text'>
+    <div className={styles.form_card}>
+      <div className={styles.top_card_text}>
         <span>{date}</span>
         <span>{time}</span>
       </div>

@@ -1,11 +1,12 @@
 "use client"
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import FormView from "~/app/_components/form/FormView"
+import LoadingSpinner from "~/app/_components/LoadingSpinner"
+import FormViewContent from "~/app/_components/form/FormViewContent"
 import { api } from "~/trpc/react"
-import styles from "../../_components/form/FormView.module.scss"
+import styles from "../../_components/form/FormViewContent.module.scss"
 
-export default function page() {
+function FormView() {
   const params = useParams<{ id: string }>()
   const { data, isLoading } = api.form.getPublicFormById.useQuery(params.id)
 
@@ -13,7 +14,9 @@ export default function page() {
     return (
       <div className={styles.form__container}>
         <div className={styles.form__content}>
-          <h1>Loading...</h1>
+          <div className={styles.loading__spinner__div}>
+            <LoadingSpinner size={100} />
+          </div>
         </div>
       </div>
     )
@@ -40,5 +43,7 @@ export default function page() {
     )
   }
 
-  return <div>{data && <FormView formData={data} />}</div>
+  return <div>{data && <FormViewContent formData={data} />}</div>
 }
+
+export default FormView
