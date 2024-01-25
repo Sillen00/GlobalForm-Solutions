@@ -35,7 +35,7 @@ function FormDetailPage() {
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(
-        `http://localhost:3000/form-view/${params.formid}`
+        `https://global-form-solutions.vercel.app/form-view/${params.formid}`
       )
     } catch (error) {
       console.error("Failed to copy text to clipboard:", error)
