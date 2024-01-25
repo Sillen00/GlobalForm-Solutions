@@ -6,7 +6,7 @@ function careerPage() {
     <>
       <title>Career - GlobalForm Solutions</title>
       <div className={styles.careerContainer}>
-        <h1>CAREER</h1>
+        <h2 className={styles.subheading}>CAREER</h2>
 
         <div className={styles.section}>
           <div>
