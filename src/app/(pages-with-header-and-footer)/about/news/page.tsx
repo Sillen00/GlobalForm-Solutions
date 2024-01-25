@@ -5,10 +5,10 @@ function newsPage() {
     <>
       <title>News - GlobalForm Solutions</title>
       <div className={styles.pressContainer}>
-        <h1>News</h1>
+        <h2>News</h2>
         <div className={styles.section}>
           <div>
-            <h2>NEW FEATURE</h2>
+            <h3>NEW FEATURE</h3>
             <span>
               <i>2023-11-25</i>
             </span>
@@ -23,7 +23,7 @@ function newsPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>DATA SUMMARY</h2>
+            <h3>DATA SUMMARY</h3>
             <span>
               <i>2023-07-13</i>
             </span>
@@ -37,7 +37,7 @@ function newsPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>DASHBOARD UI UPDATE</h2>
+            <h3>DASHBOARD UI UPDATE</h3>
             <span>
               <i>2023-02-01</i>
             </span>
@@ -51,7 +51,7 @@ function newsPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>FORMVIEWER INCREASED READABILITY</h2>
+            <h3>FORMVIEWER INCREASED READABILITY</h3>
             <span>
               <i>2023-01-29</i>
             </span>
@@ -65,7 +65,7 @@ function newsPage() {
         </div>
         <div className={styles.section}>
           <div>
-            <h2>ACCOUNT CREATION ENABLED</h2>
+            <h3>ACCOUNT CREATION ENABLED</h3>
             <span>
               <i>2023-07-13</i>
             </span>
