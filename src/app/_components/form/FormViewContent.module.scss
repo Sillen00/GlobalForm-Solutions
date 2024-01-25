@@ -8,12 +8,19 @@
 }
 
 .form__content {
-  padding: 4rem 10rem 6rem 4rem;
+  padding: 4rem 4rem 6rem 4rem;
   width: 50rem;
   min-height: 100vh;
   background-color: rgb(255, 255, 255);
   border-left: 1px solid black;
   border-right: 1px solid black;
+}
+
+.loading__spinner__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .form__header {

@@ -3,11 +3,11 @@ import { FaXTwitter } from "react-icons/fa6"
 import AccordionSection from "./FooterAccordion"
 
 import Link from "next/link"
-import "./Footer.scss"
+import styles from "./Footer.module.scss"
 
 function Footer() {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <AccordionSection title='Info'>
         <Link href='#'>
           <p>Terms & Conditions</p>
@@ -47,7 +47,7 @@ function Footer() {
         </Link>
       </AccordionSection>
 
-      <div className='socials'>
+      <div className={styles.socials}>
         <Link href='#'>
           <FaLinkedin aria-label='LinkedIn icon' />
         </Link>

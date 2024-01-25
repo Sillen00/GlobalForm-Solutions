@@ -4,13 +4,13 @@ import { useState } from "react"
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6"
 import { api } from "~/trpc/react"
 import type { FormBlock, FormData } from "../../../contexts/FormContext"
-import styles from "./FormView.module.scss"
+import styles from "./FormViewContent.module.scss"
 import FormTextInput from "./form-view-blocks/FormTextInput"
 
-function FormView({ formData }: { formData: FormData }) {
+function FormViewContent({ formData }: { formData: FormData }) {
   const [inputValues, setInputValues] = useState({})
   const [submitted, setSubmitted] = useState(false)
-  const submitResponse = api.form.addResponse.useMutation()
+  const { mutate: mutateResponse } = api.form.addResponse.useMutation()
 
   function renderFormBlock(formBlock: FormBlock) {
     switch (formBlock.type as "text" | "textInput") {
@@ -34,7 +34,7 @@ function FormView({ formData }: { formData: FormData }) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    submitResponse.mutate({
+    mutateResponse({
       formId: formData.id!,
       answers: inputValues,
     })
@@ -69,25 +69,19 @@ function FormView({ formData }: { formData: FormData }) {
       <div className={styles.form__content}>
         <>
           <div className={styles.form__header}>
-            <h1 className={styles.form__title}>
-              {formData.title ? (
-                formData.title
-              ) : (
-                <span style={{ color: "#999999" }}>New form</span>
-              )}
-            </h1>
+            <h1 className={styles.form__title}>{formData.title}</h1>
             <div className={styles.form__info}>
               <FaCalendar aria-label='Calendar icon' />
               <p>
                 {formData.startDate ? formData.startDate : "Unknown"}
-                {formData.endDate ? ` – ${formData.endDate}` : ""}
+                {formData.endDate ? ` - ${formData.endDate}` : ""}
               </p>
             </div>
             <div className={styles.form__info}>
               <FaClock aria-label='Clock icon' />
               <p>
                 {formData.startTime ? formData.startTime : "Unknown"}
-                {formData.endTime ? ` – ${formData.endTime}` : ""}
+                {formData.endTime ? ` - ${formData.endTime}` : ""}
               </p>
             </div>
             <div className={styles.form__info}>
@@ -121,4 +115,4 @@ function FormView({ formData }: { formData: FormData }) {
   )
 }
 
-export default FormView
+export default FormViewContent
