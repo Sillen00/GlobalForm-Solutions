@@ -24,6 +24,7 @@ interface ButtonProps {
   icon: IconType
   className?: string
   onClick?: () => void | undefined
+  href?: string
 }
 
 const iconMap = {
@@ -50,9 +51,20 @@ function Button({
   icon,
   className,
   onClick,
+  href,
 }: ButtonProps): JSX.Element {
   const Icon = iconMap[icon]
-  return (
+  return href ? (
+    <a href={href} className={`${styles.buttonStyle} ${className}`}>
+      {children}
+      {Icon && (
+        <Icon
+          aria-label='Custom icon'
+          className={`${styles.arrow_btn} ${className}`}
+        />
+      )}
+    </a>
+  ) : (
     <button className={`${styles.buttonStyle} ${className}`} onClick={onClick}>
       {children}
       {Icon && (
