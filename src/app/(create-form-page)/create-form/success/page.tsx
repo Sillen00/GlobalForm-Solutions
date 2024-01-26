@@ -8,10 +8,10 @@ function CreateFormSuccess() {
       <div className={styles.container}>
         <h2 className={styles.title}>Form successfully created!</h2>
         <p>
-          Go back to your
+          Go back to your{" "}
           <Link className={styles.link} href={"/dashboard"}>
             dashboard
-          </Link>
+          </Link>{" "}
           to view your forms.
         </p>
       </div>
