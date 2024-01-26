@@ -9,18 +9,18 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <AccordionSection title='Info'>
-        {/* <Link href='#'> */}
-        <p>Terms & Conditions</p>
-        {/* </Link> */}
-        {/* <Link href='#'> */}
-        <p>Customer Service</p>
-        {/* </Link> */}
-        {/* <Link href='#'> */}
-        <p>Privacy Policy</p>
-        {/* </Link> */}
-        {/* <Link href='#'> */}
-        <p>Cookie Settings</p>
-        {/* </Link> */}
+        <Link href='/info/terms'>
+          <p>Terms & Conditions</p>
+        </Link>
+        <Link href='/info/customer-service'>
+          <p>Customer Service</p>
+        </Link>
+        <Link href='/info/privacy-policies'>
+          <p>Privacy Policy</p>
+        </Link>
+        <Link href='/info/cookie-settings'>
+          <p>Cookie Settings</p>
+        </Link>
       </AccordionSection>
       <AccordionSection title='About Us'>
         <Link href='/about/press'>
