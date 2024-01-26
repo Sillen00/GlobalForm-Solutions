@@ -15,9 +15,9 @@ export default function NotFound() {
         priority
       />
       <h2>
-        <b>Oh snap!</b> It seems like somethin went wrong
+        <b>Oh snap!</b> It seems like something went wrong.
       </h2>
-      <p>The page you're looking for is lost in a pile of Forms</p>
+      <p>The page you're looking for is lost in a pile of Forms.</p>
       <Button className={styles.button} icon={IconType.Left} href='/'>
         Return Home
       </Button>
