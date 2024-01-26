@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useParams, useRouter } from "next/navigation"
 import { useState } from "react"
 import { FaCalendar, FaClock, FaLink, FaLocationDot } from "react-icons/fa6"
+import DeleteModal from "~/app/_components/form-details-components/DeleteModal"
 import IndividualResponses from "~/app/_components/form-details-components/IndividualResponses"
 import QuestionResponses from "~/app/_components/form-details-components/QuestionResponses"
 import SummaryResponses from "~/app/_components/form-details-components/SummaryResponses"
@@ -13,6 +14,7 @@ import styles from "./page.module.scss"
 function FormDetailPage() {
   const params = useParams<{ formid: string }>()
   const [activeResponsePreview, setActiveResponsePreview] = useState("summary")
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
   const router = useRouter()
   const { mutate } = api.form.deleteForm.useMutation()
 
@@ -42,11 +44,20 @@ function FormDetailPage() {
     }
   }
 
-  function deleteForm() {
+  const deleteForm = () => {
+    setShowDeleteModal(true)
+  }
+
+  const confirmDeleteForm = () => {
     if (formData) {
       router.push("/form-details/deletion-success")
       mutate(formData.id)
+      setShowDeleteModal(false)
     }
+  }
+
+  const cancelDeleteForm = () => {
+    setShowDeleteModal(false)
   }
 
   return (
@@ -91,6 +102,14 @@ function FormDetailPage() {
             <button className={styles.delete__button} onClick={deleteForm}>
               Delete form
             </button>
+
+            {/* Delete confirmation modal */}
+            {showDeleteModal && (
+              <DeleteModal
+                confirmDeleteForm={confirmDeleteForm}
+                cancelDeleteForm={cancelDeleteForm}
+              />
+            )}
           </div>
         </div>
 
